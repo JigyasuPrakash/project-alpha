@@ -18,7 +18,6 @@ var firebaseConfig = {
     if(user){
         document.getElementById("dash-main").hidden = false;
     }else{
-        alert("User Access Denied!!");
         window.location.href = "./login.html";
     }
 })
