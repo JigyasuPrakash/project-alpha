@@ -14,22 +14,28 @@ var firebaseConfig = {
 
   const auth = firebase.auth();
 
+  auth.onAuthStateChanged((user)=>{
+    if(user){
+      console.log("Signed in");  
+    }else{
+      console.log("Not Signed in");
+    }
+})
 
-function Login(){
-    window.location.href = "./login.html"
+  function signUp(){
+    window.location.href = "./signup.html";
 }
 
-function signUp(){
-    console.log("Hi from signup methods")
+function login(){
+    console.log("Hi from dashboard!!!!");
     var email = document.getElementById("email");
     var pass = document.getElementById("password");
 
-    auth.createUserWithEmailAndPassword(email.value, pass.value)
+    auth.signInWithEmailAndPassword(email.value, pass.value)
     .then((u)=>{
-        alert('Signup completed!! Go to Login Page to continue..');
-        window.location.href = "./login.html";
-    }).catch((e) => {
-        alert(e.message);
+      console.log("Logged in Successfully");
+      window.location.href = "./dashboard.html";
+    }).catch((e)=>{
+      alert(e.message);
     });
-    
 }

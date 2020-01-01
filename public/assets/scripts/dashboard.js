@@ -14,22 +14,17 @@ var firebaseConfig = {
 
   const auth = firebase.auth();
 
-
-function Login(){
-    window.location.href = "./login.html"
-}
-
-function signUp(){
-    console.log("Hi from signup methods")
-    var email = document.getElementById("email");
-    var pass = document.getElementById("password");
-
-    auth.createUserWithEmailAndPassword(email.value, pass.value)
-    .then((u)=>{
-        alert('Signup completed!! Go to Login Page to continue..');
+  auth.onAuthStateChanged((user)=>{
+    if(user){
+        document.getElementById("dash-main").hidden = false;
+    }else{
+        alert("User Access Denied!!");
         window.location.href = "./login.html";
-    }).catch((e) => {
-        alert(e.message);
-    });
-    
+    }
+})
+
+function logOut(){
+    console.log("Signout process started")
+    auth.signOut();
 }
+

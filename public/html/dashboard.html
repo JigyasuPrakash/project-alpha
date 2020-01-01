@@ -32,7 +32,7 @@
 	<link href="../css/main.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="dash-main" hidden>
 	<div class="app-container app-theme-white body-tabs-shadow fixed-header">
 		<div class="app-header header-shadow">
 			<div class="app-header__content">
@@ -50,9 +50,7 @@
 					<div class="header-btn-lg pr-0">
 						<div class="widget-content p-0">
 							<div class="widget-content-wrapper">
-								<!--TOP RIGHT BUTTONS HERE-->
-								<button class="mb-2 mr-2 btn btn-info" onclick="Login()">Login
-								</button>
+								
 							</div>
 						</div>
 					</div>
@@ -68,20 +66,9 @@
 					<div class="col-md-6">
 						<div class="main-card mb-3 card">
 							<div class="card-body">
-								<h5 class="card-title">Sign Up</h5>
-									<div class="position-relative form-group">
-										<input name="firstName" id="firstName" placeholder="First Name" type="text" class="form-control" required>
-									</div>
-									<div class="position-relative form-group">
-										<input name="lastName" id="lastName" placeholder="Last Name" type="text" class="form-control" required>
-									</div>
-									<div class="position-relative form-group">
-										<input name="email" id="email" placeholder="Email Id" type="email" class="form-control" required>
-									</div>
-									<div class="position-relative form-group">
-										<input name="password" id="password" placeholder="Password" type="password" class="form-control" required>
-									</div>
-									<button class="mt-2 btn btn-primary" onclick="signUp()">Sign Up</button>
+								<h5 class="card-title">Logged in</h5>
+									<h1>Welcome to Dashboard</h1>
+									<button class="mt-2 btn btn-primary" onclick="logOut()">Log Out</button>
 							</div>
 						</div>
 					</div>
@@ -115,17 +102,8 @@
 
 
 <!--Custom JavaScript is added here-->
-<script src="../assets/scripts/signup.js"></script>
-<!-- Initialize Firebase -->
+<script src="../assets/scripts/dashboard.js"></script>
 
 </html>
 
 
-
-
-
-
-
-
-
-<!--aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa-->
