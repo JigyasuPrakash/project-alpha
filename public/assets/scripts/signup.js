@@ -13,6 +13,7 @@ var firebaseConfig = {
   firebase.analytics();
 
   const auth = firebase.auth();
+  const db = firebase.firestore();
 
 
 function Login(){
@@ -21,15 +22,24 @@ function Login(){
 
 function signUp(){
     console.log("Hi from signup methods")
-    var email = document.getElementById("email");
-    var pass = document.getElementById("password");
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("password").value;
 
-    auth.createUserWithEmailAndPassword(email.value, pass.value)
-    .then((u)=>{
+    auth.createUserWithEmailAndPassword(email, pass)
+    .then(cred => {
+        return db.collection('user-accounts').doc(cred.user.uid).set({
+            firstName : document.getElementById("firstName").value,
+            lastName : document.getElementById("lastName").value,
+            isAdmin : false
+        })
+    })
+    .then(()=>{
         alert('Signup completed!! Go to Login Page to continue..');
         window.location.href = "./login.html";
-    }).catch((e) => {
+    })
+    .catch((e) => {
         alert(e.message);
     });
+    
     
 }

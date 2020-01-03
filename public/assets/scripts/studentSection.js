@@ -32,20 +32,6 @@ var firebaseConfig = {
     }
 });
 
-function logOut(){
-    console.log("Signout process started")
-    auth.signOut();
-}
-
-function studentSection(){
-    console.log("Taking user to Student section!!");
-    window.location.href = "./studentSection.html";
-}
-
-function alumniSection(){
-    console.log("Taking user to Alumni section!!");
-}
-
-function companySection(){
-    console.log("Taking user to Company section!!");
+function addNewStudent(){
+    window.location.href = "./addStudent.html";
 }
