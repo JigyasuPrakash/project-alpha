@@ -1,51 +1,32 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyCx3lQ3Oe4oKrJCdTcp4CKlDeKiRRxbdWc",
-    authDomain: "project-tnp-be0af.firebaseapp.com",
-    databaseURL: "https://project-tnp-be0af.firebaseio.com",
-    projectId: "project-tnp-be0af",
-    storageBucket: "project-tnp-be0af.appspot.com",
-    messagingSenderId: "518046381835",
-    appId: "1:518046381835:web:f87059d9fdfc1fe0f4140e",
-    measurementId: "G-R71GXZPYXL"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  const auth = firebase.auth();
-
-  auth.onAuthStateChanged((user)=>{
-    if(user){
+auth.onAuthStateChanged((user) => {
+    if (user) {
         console.log(user.uid);
-        //document.getElementById("dash-main").hidden(false);
-        $(document).ready(function(){
-            var userName = document.getElementById("userName");
-            var userMail = document.getElementById("userMail");
-            const db = firebase.firestore();
-            db.collection('user-accounts').doc(user.uid).get().then((snapshot)=>{
-                console.log(user);
-                $('#userName').text(snapshot.data().firstName + " " + snapshot.data().lastName);
-                $('#userMail').text(user.email);
-            })
-        });
-    }else{
+    } else {
         window.location.href = "./login.html";
     }
 });
 
-function logOut(){
+$(document).ready(function(){
+    console.log("Document is ready")
+    $('#userName').text(localStorage.getItem('userNameRecieved'));
+    $('#userMail').text(localStorage.getItem('userMailRecieved'));
+});
+
+function logOut() {
     console.log("Signout process started")
     auth.signOut();
+    localStorage.clear;
 }
 
-function studentSection(){
+function studentSection() {
     console.log("Taking user to Student section!!");
     window.location.href = "./studentSection.html";
 }
 
-function alumniSection(){
+function alumniSection() {
     console.log("Taking user to Alumni section!!");
 }
 
-function companySection(){
+function companySection() {
     console.log("Taking user to Company section!!");
 }
