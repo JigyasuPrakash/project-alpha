@@ -20,7 +20,7 @@ var firebaseConfig = {
     }else{
         window.location.href = "./login.html";
     }
-})
+});
 
 function logOut(){
     console.log("Signout process started")
