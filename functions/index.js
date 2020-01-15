@@ -17,7 +17,7 @@ const db = admin.firestore();
 exports.getDataById = functions.https.onRequest((request, response) => {
     //Id collection from request is pending......
     console.log("Stating here");
-    db.collection('Student-data').doc('rashmi').get()
+    db.collection('Student-data').doc('prakashjs').get()
         .then(doc => {
             //Handle data recieved from database here and feed into the response method
             return response.status(200).json({
@@ -27,9 +27,8 @@ exports.getDataById = functions.https.onRequest((request, response) => {
             });
         })
         .catch(err => {
-            console.err("Document not found!! "+err);
             response.status(404).json({
-                message: 'Document not found'
+                message: 'Document not found'+ err
             });
             process.exit();
         })
