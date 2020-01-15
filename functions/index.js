@@ -20,13 +20,14 @@ exports.getDataById = functions.https.onRequest((request, response) => {
     db.collection('Student-data').doc('rashmi').get()
         .then(doc => {
             //Handle data recieved from database here and feed into the response method
-            response.status(200).json({
+            return response.status(200).json({
                 name: doc.data().firstName,
                 email: doc.data().email,
                 message: 'Nice.. it is working!!'
             });
         })
         .catch(err => {
+            console.err("Document not found!! "+err);
             response.status(404).json({
                 message: 'Document not found'
             });
