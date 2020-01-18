@@ -1,13 +1,15 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+
 /* 
 //project-tnp-be0af-firebase-adminsdk-gbpvv-65c1a43930.json
     this file might be missing in your git pull because this file consists of private access key..
     which cannot be shared with any one.. to get your private key head over to firebase -> project setting
     scroll down and click on generate private key and paste that file inside this project on the path
     TNP-App -> functions..
-
 */
+
+//Initialize required dependency for backend
 const serviceAccount = require('./project-tnp-be0af-firebase-adminsdk-gbpvv-65c1a43930.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)

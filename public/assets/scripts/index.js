@@ -1,7 +1,7 @@
 function SignUp(){
-    window.location.href = "./html/signup.html"
+    window.location.href = "./signup.html";
 }
 
 function Login(){
-    window.location.href = "./html/login.html"
+    window.location.href = "./login.html";
 }

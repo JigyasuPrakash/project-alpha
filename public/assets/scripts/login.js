@@ -23,6 +23,6 @@ function login() {
         localStorage.setItem('userMailRecieved',cred.user.email);
       })
     }).then(() => {
-      window.location.href = "./dashboard.html";
+      window.location.href = "./admin/html/dashboard.html";
     })
 }

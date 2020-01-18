@@ -1,0 +1,5 @@
+1. To get student data on the basis of student unique id (i.e. RKNEC Mail ID)
+    - https://us-central1-project-tnp-be0af.cloudfunctions.net/getDataById
+
+2. To get all student data
+    - https://

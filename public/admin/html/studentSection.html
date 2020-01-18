@@ -19,7 +19,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
-    <script src="../assets/scripts/auth.js"></script>
+    
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -30,7 +30,7 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <link href="../css/main.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -77,7 +77,6 @@
                         </div>
                         <button class="close"></button>
                     </div>
-
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -106,13 +105,12 @@
                                             <button type="button" tabindex="0" class="dropdown-item">Actions</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
-                                            <button type="button" tabindex="0" class="dropdown-item"
-                                                onclick="logOut()">Log Out</button>
+                                            <button type="button" tabindex="0" class="dropdown-item" onclick="logOut()">Log Out</button>
                                         </div>
                                     </div>
                                 </div>
-
-
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -351,37 +349,22 @@
             <!--Main Content Heading-->
             <div class="app-main__outer">
                 <div class="app-main__inner">
+                    <div class="app-page-title">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-actions">
+                                <button class="mb-2 mr-2 btn btn-primary" onclick="addNewStudent()">Add new Student
+                                        </button>
 
-                    <!--Cards here-->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <button class="btn" onclick="studentSection()">
-                                <div class="mb-3 card card-body">
-                                    <h2 class="card-title">Student Section</h2> this is some kind of sample text. With
-                                    supporting text below as a natural lead-in to additional content.
-                                </div>
-                            </button>
-                        </div>
 
-                        <div class="col-md-4">
-                            <button class="btn" onclick="alumniSection()">
-                                <div class="mb-3 card card-body">
-                                    <h2 class="card-title">Alumni Section</h2> this is some kind of sample text. With
-                                    supporting text below as a natural lead-in to additional content.
-                                </div>
-                            </button>
-                        </div>
 
-                        <div class="col-md-4">
-                            <button class="btn" onclick="companySection()">
-                            <div class="mb-3 card card-body">
-                                <h2 class="card-title">Company Section</h2> this is some kind of sample text. With
-                                supporting text below as a natural lead-in to additional content.
+
+
+
+
                             </div>
-                        </button>
                         </div>
                     </div>
-
+                    <!--Main Content Header Ends-->
                     <!--Main Content Area Starts Here-->
 
                     <!--Paste Your Code Here-->
@@ -412,13 +395,11 @@
             </div>
         </div>
     </div>
-    <footer>
-
-    </footer>
+    <script src="../assets/scripts/auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../assets/scripts/main.js"></script>
-    <script src="../assets/scripts/dashboard.js"></script>
+    <script src="../assets/scripts/studentSection.js"></script>
 </body>
 
 </html>
