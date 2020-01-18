@@ -17,20 +17,21 @@ admin.initializeApp({
 const db = admin.firestore();
 
 exports.getDataById = functions.https.onRequest((request, response) => {
-    //Id collection from request is pending......
     console.log("Stating here");
-    db.collection('Student-data').doc('prakashjs').get()
+    db.collection('student-data').doc(request.query.email).get()
         .then(doc => {
             //Handle data recieved from database here and feed into the response method
             return response.status(200).json({
-                name: doc.data().firstName,
-                email: doc.data().email,
-                message: 'Nice.. it is working!!'
+                status: true,
+                firstName: doc.data().firstName,
+                middleName: doc.data().middleName,
+                lastName: doc.data().lastName,
+                email: doc.data().email
             });
         })
-        .catch(err => {
+        .catch(_ => {
             response.status(404).json({
-                message: 'Document not found'+ err
+                status: false
             });
             process.exit();
         })

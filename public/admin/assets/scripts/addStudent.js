@@ -14,7 +14,7 @@ form.addEventListener('submit', (e) => {
     console.log(form.semester.value)
     console.log($("input[name='shift']:checked").val())*/
     var key = form.email.value.trim().substring(0, form.email.value.length - 10)
-    db.collection('Student-data').doc(key).set({
+    db.collection('student-data').doc(key).set({
         firstName: form.firstName.value,
         middleName: form.middleName.value,
         lastName: form.lastName.value,
