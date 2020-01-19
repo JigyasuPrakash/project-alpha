@@ -11,7 +11,23 @@
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<<<<<<< HEAD
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<<<<<<< HEAD
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase.js"></script>
+=======
+>>>>>>> 4870651851f0e9fd1c0283fbec753020da11dc0f
+=======
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+>>>>>>> 8bec1421adc67f64129130d22337a1bd164d888d
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -22,7 +38,7 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <link href="./css/main.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -69,6 +85,7 @@
                         </div>
                         <button class="close"></button>
                     </div>
+
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -97,12 +114,13 @@
                                             <button type="button" tabindex="0" class="dropdown-item">Actions</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
-                                            <button type="button" tabindex="0" class="dropdown-item" onclick="logOut()">Log Out</button>
+                                            <button type="button" tabindex="0" class="dropdown-item"
+                                                onclick="logOut()">Log Out</button>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -341,14 +359,37 @@
             <!--Main Content Heading-->
             <div class="app-main__outer">
                 <div class="app-main__inner">
-                    <div class="mb-3 text-center card card-body">
-                        404 ERROR<br> OOPS! We can't seem to find the page you're looking for.
-                        
+
+                    <!--Cards here-->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn" onclick="studentSection()">
+                                <div class="mb-3 card card-body">
+                                    <h2 class="card-title">Student Section</h2> this is some kind of sample text. With
+                                    supporting text below as a natural lead-in to additional content.
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button class="btn" onclick="alumniSection()">
+                                <div class="mb-3 card card-body">
+                                    <h2 class="card-title">Alumni Section</h2> this is some kind of sample text. With
+                                    supporting text below as a natural lead-in to additional content.
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button class="btn" onclick="companySection()">
+                                <div class="mb-3 card card-body">
+                                    <h2 class="card-title">Company Section</h2> this is some kind of sample text. With
+                                    supporting text below as a natural lead-in to additional content.
+                                </div>
+                            </button>
+                        </div>
                     </div>
 
-                    
-                    
-                    <!--Main Content Header Ends-->
                     <!--Main Content Area Starts Here-->
 
                     <!--Paste Your Code Here-->
@@ -379,11 +420,14 @@
             </div>
         </div>
     </div>
+    <footer>
+
+    </footer>
+    <script src="../assets/scripts/auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../assets/scripts/main.js"></script>
-
-
+    <script src="../assets/scripts/dashboard.js"></script>
 </body>
 
 </html>

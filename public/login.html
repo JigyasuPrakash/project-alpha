@@ -11,15 +11,18 @@
 		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 	<meta name="description" content="This is an example dashboard created using build-in elements and components.">
 	<meta name="msapplication-tap-highlight" content="no">
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<<<<<<< HEAD
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase.js"></script>
+=======
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+>>>>>>> 8bec1421adc67f64129130d22337a1bd164d888d
 
-	<!-- TODO: Add SDKs for Firebase products that you want to use
+<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
-	<script src="../assets/scripts/auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
 
 	<!--
     =========================================================
@@ -31,7 +34,7 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-	<link href="../css/main.css" rel="stylesheet">
+	<link href="./css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -53,7 +56,7 @@
 						<div class="widget-content p-0">
 							<div class="widget-content-wrapper">
 								<!--TOP RIGHT BUTTONS HERE-->
-								<button class="mb-2 mr-2 btn btn-info" onclick="Login()">Login
+								<button class="mb-2 mr-2 btn btn-info" onclick="signUp()">SignUp
 								</button>
 							</div>
 						</div>
@@ -70,20 +73,14 @@
 					<div class="col-md-6">
 						<div class="main-card mb-3 card">
 							<div class="card-body">
-								<h5 class="card-title">Sign Up</h5>
-									<div class="position-relative form-group">
-										<input name="firstName" id="firstName" placeholder="First Name" type="text" class="form-control" required>
-									</div>
-									<div class="position-relative form-group">
-										<input name="lastName" id="lastName" placeholder="Last Name" type="text" class="form-control" required>
-									</div>
+								<h5 class="card-title">Log In</h5>
 									<div class="position-relative form-group">
 										<input name="email" id="email" placeholder="Email Id" type="email" class="form-control" required>
 									</div>
 									<div class="position-relative form-group">
 										<input name="password" id="password" placeholder="Password" type="password" class="form-control" required>
 									</div>
-									<button class="mt-2 btn btn-primary" onclick="signUp()">Sign Up</button>
+									<button class="mt-2 btn btn-primary" onclick="login()">Log In</button>
 							</div>
 						</div>
 					</div>
@@ -117,17 +114,9 @@
 
 
 <!--Custom JavaScript is added here-->
-<script src="../assets/scripts/signup.js"></script>
-<!-- Initialize Firebase -->
+<script src="./assets/scripts/auth.js"></script>
+<script src="./assets/scripts/login.js"></script>
 
 </html>
 
 
-
-
-
-
-
-
-
-<!--aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa-->

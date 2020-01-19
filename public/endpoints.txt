@@ -1,0 +1,29 @@
+1. To get student data on the basis of student unique id (i.e. RKNEC Mail ID)
+    
+    - https://us-central1-project-tnp-be0af.cloudfunctions.net/getDataById
+    
+    Usage:
+        - Pass the parameters by GET or POST method (POST is preferred) and rest of the fetching is handled 
+        at backend.
+        - Handle the data recieved and display accordingly.
+    Response:
+        - There are 2 possible JSON responses from this query
+            a.  If result is found i.e. status flag is true:
+                {
+                    status : 'Boolean',
+                    firstName : 'String',
+                    middleName : 'String',
+                    lastName : 'String',
+                    email : 'String'
+                }
+            b. If result is not found i.e. status flag is false:
+                {
+                    status : 'boolean'
+                }
+    Example:
+        - https://us-central1-project-tnp-be0af/cloudfunctions.net/getDataById?email=prakashjs
+        (here prakashjs is the unique mail of the required student)
+
+
+2. To get all student data
+    - 
