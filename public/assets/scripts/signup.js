@@ -2,24 +2,31 @@ function Login() {
     window.location.href = "./login.html"
 }
 
-function signUp() {
-    console.log("Hi from signup methods")
-    var email = document.getElementById("email").value;
-    var pass = document.getElementById("password").value;
+const form = document.querySelector('#signup-form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const email = form.email.value;
+    const pass = form.password.value;
+    form.reset();
 
     auth.createUserWithEmailAndPassword(email, pass)
         .then(cred => {
+            //User Account details are stored to firestore using this JSON object
             return db.collection('user-accounts').doc(cred.user.uid).set({
-                firstName: document.getElementById("firstName").value,
-                lastName: document.getElementById("lastName").value,
-                isAdmin: false
+                firstName: firstName,
+                lastName: lastName,
             })
         })
         .then(() => {
             alert('Signup completed!! Go to Login Page to continue..');
-            window.location.href = "./login.html";
+            auth.signOut()
+                .then(() => {
+                    window.location.href = "./login.html";
+                });
         })
         .catch((e) => {
             alert(e.message);
         });
-}
+});

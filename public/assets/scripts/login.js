@@ -10,19 +10,23 @@ function signUp() {
   window.location.href = "./signup.html";
 }
 
-function login() {
-  console.log("Hi from dashboard!!!!");
-  var email = document.getElementById("email");
-  var pass = document.getElementById("password");
-
-  auth.signInWithEmailAndPassword(email.value, pass.value)
+const form = document.querySelector('#login-form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = form.email.value;
+  const pass = form.password.value;
+  form.reset();
+  
+  auth.signInWithEmailAndPassword(email, pass)
     .then((cred) => {
       console.log("Logged in Successfully");
       return db.collection('user-accounts').doc(cred.user.uid).get().then((snapshot) => {
-        localStorage.setItem('userNameRecieved',snapshot.data().firstName + " " + snapshot.data().lastName);
-        localStorage.setItem('userMailRecieved',cred.user.email);
+        localStorage.setItem('userNameRecieved', snapshot.data().firstName + " " + snapshot.data().lastName);
+        localStorage.setItem('userMailRecieved', cred.user.email);
       })
     }).then(() => {
       window.location.href = "./admin/html/dashboard.html";
+    }).catch(err => {
+      alert("Incorrect Email or Password..!")
     })
-}
+});
