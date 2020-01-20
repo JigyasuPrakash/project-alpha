@@ -37,6 +37,26 @@ exports.getDataById = functions.https.onRequest((request, response) => {
         })
 });
 
+
+
+//Provide Admin Role to an account
+exports.addAdminRole = functions.https.onCall((data, context) => {
+    //get user and add custom claims (admin)
+    return admin.auth().getUserByEmail(data.email)
+    .then(user =>{
+        return admin.auth().setCustomUserClaims(user.uid, {
+            admin: true
+        })
+    }).then(()=>{
+        return {
+            message: `Success! ${data.email} has been made admin!!`
+        }
+    }).catch(err =>{
+        return err;
+    })
+})
+
+
 /*
 * const obj = JSON.parse(input text);
 * const doc = {
