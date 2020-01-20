@@ -1,3 +1,5 @@
+import { app } from "firebase-admin";
+
 var firebaseConfig = {
   apiKey: "AIzaSyCx3lQ3Oe4oKrJCdTcp4CKlDeKiRRxbdWc",
   authDomain: "project-tnp-be0af.firebaseapp.com",
@@ -21,6 +23,35 @@ auth.onAuthStateChanged((user) => {
     window.location.href = "../../login.html";
   }
 });
+
+// app.get('/', function(req, res) {
+//   res.render('../assets/html/searchResult.html');
+// })
+
+
+function getStudent(){
+  let student=db.collection('student-data');
+
+  const search=document.getElementById("textToSearch").value;
+  
+  let query=student.where('email','==',search).get()
+  .then(snapshot => {
+    if(snapshot.empty) {
+      console.log('no match'+student.doc());
+      return;
+    }
+    
+    snapshot.forEach(stu => {
+      console.log(stu.id, stu.data());
+      $('textToSearch').text('found');
+    })
+  })
+  .catch(err => {
+    console.log('error getting');
+  })
+  
+}
+
 
 function logOut() {
   console.log("Signout process started")

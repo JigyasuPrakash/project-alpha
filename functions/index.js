@@ -10,7 +10,7 @@ const admin = require('firebase-admin');
 */
 
 //Initialize required dependency for backend
-const serviceAccount = require('./project-tnp-be0af-firebase-adminsdk-gbpvv-65c1a43930.json');
+const serviceAccount = require('./project-tnp-be0af-firebase-adminsdk-gbpvv-323362588a.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
