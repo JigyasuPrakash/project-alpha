@@ -1,5 +1,3 @@
-import { app } from "firebase-admin";
-
 var firebaseConfig = {
   apiKey: "AIzaSyCx3lQ3Oe4oKrJCdTcp4CKlDeKiRRxbdWc",
   authDomain: "project-tnp-be0af.firebaseapp.com",
@@ -39,17 +37,21 @@ function getStudent(){
   let student=db.collection('student-data');
 
   const search=document.getElementById("textToSearch").value;
-  
+  const found;
+
   let query=student.where('email','==',search).get()
   .then(snapshot => {
     if(snapshot.empty) {
       console.log('no match'+student.doc());
+      found=false;
+      generateUI(found,stu);
       return;
     }
     
+    found=true;
     snapshot.forEach(stu => {
       console.log(stu.id, stu.data());
-      $('textToSearch').text('found');
+      generateUI(found,stu);
     })
   })
   .catch(err => {
