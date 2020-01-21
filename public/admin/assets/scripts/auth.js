@@ -1,5 +1,3 @@
-import { app } from "firebase-admin";
-
 var firebaseConfig = {
   apiKey: "AIzaSyCx3lQ3Oe4oKrJCdTcp4CKlDeKiRRxbdWc",
   authDomain: "project-tnp-be0af.firebaseapp.com",
