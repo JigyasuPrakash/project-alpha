@@ -45,14 +45,13 @@ function getStudent(){
       const found=false;
       generateUI(found,stu);
       console.log('no match'+student.doc());
-      
       return;
     }
     
     
     snapshot.forEach(stu => {
       console.log(stu.id, stu.data());
-      const found=true;
+      found=true;
       generateUI(found,stu);
     })
   })
