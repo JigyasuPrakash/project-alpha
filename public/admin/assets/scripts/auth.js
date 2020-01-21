@@ -37,20 +37,22 @@ function getStudent(){
   let student=db.collection('student-data');
 
   const search=document.getElementById("textToSearch").value;
-  const found;
+ 
 
   let query=student.where('email','==',search).get()
   .then(snapshot => {
     if(snapshot.empty) {
-      console.log('no match'+student.doc());
-      found=false;
+      const found=false;
       generateUI(found,stu);
+      console.log('no match'+student.doc());
+      
       return;
     }
     
-    found=true;
+    
     snapshot.forEach(stu => {
       console.log(stu.id, stu.data());
+      const found=true;
       generateUI(found,stu);
     })
   })
