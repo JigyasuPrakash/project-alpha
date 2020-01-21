@@ -22,6 +22,7 @@
 >>>>>>> 4870651851f0e9fd1c0283fbec753020da11dc0f
 =======
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
 >>>>>>> 8bec1421adc67f64129130d22337a1bd164d888d
 
@@ -46,7 +47,9 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <a href="#"><div class="logo-src"></div></a>
+                <a href="#">
+                    <div class="logo-src"></div>
+                </a>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -383,7 +386,11 @@
                     </div>
 
                     <!--Main Content Area Starts Here-->
-
+                    <div id="adminElement" style="display: none;">
+                        <h6>Make Admin</h6>
+                        <input id="makeThisAdmin" type="email">
+                        <button onclick="makeAdmin()">Submit</button>
+                    </div>
                     <!--Paste Your Code Here-->
 
 
@@ -415,7 +422,7 @@
     <footer>
 
     </footer>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../assets/scripts/main.js"></script>

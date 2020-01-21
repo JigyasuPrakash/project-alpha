@@ -15,9 +15,15 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
 const db = firebase.firestore();
+const funcitons = firebase.functions();
 
 auth.onAuthStateChanged((user) => {
   if (user) {
+    user.getIdTokenResult().then(idTokenResult =>{
+      user.admin = idTokenResult.claims.admin;
+      adminUI(user.admin);
+      console.log("Admin Property: "+user.admin);
+    })
     console.log("Congratulations you are logged in");
   } else {
     window.location.href = "../../login.html";

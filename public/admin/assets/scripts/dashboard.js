@@ -16,3 +16,20 @@ function alumniSection() {
 function companySection() {
     console.log("Taking user to Company section!!");
 }
+
+function makeAdmin(){
+    const email = document.getElementById('makeThisAdmin').value;
+    console.log("Making "+email+" an admin");
+
+    const addAdminRole = funcitons.httpsCallable('addAdminRole');
+    addAdminRole({email : email}).then(result =>{
+        console.log(result);
+    });
+}
+
+function adminUI(isAdmin){
+    const adminElement = document.getElementById('adminElement');
+    if(isAdmin){
+        adminElement.style.display = 'block';
+    }
+}
