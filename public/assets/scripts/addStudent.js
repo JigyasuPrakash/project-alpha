@@ -7,13 +7,8 @@ $(document).ready(function () {
 const form = document.querySelector('#Studentfilldata');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    //data_array=$("#form").serializeArray();
-    /*console.log("adding details")
-    console.log(form.firstName.value)
-    console.log(form.branchName.value)
-    console.log(form.semester.value)
-    console.log($("input[name='shift']:checked").val())*/
-    var key = form.email.value.trim().substring(0, form.email.value.length - 10)
+    
+    var key = form.email.value;
     db.collection('student-data').doc(key).set({
         firstName: form.firstName.value,
         middleName: form.middleName.value,

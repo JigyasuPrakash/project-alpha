@@ -11,10 +11,12 @@ function studentSection() {
 
 function alumniSection() {
     console.log("Taking user to Alumni section!!");
+    //window.location.href = "./alumniSection.html";
 }
 
 function companySection() {
     console.log("Taking user to Company section!!");
+    //window.location.href = "./companySection.html";
 }
 
 function makeAdmin(){
