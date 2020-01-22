@@ -24,7 +24,7 @@ auth.onAuthStateChanged((user) => {
     })
     console.log("Congratulations you are logged in");
   } else {
-    window.location.href = "../login.html";
+    window.location.href = "./login.html";
   }
 });
 
@@ -32,12 +32,9 @@ auth.onAuthStateChanged((user) => {
 //   res.render('../assets/html/searchResult.html');
 // })
 
-
 function getStudent() {
   let student = db.collection('student-data');
-
-  const search = document.getElementById("textToSearch").value;
-
+  const search = document.getElementById("textToSearch").value + "@rknec.edu";
 
   let query = student.where('email', '==', search).get()
     .then(snapshot => {
