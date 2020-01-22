@@ -33,9 +33,9 @@ function generateUI(found, stu) {
         <div class="card-body"><h5 class="card-title">Dismissable Alerts</h5>
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-                Student found : <br>Name - ${stu.data().firstName} ${stu.data().lastName} 
-                <br>Roll Number - ${stu.data().rollNum} 
-                <br> Branch - ${stu.data().branchName} 
+                Student found : <br>Name - ${stu.data().firstName} ${stu.data().lastName}
+                <br>Roll Number - ${stu.data().rollNum}
+                <br> Branch - ${stu.data().branchName}
             </div>
         </div>
     </div>`)

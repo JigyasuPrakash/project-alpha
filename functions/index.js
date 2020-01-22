@@ -57,6 +57,24 @@ exports.addAdminRole = functions.https.onCall((data, context) => {
 })
 
 
+//for database entries
+
+const data = require("./csvjson.json");
+const collectionKey = "student-data"; //name of the collection
+
+const firestore = admin.firestore();
+const settings = {timestampsInSnapshots: true};
+firestore.settings(settings);
+if (data && (typeof data === "object")) {
+Object.keys(data).forEach(docKey => {
+ firestore.collection(collectionKey).doc(docKey).set(data[docKey]).then((res) => {
+    console.log("Document " + docKey + " successfully written!");
+}).catch((error) => {
+   console.error("Error writing document: ", error);
+});
+});
+}
+
 /*
 * const obj = JSON.parse(input text);
 * const doc = {
