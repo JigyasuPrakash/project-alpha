@@ -59,8 +59,8 @@ exports.addAdminRole = functions.https.onCall((data, context) => {
 
 // //for database entries
 
-// const data = require("./personal.json");
-// const collectionKey = "student_personal_details"; //name of the collection
+// const data = require("./placement.json");
+// const collectionKey = "student_placement_details"; //name of the collection
 
 // const firestore = admin.firestore();
 // const settings = {timestampsInSnapshots: true};
