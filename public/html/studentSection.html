@@ -6,21 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Student Search</title>
+    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
-    
+
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -31,14 +32,17 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <link href="../../css/main.css" rel="stylesheet">
+    <script src="../assets/scripts/auth.js"></script>
+    <link href="../css/main.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="logo-src"></div>
+                <a href="./dashboard.html">
+                    <div class="logo-src"></div>
+                </a>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -106,12 +110,13 @@
                                             <button type="button" tabindex="0" class="dropdown-item">Actions</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
-                                            <button type="button" tabindex="0" class="dropdown-item" onclick="logOut()">Log Out</button>
+                                            <button type="button" tabindex="0" class="dropdown-item"
+                                                onclick="logOut()">Log Out</button>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -350,115 +355,11 @@
             <!--Main Content Heading-->
             <div class="app-main__outer">
                 <div class="app-main__inner">
-                    <div class="search557">
-                        <img src="search.png" alt="Search Students Here" style="width:20px ; height:20px; margin-right:6px;float: right;margin-top: 7px;">
-                        </div>
-                        <div class="big557">
-                            <div class="col557" style="margin-left: 150px;">
-                                <div class="element557" style="background-color:#1f2639;">
-                                   <h3><b>Name</b></h3>
-                                </div>
-                                <div class="element557">
-                                    Person 1
-                                </div>
-                                <div class="element557">
-                                    Person 2
-                                </div>
-                                <div class="element557">
-                                    Person 3
-                                </div>
-                                <div class="element557">
-                                    Person 4
-                                </div>
-                                <div class="element557">
-                                    Person 5
-                                </div>
-                                <div class="element557">
-                                    Person 6
-                                </div>
-                                <div class="element557">
-                                    Person 7
-                                </div>
-                                <div class="element557">
-                                    Person 8
-                                </div>
-                                <div class="element557">
-                                    Person 9
-                                </div>
-                                <div class="element557">
-                                    Person 10
-                                </div>
-
-                            </div>
-                            <div class="col557">
-                                <div class="element557" style="background-color:#1f2639;">
-                                    <h3><b>ID</b></h3>
-                                </div>
-                                <div class="element557">
-                                    1
-                                </div>
-                                <div class="element557">
-                                    2
-                                </div>
-                                <div class="element557">
-                                    3
-                                </div>
-                                <div class="element557">
-                                    4
-                                </div>
-                                <div class="element557">
-                                    5
-                                </div>    
-                                <div class="element557">
-                                    6
-                                </div>
-                                <div class="element557">
-                                    7
-                                </div>
-                                <div class="element557">
-                                    8
-                                </div>
-                                <div class="element557">
-                                    9
-                                </div>
-                                <div class="element557">
-                                    10
-                                </div>    
-                            </div>
-                            <div class="col557" style="margin-top: 35px;">
-                                <div class="element557" style="background-color:#1f2639;">
-                                  <h3><b>Branch</b></h3>
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
-                                <div class="element557">
-                                    CSE
-                                </div>
+                    <div class="app-page-title">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-actions">
+                                <button class="mb-2 mr-2 btn btn-primary" onclick="addNewStudent()">Add new Student
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -493,13 +394,10 @@
             </div>
         </div>
     </div>
-
-    <script src="../assets/scripts/auth.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../assets/scripts/main.js"></script>
-
-
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../assets/scripts/main.js"></script>
+<script src="../assets/scripts/studentSection.js"></script>
 
 </html>

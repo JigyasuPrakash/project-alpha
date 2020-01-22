@@ -25,7 +25,7 @@ form.addEventListener('submit', (e) => {
         localStorage.setItem('userMailRecieved', cred.user.email);
       })
     }).then(() => {
-      window.location.href = "./admin/html/dashboard.html";
+      window.location.href = "./dashboard.html";
     }).catch(err => {
       alert("Incorrect Email or Password..!")
     })

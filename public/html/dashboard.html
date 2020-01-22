@@ -11,17 +11,16 @@
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
-
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
-    <script src="../assets/scripts/auth.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -32,14 +31,17 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <link href="../../css/main.css" rel="stylesheet">
+    <script src="../assets/scripts/auth.js"></script>
+    <link href="../css/main.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <a href="./dashboard.html"><div class="logo-src"></div></a>
+                <a href="#">
+                    <div class="logo-src"></div>
+                </a>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -74,11 +76,12 @@
                 <div class="app-header-left">
                     <div class="search-wrapper">
                         <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
+                            <input type="text" class="search-input" id="textToSearch" placeholder="Type to search">
+                            <button class="search-icon" id="search" onclick="getStudent()"><span></span></button>
                         </div>
                         <button class="close"></button>
                     </div>
+
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -107,12 +110,13 @@
                                             <button type="button" tabindex="0" class="dropdown-item">Actions</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
-                                            <button type="button" tabindex="0" class="dropdown-item" onclick="logOut()">Log Out</button>
+                                            <button type="button" tabindex="0" class="dropdown-item"
+                                                onclick="logOut()">Log Out</button>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -335,15 +339,6 @@
                                     </i>ChartJS
                                 </a>
                             </li>
-                            <li class="app-sidebar__heading">PRO Version</li>
-                            <li>
-                                <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/"
-                                    target="_blank">
-                                    <i class="metismenu-icon pe-7s-graph2">
-                                    </i>
-                                    Upgrade to PRO
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -351,11 +346,48 @@
             <!--Main Content Heading-->
             <div class="app-main__outer">
                 <div class="app-main__inner">
-                    <!--Main Content Header Ends-->
-                    <!--Main Content Area Starts Here-->
 
+                    <!--Cards here-->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn" onclick="studentSection()">
+                                <div class="mb-3 card card-body">
+                                    <h2 class="card-title">Student Section</h2> this is some kind of sample text. With
+                                    supporting text below as a natural lead-in to additional content.
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button class="btn" onclick="alumniSection()">
+                                <div class="mb-3 card card-body">
+                                    <h2 class="card-title">Alumni Section</h2> this is some kind of sample text. With
+                                    supporting text below as a natural lead-in to additional content.
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button class="btn" onclick="companySection()">
+                                <div class="mb-3 card card-body">
+                                    <h2 class="card-title">Company Section</h2> this is some kind of sample text. With
+                                    supporting text below as a natural lead-in to additional content.
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!--Main Content Area Starts Here-->
+                    <div id="adminElement" style="display: none;">
+                        <h6>Make Admin</h6>
+                        <input id="makeThisAdmin" type="email">
+                        <button onclick="makeAdmin()">Submit</button>
+                    </div>
                     <!--Paste Your Code Here-->
 
+                    <div id="searchResult">
+
+                    </div>
 
                     <!--Main Content Area Ends Here-->
                 </div>
@@ -382,12 +414,10 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../assets/scripts/main.js"></script>
-
-
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../assets/scripts/main.js"></script>
+<script src="../assets/scripts/dashboard.js"></script>
 
 </html>
