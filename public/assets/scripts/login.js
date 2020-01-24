@@ -16,13 +16,16 @@ form.addEventListener('submit', (e) => {
   const email = form.email.value;
   const pass = form.password.value;
   form.reset();
-  
+
   auth.signInWithEmailAndPassword(email, pass)
     .then((cred) => {
       console.log("Logged in Successfully");
+      console.log("Admin Details are: " + cred.admin);
       return db.collection('user-accounts').doc(cred.user.uid).get().then((snapshot) => {
-        localStorage.setItem('userNameRecieved', snapshot.data().firstName + " " + snapshot.data().lastName);
-        localStorage.setItem('userMailRecieved', cred.user.email);
+        const userName = snapshot.data().firstName + " " + snapshot.data().lastName;
+        const userMail = cred.user.email
+        localStorage.setItem('userNameRecieved', userName);
+        localStorage.setItem('userMailRecieved', userMail);
       })
     }).then(() => {
       window.location.href = "./dashboard.html";

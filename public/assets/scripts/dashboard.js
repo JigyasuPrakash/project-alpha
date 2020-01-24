@@ -1,7 +1,13 @@
 $(document).ready(function () {
     console.log("Document is ready")
-    $('#userName').text(localStorage.getItem('userNameRecieved'));
-    $('#userMail').text(localStorage.getItem('userMailRecieved'));
+    const isAdmin = localStorage.getItem('isAdmin');
+    if (isAdmin) {
+        $('#adminUserName').text(localStorage.getItem('userNameRecieved'));
+        $('#adminUserMail').text(localStorage.getItem('userMailRecieved'));
+    } else {
+        $('#userName').text(localStorage.getItem('userNameRecieved'));
+        $('#userMail').text(localStorage.getItem('userMailRecieved'));
+    }
 });
 
 function studentSection() {
@@ -19,18 +25,18 @@ function companySection() {
     //window.location.href = "./companySection.html";
 }
 
-function makeAdmin(){
+function makeAdmin() {
     const email = document.getElementById('makeThisAdmin').value;
-    console.log("Making "+email+" an admin");
+    console.log("Making " + email + " an admin");
 
     const addAdminRole = funcitons.httpsCallable('addAdminRole');
-    addAdminRole({email : email}).then(result =>{
+    addAdminRole({ email: email }).then(result => {
         console.log(result);
     });
 }
 
 function generateUI(found, stu) {
-    if(found) {
+    if (found) {
         $('#searchResult').append(`<div class="main-card mb-3 card">
         <div class="card-body"><h5 class="card-title">Dismissable Alerts</h5>
             <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -54,9 +60,12 @@ function generateUI(found, stu) {
     }
 }
 
-function adminUI(isAdmin){
-    const adminElement = document.getElementById('adminElement');
-    if(isAdmin){
-        adminElement.style.display = 'block';
+function loadUI(isAdmin) {
+    const normalUI = document.getElementById('normalUI');
+    const adminUI = document.getElementById('adminUI');
+    if (isAdmin) {
+        adminUI.style.display = 'block';
+    } else {
+        normalUI.style.display = 'block';
     }
 }
