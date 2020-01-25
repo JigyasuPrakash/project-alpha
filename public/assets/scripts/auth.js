@@ -49,30 +49,6 @@ firebase.firestore().enablePersistence()
 //   res.render('../assets/html/searchResult.html');
 // })
 
-function getStudent() {
-  let student = db.collection('student_personal_details');
-  const search = document.getElementById("textToSearch").value + "@rknec.edu";
-
-  let query = student.where('EmailId', '==', search).get()
-    .then(snapshot => {
-      if (snapshot.empty) {
-        const found = false;
-        generateUI(found, stu);
-        console.log('no match' + student.doc());
-        return;
-      }
-      snapshot.forEach(stu => {
-        console.log(stu.id, stu.data());
-        found = true;
-        generateUI(found, stu);
-      })
-    })
-    .catch(err => {
-      console.log('error getting');
-    })
-}
-
-
 function logOut() {
   console.log("Signout process started")
   auth.signOut();
