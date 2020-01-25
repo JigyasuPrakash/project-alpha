@@ -354,10 +354,19 @@
             <!--Main Content Heading-->
             <div class="app-main__outer">
                 <div class="app-main__inner">
+
                     <!--Main Content Header Ends-->
                     <!--Main Content Area Starts Here-->
-                    <h5>Put selected filters here..</h5>
-                    <hr>
+                    <div class="app-page-title">
+                        <div>
+                            <h6 id="Stringfilter">Selected filters: </h6>
+                        </div>
+                        <div class="page-title-wrapper">
+                            <div class="page-title-actions">
+                                <button class="mb-2 mr-2 btn btn-primary">EXPORT</button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="tab-content">
                         <div class="tab-pane tabs-animation fade active show" id="tab-content-2" role="tabpanel">
@@ -366,32 +375,35 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">BRANCH</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentCS" value = "checkeed" tabindex="0" class="form-check-input">Computer Science</input>
+                                            <input type="checkbox" id="searchStudentCS" onclick="OnChangeCheckbox (this)" value="BRANCH:CSU" tabindex="0" class="form-check-input">Computer Science</input>
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentIT" tabindex="0" value="checked" class="form-check-input">Information Technology</input>
+                                            <input type="checkbox" id="searchStudentIT" onclick="OnChangeCheckbox (this)" value="BRANCH:IT" tabindex="0"  class="form-check-input">Information Technology</input>
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentIndus" tabindex="0" value="checked" class="form-check-input">Industrial</input>
+                                            <input type="checkbox" id="searchStudentIndus" onclick="OnChangeCheckbox (this)" value="BRANCH:INDUS" tabindex="0"  class="form-check-input">Industrial</input>
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentElec" tabindex="0" value="checked" class="form-check-input">Electrical</input>   
+                                            <input type="checkbox" id="searchStudentElec" onclick="OnChangeCheckbox (this)" value="BRANCH:ELEC" tabindex="0"  class="form-check-input">Electrical</input>   
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentEDT" tabindex="0" value="checked" class="form-check-input">EDT</input>
+                                            <input type="checkbox" id="searchStudentEDT" onclick="OnChangeCheckbox (this)" value="BRANCH:EDT" tabindex="0"  class="form-check-input">EDT</input>
                                         </div>
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentEN" tabindex="0" value="checked" class="form-check-input">EN</input>
+                                            <input type="checkbox" id="searchStudentEN" onclick="OnChangeCheckbox (this)" value="BRANCH:EN" tabindex="0"  class="form-check-input">EN</input>
                                         </div>
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentMech" tabindex="0" value="checked" class="form-check-input">Mechanical</input>    
-                                        </div>   
+                                            <input type="checkbox" id="searchStudentMech" onclick="OnChangeCheckbox (this)" value="BRANCH:MECH" tabindex="0"  class="form-check-input">Mechanical</input>    
+                                        </div> 
+                                        <div class="form-check">    
+                                        <input type="checkbox" onclick="OnChangeCheckbox (this)" value="BRANCH:CIV" id="searchStudentCivil" tabindex="0" class="form-check-input">Civil</input>
+                                        </div>  
                                     </div>
                                 </div>
 
@@ -400,16 +412,16 @@
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                             <div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentCategoryGen" name="category" tabindex="0" value="checked" class="form-check-input">GENERAL</input>    
+                                                    <input type="checkbox" id="searchStudentCategoryGen" onclick="OnChangeCheckbox (this)" value="CAT:GEN"  name="category" tabindex="0" class="form-check-input">GENERAL</input>    
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentCategorySCST" name="category" tabindex="0" value="checked" class="form-check-input">SC/ST</input>    
+                                                    <input type="checkbox" id="searchStudentCategorySCST" onclick="OnChangeCheckbox (this)" value="CAT:SC/ST" name="category" tabindex="0"  class="form-check-input">SC/ST</input>    
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentCategoryOBC" name="category" tabindex="0" value="checked" class="form-check-input">OBC</input>    
+                                                    <input type="checkbox" id="searchStudentCategoryOBC" onclick="OnChangeCheckbox (this)" value="CAT:OBC" name="category" tabindex="0"  class="form-check-input">OBC</input>    
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentMech" tabindex="0" value="checked" class="form-check-input">OTHER</input>    
+                                                    <input type="checkbox" id="searchStudentOther" onclick="OnChangeCheckbox (this)" value="CAT:Other" tabindex="0"  class="form-check-input">OTHER</input>    
                                                 </div>
                                             </div>
                                     </div>
@@ -418,16 +430,13 @@
                                 <div class="mb-2 mr-2 btn-group">
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">HIGHER STUDIES</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <div>
+                                            
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsYES" name="higherStudies" class="form-check-input" value="info" checked="">YES</input>
+                                                <input type="checkbox" id="searchStudentHsYES"  value="HIGHSTD:Yes" name="higherStudies" onclick="OnChangeCheckbox (this)" class="form-check-input">YES</input>
                                             </div>
                                             
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsNO" name="higherStudies" class="form-check-input" value="info" checked="">NO</input>
-                                            </div>
-                                            
-                                            <div class="form-check">
-                                                <input type="radio" id="searchStudentHsMAYBE" name="higherStudies" class="form-check-input" value="info" checked="">MAYBE</input>
+                                                <input type="checkbox" id="searchStudentHsNO"  value="HIGHSTD:No" name="higherStudies" onclick="OnChangeCheckbox (this)" class="form-check-input">NO</input>
                                             </div>
                                             
                                         </div>
@@ -439,11 +448,11 @@
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id = "searchStudentMale" tabindex="0" value="checked" class="form-check-input">MALE</input>    
+                                            <input type="checkbox" id = "searchStudentMale" onclick="OnChangeCheckbox (this)" value="GENDER:Male" tabindex="0"  class="form-check-input">MALE</input>    
                                         </div>
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id = "searchStudentFemale" tabindex="0" value="checked" class="form-check-input">FEMALE</input>
+                                            <input type="checkbox" id = "searchStudentFemale" onclick="OnChangeCheckbox (this)" value="GENDER:Female" tabindex="0"  class="form-check-input">FEMALE</input>
                                         </div>
 
                                     </div>
@@ -451,14 +460,43 @@
 
                                 <div class="mb-2 mr-2 btn-group">
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">CGPA</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                                        <input id="searchStudentCGPA" type="text" class="form-control" placeholder="Minimum">
+                                        <input id="searchStudentCGPA" name="CGPA" type="text" class="form-control" placeholder="Minimum">
                                     </div>
                                 </div>
+                                <button class="mb-2 mr-2 btn btn-primary" onclick="OnSearch()">SEARCH</button>
                         </div>
                     </div>
                     <hr>
                     <!--Paste Your Code Here-->
 
+                    <div class="main-card mb-3 card">
+                        <div class="card-body"><h5 class="card-title">Matched Result</h5>
+                            <table class="mb-0 table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>NAME</th>
+                                    <th>BRANCH NAME</th>
+                                    <th>SHIFT</th>
+                                    <th>CGPA</th>
+                                    <th>GENDER</th>
+                                    <th>EMAIL ID</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>ABCD</td>
+                                    <td>Computer science</td>
+                                    <td>1</td>
+                                    <td>8.21</td>
+                                    <td>Male</td>
+                                    <td>abcd@rknec.edu</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
                     <!--Main Content Area Ends Here-->
                 </div>
@@ -489,5 +527,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../assets/scripts/main.js"></script>
+<script type="text/javascript" src="../assets/scripts/searchStudent.js"></script>
 
 </html>
