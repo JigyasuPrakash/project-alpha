@@ -366,32 +366,35 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">BRANCH</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentCS" value = "checkeed" tabindex="0" class="form-check-input">Computer Science</input>
+                                            <input type="checkbox" id="searchStudentCS" onclick="OnChangeCheckbox (this)" value="BRANCH:CSU" tabindex="0" class="form-check-input">Computer Science</input>
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentIT" tabindex="0" value="checked" class="form-check-input">Information Technology</input>
+                                            <input type="checkbox" id="searchStudentIT" onclick="OnChangeCheckbox (this)" value="BRANCH:IT" tabindex="0"  class="form-check-input">Information Technology</input>
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentIndus" tabindex="0" value="checked" class="form-check-input">Industrial</input>
+                                            <input type="checkbox" id="searchStudentIndus" onclick="OnChangeCheckbox (this)" value="BRANCH:INDUS" tabindex="0"  class="form-check-input">Industrial</input>
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentElec" tabindex="0" value="checked" class="form-check-input">Electrical</input>   
+                                            <input type="checkbox" id="searchStudentElec" onclick="OnChangeCheckbox (this)" value="BRANCH:ELEC" tabindex="0"  class="form-check-input">Electrical</input>   
                                         </div>
 
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentEDT" tabindex="0" value="checked" class="form-check-input">EDT</input>
+                                            <input type="checkbox" id="searchStudentEDT" onclick="OnChangeCheckbox (this)" value="BRANCH:EDT" tabindex="0"  class="form-check-input">EDT</input>
                                         </div>
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentEN" tabindex="0" value="checked" class="form-check-input">EN</input>
+                                            <input type="checkbox" id="searchStudentEN" onclick="OnChangeCheckbox (this)" value="BRANCH:EN" tabindex="0"  class="form-check-input">EN</input>
                                         </div>
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id="searchStudentMech" tabindex="0" value="checked" class="form-check-input">Mechanical</input>    
-                                        </div>   
+                                            <input type="checkbox" id="searchStudentMech" onclick="OnChangeCheckbox (this)" value="BRANCH:MECH" tabindex="0"  class="form-check-input">Mechanical</input>    
+                                        </div> 
+                                        <div class="form-check">    
+                                        <input type="checkbox" onclick="OnChangeCheckbox (this)" value="BRANCH:CIV" id="searchStudentCivil" tabindex="0" class="form-check-input">Civil</input>
+                                        </div>  
                                     </div>
                                 </div>
 
@@ -400,16 +403,16 @@
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                             <div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentCategoryGen" name="category" tabindex="0" value="checked" class="form-check-input">GENERAL</input>    
+                                                    <input type="checkbox" id="searchStudentCategoryGen" onclick="OnChangeCheckbox (this)" value="CAT:GEN"  name="category" tabindex="0" class="form-check-input">GENERAL</input>    
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentCategorySCST" name="category" tabindex="0" value="checked" class="form-check-input">SC/ST</input>    
+                                                    <input type="checkbox" id="searchStudentCategorySCST" onclick="OnChangeCheckbox (this)" value="CAT:SC/ST" name="category" tabindex="0"  class="form-check-input">SC/ST</input>    
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentCategoryOBC" name="category" tabindex="0" value="checked" class="form-check-input">OBC</input>    
+                                                    <input type="checkbox" id="searchStudentCategoryOBC" onclick="OnChangeCheckbox (this)" value="CAT:OBC" name="category" tabindex="0"  class="form-check-input">OBC</input>    
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" id="searchStudentMech" tabindex="0" value="checked" class="form-check-input">OTHER</input>    
+                                                    <input type="checkbox" id="searchStudentOther" onclick="OnChangeCheckbox (this)" value="CAT:Other" tabindex="0"  class="form-check-input">OTHER</input>    
                                                 </div>
                                             </div>
                                     </div>
@@ -419,15 +422,15 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">HIGHER STUDIES</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <div>
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsYES" name="higherStudies" class="form-check-input" value="info" checked="">YES</input>
+                                                <input type="radio" id="searchStudentHsYES" onclick="OnChangeRadio (this)" value="HIGH:Yes" name="higherStudies" class="form-check-input"  checked="">YES</input>
                                             </div>
                                             
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsNO" name="higherStudies" class="form-check-input" value="info" checked="">NO</input>
+                                                <input type="radio" id="searchStudentHsNO" onclick="OnChangeRadio (this)" value="HIGH:No" name="higherStudies" class="form-check-input"  checked="">NO</input>
                                             </div>
                                             
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsMAYBE" name="higherStudies" class="form-check-input" value="info" checked="">MAYBE</input>
+                                                <input type="radio" id="searchStudentHsMAYBE" onclick="OnChangeRadio (this)" value="HIGH:Maybe" name="higherStudies" class="form-check-input"  checked="">MAYBE</input>
                                             </div>
                                             
                                         </div>
@@ -439,11 +442,11 @@
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id = "searchStudentMale" tabindex="0" value="checked" class="form-check-input">MALE</input>    
+                                            <input type="checkbox" id = "searchStudentMale" onclick="OnChangeCheckbox (this)" value="GENDER:Male" tabindex="0"  class="form-check-input">MALE</input>    
                                         </div>
                                         
                                         <div class="form-check">
-                                            <input type="checkbox" id = "searchStudentFemale" tabindex="0" value="checked" class="form-check-input">FEMALE</input>
+                                            <input type="checkbox" id = "searchStudentFemale" onclick="OnChangeCheckbox (this)" value="GENDER:Female" tabindex="0"  class="form-check-input">FEMALE</input>
                                         </div>
 
                                     </div>
@@ -489,5 +492,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../assets/scripts/main.js"></script>
+<script type="text/javascript" src="../assets/scripts/searchStudent.js"></script>
 
 </html>
