@@ -356,7 +356,7 @@
                 <div class="app-main__inner">
                     <!--Main Content Header Ends-->
                     <!--Main Content Area Starts Here-->
-                    <h5>Put selected filters here..</h5><button class="mb-2 mr-2 btn btn-primary">EXPORT</button>
+                    <h5 id="Stringfilter">Selected filters here..</h5><button class="mb-2 mr-2 btn btn-primary">EXPORT</button>
                     <hr>
 
                     <div class="tab-content">
@@ -422,15 +422,15 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">HIGHER STUDIES</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <div>
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsYES" onclick="OnChangeRadio (this)" value="HIGH:Yes" name="higherStudies" class="form-check-input"  checked="">YES</input>
+                                                <input type="radio" id="searchStudentHsYES"  value="HIGHSTD:Yes" name="higherStudies" class="form-check-input"  checked="">YES</input>
                                             </div>
                                             
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsNO" onclick="OnChangeRadio (this)" value="HIGH:No" name="higherStudies" class="form-check-input"  checked="">NO</input>
+                                                <input type="radio" id="searchStudentHsNO"  value="HIGHSTD:No" name="higherStudies" class="form-check-input"  checked="">NO</input>
                                             </div>
                                             
                                             <div class="form-check">
-                                                <input type="radio" id="searchStudentHsMAYBE" onclick="OnChangeRadio (this)" value="HIGH:Maybe" name="higherStudies" class="form-check-input"  checked="">MAYBE</input>
+                                                <input type="radio" id="searchStudentHsMAYBE"  value="HIGHSTD:Maybe" name="higherStudies" class="form-check-input"  checked="">MAYBE</input>
                                             </div>
                                             
                                         </div>
@@ -454,10 +454,10 @@
 
                                 <div class="mb-2 mr-2 btn-group">
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">CGPA</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                                        <input id="searchStudentCGPA" type="text" class="form-control" placeholder="Minimum">
+                                        <input id="searchStudentCGPA" name="CGPA" type="text" class="form-control" placeholder="Minimum">
                                     </div>
                                 </div>
-                                <button class="mb-2 mr-2 btn btn-primary">SEARCH</button>
+                                <button class="mb-2 mr-2 btn btn-primary" onclick="OnSearch()">SEARCH</button>
                         </div>
                     </div>
                     <hr>
