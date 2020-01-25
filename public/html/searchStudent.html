@@ -357,87 +357,108 @@
                     <!--Main Content Header Ends-->
                     <!--Main Content Area Starts Here-->
                     
-                    <div class="mb-2 mr-2 btn-group">
-                        <button class="btn btn-primary">Branch</button>
-                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                            <input type="checkbox" id="searchStudentCS" tabindex="0" class="dropdown-item">Computer Science</button>
-                            <input type="checkbox" id="searchStudentIT" tabindex="0" class="dropdown-item">Information Technology</input>
-                            <input type="checkbox" id="searchStudentIndus" tabindex="0" class="dropdown-item">Industrial</input>
-                            <input type="checkbox" id="searchStudentElec" tabindex="0" class="dropdown-item">Electrical</input>
-                            <input type="checkbox" id="searchStudentEDT" tabindex="0" class="dropdown-item">EDT</input>
-                            <input type="checkbox" id="searchStudentEN" tabindex="0" class="dropdown-item">EN</input>
-                            <input type="checkbox" id="searchStudentMech" tabindex="0" class="dropdown-item">Mechanical</input>
-                        </div>
-                    </div>
+
+                    <div class="tab-content">
+                        <div class="tab-pane tabs-animation fade active show" id="tab-content-2" role="tabpanel">
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-4">
 
 
-                    <div class="mb-2 mr-2 btn-group">
-                        <button class="btn btn-primary">Gender</button>
-                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                            <input type="checkbox" id = "searchStudentMale" tabindex="0" class="dropdown-item">Male</button>
-                            <input type="checkbox" id = "searchStudentFemale" tabindex="0" class="dropdown-item">Female</input>
-                        </div>
-                    </div>
+                                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                                        <h5 class="card-title">BRANCH</h5>
+                                        <div class="mb-2 mr-2 btn-group">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">SELECT</button>
+                                           <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                               <input type="checkbox" id="searchStudentCS" tabindex="0" class="dropdown-item">Computer Science</button>
+                                               <input type="checkbox" id="searchStudentIT" tabindex="0" class="dropdown-item">Information Technology</input>
+                                               <input type="checkbox" id="searchStudentIndus" tabindex="0" class="dropdown-item">Industrial</input>
+                                               <input type="checkbox" id="searchStudentElec" tabindex="0" class="dropdown-item">Electrical</input>
+                                               <input type="checkbox" id="searchStudentEDT" tabindex="0" class="dropdown-item">EDT</input>
+                                               <input type="checkbox" id="searchStudentEN" tabindex="0" class="dropdown-item">EN</input>
+                                               <input type="checkbox" id="searchStudentMech" tabindex="0" class="dropdown-item">Mechanical</input>
+                                           </div>
+                                       </div>
+                                    </div>
 
 
+                                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                                        <h5 class="card-title">CATEGORY</h5>
+                                        <div class="mb-2 mr-2 btn-group">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">SELECT</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                                    <div>
+                                                      <input type="radio" id="searchStudentCategoryGen" name="category">
+                                                      <label for="searchStudentCategoryGen">GENERAL</label>
+                                                      <br>
+                                                      <input type="radio" id="searchStudentCategorySCST" name="category" >
+                                                      <label for="searchStudentCategorySCST">SC/ST</label>
+                                                      <br>
+                                                      <input type="radio" id="searchStudentCategoryOBC" name="category">
+                                                      <label for="searchStudentCategoryOBC">OBC</label>
+                                                      <br>
+                                                      <input type="radio" id="searchStudentCategoryOther" name="category">
+                                                      <label for="searchStudentCategoryOther">OTHER</label>
+                                                      <br>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-                    <div class="mb-2 mr-2 btn-group">
-                        <button class="btn btn-primary">CGPA</button>
-                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                            <input type="text" id="searchStudentCGPA" placeholder="Minimum">
-                        </div>
-                    </div>
-                    
+                                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                                        <h5 class="card-title">HIGHER STUDIES</h5>
+                                        <div class="mb-2 mr-2 btn-group">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">SELECT</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                                <!-- <form> -->
+                                                    <div>
+                                                      <input type="radio" id="searchStudentHsYES" name="higherStudies">
+                                                      <label for="searchStudentHsYES">YES</label>
+                                                      <br>
+                                                      <input type="radio" id="searchStudentHsNO" name="higherStudies" >
+                                                      <label for="searchStudentHsNO">NO</label>
+                                                      <br>
+                                                      <input type="radio" id="searchStudentHsMAYBE" name="higherStudies">
+                                                      <label for="searchStudentHsMAYBE">MAYBE</label>
+                                                      <br>
+                                                    </div>
+                                                  <!-- </form> -->
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-
-                    <div class="mb-2 mr-2 btn-group">
-                        <button class="btn btn-primary">Higher Studies</button>
-                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                            <!-- <form> -->
-                                <div>
-                                  <input type="radio" id="searchStudentHsYES" name="higherStudies">
-                                  <label for="searchStudentHsYES">YES</label>
-                                  <br>
-                                  <input type="radio" id="searchStudentHsNO" name="higherStudies" >
-                                  <label for="searchStudentHsNO">NO</label>
-                                  <br>
-                                  <input type="radio" id="searchStudentHsMAYBE" name="higherStudies">
-                                  <label for="searchStudentHsMAYBE">MAYBE</label>
-                                  <br>
                                 </div>
-                              <!-- </form> -->
-                        </div>
-                    </div>
+
+                                <div class="col-md-4">
 
 
+                                    <div class="card-border mb-3 card card-body border-primary">
+                                        <h5 class="card-title">Gender</h5>
+                                        <div class="mb-2 mr-2 btn-group">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">SELECT</button>
+                                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                                <input type="checkbox" id = "searchStudentMale" tabindex="0" class="dropdown-item">Male</button>
+                                                <input type="checkbox" id = "searchStudentFemale" tabindex="0" class="dropdown-item">Female</input>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-                    <div class="mb-2 mr-2 btn-group">
-                        <button class="btn btn-primary">Category</button>
-                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                            <!-- <form> -->
-                                <div>
-                                  <input type="radio" id="searchStudentCategoryGen" name="category">
-                                  <label for="searchStudentCategoryGen">GENERAL</label>
-                                  <br>
-                                  <input type="radio" id="searchStudentCategorySCST" name="category" >
-                                  <label for="searchStudentCategorySCST">SC/ST</label>
-                                  <br>
-                                  <input type="radio" id="searchStudentCategoryOBC" name="category">
-                                  <label for="searchStudentCategoryOBC">OBC</label>
-                                  <br>
-                                  <input type="radio" id="searchStudentCategoryOther" name="category">
-                                  <label for="searchStudentCategoryOther">OTHER</label>
-                                  <br>
+                                    <div class="card-border mb-3 card card-body border-primary">
+                                        <h5 class="card-title">CGPA</h5>
+                                        <div class="mb-2 mr-2 btn-group">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">SELECT</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                                <input type="text" id="searchStudentCGPA" placeholder="Minimum">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
-                              <!-- </form> -->
+
+                            </div>
+                            
                         </div>
                     </div>
                     <!--Paste Your Code Here-->
