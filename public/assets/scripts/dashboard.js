@@ -42,7 +42,7 @@ function getStudent() {
         localStorage.setItem("toSearch",search+"@rknec.edu");
         window.location.href="./searchResult.html";
     }
-  }
+}
 
 function loadUI(isAdmin) {
     const normalUI = document.getElementById('normalUI');

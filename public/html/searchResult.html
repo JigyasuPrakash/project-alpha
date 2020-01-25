@@ -86,8 +86,8 @@
                     <div class="app-header-left">
                         <div class="search-wrapper">
                             <div class="input-holder">
-                                <input type="text" class="search-input" placeholder="Type to search">
-                                <button class="search-icon"><span></span></button>
+                                <input type="text" class="search-input" id="textToSearch" placeholder="Type to search">
+                                <button class="search-icon" id="search" onclick="getStudent()"><span></span></button>
                             </div>
                             <button class="close"></button>
                         </div>
@@ -202,7 +202,7 @@
                 </div>
                 <!--Main Content Heading-->
                 <div class="app-main__outer">
-                    <div class="app-main__inner">
+                    <div class="app-main__inner" id="findResult" style="visibility: hidden;">
                         <!--Main Content Header Ends-->
                         <!--Main Content Area Starts Here-->
 
@@ -311,8 +311,8 @@
                                     <div class="card-body"><h5 class="card-title">Student Current Academic Details</h5>
                                         <ul class="list-group">
                                             <li class="list-group-item" id="enrollment_No"></li>
-                                            <li class="list-group-item" id="emailID"></li>
-                                            <li class="list-group-item" id="CGPA"></li>                                                                                
+                                            <li class="list-group-item" id="emailIDCA"></li>
+                                            <li class="list-group-item" id="CGPACA"></li>                                                                                
                                             <li class="list-group-item" id="degree_Board"></li>
                                             <li class="list-group-item" id="Sem1PassYear"></li>
                                             <li class="list-group-item" id="Sem1SGPA"></li>

@@ -1,12 +1,20 @@
 const search=localStorage.getItem('toSearch')
 let student = db.collection('student_personal_details').doc(search);
 
-let getStudent=student.get()
+var found;
+let findStudent=student.get()
 .then(doc => {
     if(!doc.exists) {
+        found=false;
+        $('#findResult').empty();
+        $('#findResult').attr('style', 'visibility: visible')
+        $('#findResult').append(`
+            <div class="alert alert-danger fade show" role="alert">No student found with email ID ${search}</div>
+        `);
         console.log('no doc');
     }
     else {
+        $('#findResult').attr('style', 'visibility: visible')
         stu=doc.data();
         $('#studentName').text(stu.Fullname);
         $('#firstName').text("First Name: "+stu.FirstName);
@@ -40,7 +48,7 @@ let getStudent=student.get()
 
 student = db.collection('student_previous_academic_details').doc(search);
 
-getStudent=student.get()
+findStudent=student.get()
 .then(doc => {
     if(!doc.exists) {
         console.log('no doc');
@@ -77,7 +85,7 @@ getStudent=student.get()
 
 student = db.collection('student_current_academic_details').doc(search);
 
-getStudent=student.get()
+findStudent=student.get()
 .then(doc => {
     if(!doc.exists) {
         console.log('no doc');
@@ -85,8 +93,8 @@ getStudent=student.get()
     else {
         stu=doc.data();
         $('#enrollment_No').text("Enrollment No: "+stu.Enrollment_No);
-        $('#emailID').text("Email ID: "+stu.EmailId);
-        $('#CGPA').text("CGPA: "+stu.CGPA);
+        $('#emailIDCA').text("Email ID: "+stu.EmailId);
+        $('#CGPACA').text("CGPA: "+stu.CGPA);
         $('#degree_Board').text("Degree Board: "+stu.Degree_Board);
         $('#Sem1PassYear').text("Sem 1 Pass Year: "+stu.Sem1PassYear);
         $('#Sem1SGPA').text("Sem 1 SGPA: "+stu.Sem1SGPA);
@@ -152,7 +160,7 @@ getStudent=student.get()
 
 student = db.collection('student_placement_details').doc(search);
 
-getStudent=student.get()
+findStudent=student.get()
 .then(doc => {
     if(!doc.exists) {
         console.log('no doc');
@@ -192,5 +200,14 @@ function loadUI(isAdmin) {
         adminUI.style.display = 'block';
     } else {
         normalUI.style.display = 'block';
+    }
+}
+
+function getStudent() {
+    const search = document.getElementById("textToSearch").value;    
+    console.log(search);
+    if(search!="" && search!=null) {
+        localStorage.setItem("toSearch",search+"@rknec.edu");
+        window.location.href="./searchResult.html";
     }
 }
