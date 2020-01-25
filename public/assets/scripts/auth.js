@@ -50,10 +50,10 @@ firebase.firestore().enablePersistence()
 // })
 
 function getStudent() {
-  let student = db.collection('student-data');
+  let student = db.collection('student_personal_details');
   const search = document.getElementById("textToSearch").value + "@rknec.edu";
 
-  let query = student.where('email', '==', search).get()
+  let query = student.where('EmailId', '==', search).get()
     .then(snapshot => {
       if (snapshot.empty) {
         const found = false;
