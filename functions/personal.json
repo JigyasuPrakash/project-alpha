@@ -27,6 +27,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.18,
       "Gender": "Male",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -57,6 +58,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.24,
       "Gender": "Male",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -87,6 +89,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.08,
       "Gender": "Male",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -117,6 +120,7 @@
       "YearOfAdmission": 2015,
       "CGPA": 7.17,
       "Gender": "Male",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -147,6 +151,7 @@
       "YearOfAdmission": 2015,
       "CGPA": 7.33,
       "Gender": "Male",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -177,6 +182,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 9.15,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -207,6 +213,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 5.47,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -237,6 +244,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.53,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -267,6 +275,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.79,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -297,6 +306,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 9.17,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -327,6 +337,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.34,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -357,6 +368,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.26,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -387,6 +399,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.07,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -417,6 +430,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.96,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "Others"
     },
     {
@@ -447,6 +461,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.09,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -477,6 +492,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.39,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -507,6 +523,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.96,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -537,6 +554,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.81,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -567,6 +585,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.63,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "Others"
     },
     {
@@ -597,6 +616,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.24,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -627,6 +647,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.52,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -657,6 +678,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 9.16,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -687,6 +709,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.58,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -717,6 +740,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.87,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -747,6 +771,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.82,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "Others"
     },
     {
@@ -777,6 +802,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 9.6,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -807,6 +833,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.5,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "Others"
     },
     {
@@ -837,6 +864,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.18,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -867,6 +895,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.29,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -897,6 +926,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.15,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -927,6 +957,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.83,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "Others"
     },
     {
@@ -957,6 +988,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.4,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "SC"
     },
     {
@@ -987,6 +1019,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.38,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1017,6 +1050,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.85,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1047,6 +1081,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.46,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1077,6 +1112,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.98,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1107,6 +1143,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.84,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1137,6 +1174,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.23,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1167,6 +1205,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.25,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "Others"
     },
     {
@@ -1197,6 +1236,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.19,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1227,6 +1267,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.43,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1257,6 +1298,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1287,6 +1329,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.62,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1317,6 +1360,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.63,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1347,6 +1391,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.11,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1377,6 +1422,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.71,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1407,6 +1453,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 8.05,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "General"
     },
     {
@@ -1437,6 +1484,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.36,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1467,6 +1515,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 7.52,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     },
     {
@@ -1497,6 +1546,7 @@
       "YearOfAdmission": 2016,
       "CGPA": 6.77,
       "Gender": "Female",
+      "Avatar": "gs://project-tnp-be0af.appspot.com/common/avatar.png",
       "Category": "OBC"
     }
   ]
