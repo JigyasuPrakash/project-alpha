@@ -29,29 +29,10 @@ function makeAdmin(){
     });
 }
 
-function generateUI(found, stu) {
-    if(found) {
-        $('#searchResult').append(`<div class="main-card mb-3 card">
-        <div class="card-body"><h5 class="card-title">Dismissable Alerts</h5>
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-                Student found : <br>Name - ${stu.data().firstName} ${stu.data().lastName}
-                <br>Roll Number - ${stu.data().rollNum}
-                <br> Branch - ${stu.data().branchName}
-            </div>
-        </div>
-    </div>`)
-    }
-    else {
-        $('#searchResult').append(`<div class="main-card mb-3 card">
-        <div class="card-body"><h5 class="card-title">Dismissable Alerts</h5>
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-                No match found
-            </div>
-        </div>
-    </div>`)
-    }
+
+
+function searchLocal() {
+    
 }
 
 function adminUI(isAdmin){
