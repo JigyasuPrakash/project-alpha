@@ -81,38 +81,37 @@ getStudent=student.get()
 .then(doc => {
     if(!doc.exists) {
         console.log('no doc');
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
-        $('#studentName').text(stu.Fullname);
     }
     else {
         stu=doc.data();
-
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
+        $('#studentName').text(stu.Fullname);
     }
 
 })
