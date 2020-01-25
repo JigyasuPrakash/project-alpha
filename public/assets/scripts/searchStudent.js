@@ -21,20 +21,8 @@ function OnChangeCheckbox (checkbox) {
     }
 }
 
-function OnChangeRadio(radio) {
-    var a=$("input[name='higherStudies']:checked").val();
-    console.log(a)
-    if(document.getElementById('higherStudies').checked) { 
-        var a=$("input[name='higherStudies']:checked").val();
-        filter.push(a);
-    } 
-}
 
 function OnSearch(){
-    if ($("input[name='higherStudies']:checked").length > 0) {
-        var higherstudies=$("input[name='higherStudies']:checked").val();
-        filter.push(higherstudies);
-    }
     var inputcgpa=document.getElementById("searchStudentCGPA").value;
     if(inputcgpa!=""){
         inputcgpa="CGPA:"+inputcgpa
