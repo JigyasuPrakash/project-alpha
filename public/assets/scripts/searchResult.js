@@ -66,8 +66,8 @@ getStudent=student.get()
         $('#Diploma_MarksOutOf').text("Diploma Marks Out of :"+stu.Diploma_MarksOutOf);
         $('#Diploma_Percentage').text("Diploma Percentage: "+stu.Diploma_Percentage);
         $('#Degree_Board').text("Current Degree Board: "+stu.Degree_Board);
-        $('#Gap_10_12Dip').text("Gap between 10th and 12th/Diploma: "+stu.Gap_10_12Dip);
-        $('#Gap_12Dip_Engg').text("Gap betweem 12th/Diploma and Engg: "+stu.Gap_12Dip_Engg);
+        $('#Gap_10_12DipPrv').text("Gap between 10th and 12th/Diploma: "+stu.Gap_10_12Dip);
+        $('#Gap_12Dip_EnggPrv').text("Gap betweem 12th/Diploma and Engg: "+stu.Gap_12Dip_Engg);
     }
 
 })
@@ -100,43 +100,49 @@ getStudent=student.get()
         $('#Sem2Attempt2BacklogCount').text("Sem 2 Attempt 2 Backlog Count: "+stu.Sem2Attempt2BacklogCount);
         $('#Sem2Attempt3BacklogCount').text("Sem 2 Attempt 3 Backlog Count: "+stu.Sem2Attempt3BacklogCount);
         $('#Sem2Attempt4BacklogCount').text("Sem 2 Attempt 4 Backlog Count: "+stu.Sem2Attempt4BacklogCount);
+        $('#Sem2CurrentBacklogCount').text("Sem 2 Current Backlog Count: "+stu.Sem2CurrentBacklogCount);
         $('#Sem3PassYear').text("Sem 3 Pass Year: "+stu.Sem3PassYear);
         $('#Sem3SGPA').text("Sem 3 SGPA: "+stu.Sem3SGPA);
         $('#Sem3Attempt1BacklogCount').text("Sem 3 Attempt 1 Backlog Count: "+stu.Sem3Attempt1BacklogCount);
         $('#Sem3Attempt2BacklogCount').text("Sem 3 Attempt 2 Backlog Count: "+stu.Sem3Attempt2BacklogCount);
         $('#Sem3Attempt3BacklogCount').text("Sem 3 Attempt 3 Backlog Count: "+stu.Sem3Attempt3BacklogCount);
         $('#Sem3Attempt4BacklogCount').text("Sem 3 Attempt 4 Backlog Count: "+stu.Sem3Attempt4BacklogCount);
+        $('#Sem3CurrentBacklogCount').text("Sem 3 Current Backlog Count: "+stu.Sem3CurrentBacklogCount);
         $('#Sem4PassYear').text("Sem 4 Pass Year: "+stu.Sem4PassYear);
         $('#Sem4SGPA').text("Sem 4 SGPA: "+stu.Sem4SGPA);
         $('#Sem4Attempt1BacklogCount').text("Sem 4 Attempt 1 Backlog Count: "+stu.Sem4Attempt1BacklogCount);
         $('#Sem4Attempt2BacklogCount').text("Sem 4 Attempt 2 Backlog Count: "+stu.Sem4Attempt2BacklogCount);
         $('#Sem4Attempt3BacklogCount').text("Sem 4 Attempt 3 Backlog Count: "+stu.Sem4Attempt3BacklogCount);
         $('#Sem4Attempt4BacklogCount').text("Sem 4 Attempt 4 Backlog Count: "+stu.Sem4Attempt4BacklogCount);
+        $('#Sem4CurrentBacklogCount').text("Sem 4 Current Backlog Count: "+stu.Sem4CurrentBacklogCount);
         $('#Sem5PassYear').text("Sem 5 Pass Year: "+stu.Sem5PassYear);
         $('#Sem5SGPA').text("Sem 5 SGPA: "+stu.Sem5SGPA);
         $('#Sem5Attempt1BacklogCount').text("Sem 5 Attempt 1 Backlog Count: "+stu.Sem5Attempt1BacklogCount);
         $('#Sem5Attempt2BacklogCount').text("Sem 5 Attempt 2 Backlog Count: "+stu.Sem5Attempt2BacklogCount);
         $('#Sem5Attempt3BacklogCount').text("Sem 5 Attempt 3 Backlog Count: "+stu.Sem5Attempt3BacklogCount);
         $('#Sem5Attempt4BacklogCount').text("Sem 5 Attempt 4 Backlog Count: "+stu.Sem5Attempt4BacklogCount);
+        $('#Sem5CurrentBacklogCount').text("Sem 5 Current Backlog Count: "+stu.Sem5CurrentBacklogCount);
         $('#Sem6PassYear').text("Sem 6 Pass Year: "+stu.Sem6PassYear);
         $('#Sem6SGPA').text("Sem 6 SGPA: "+stu.Sem6SGPA);
         $('#Sem6Attempt1BacklogCount').text("Sem 6 Attempt 1 Backlog Count: "+stu.Sem6Attempt1BacklogCount);
         $('#Sem6Attempt2BacklogCount').text("Sem 6 Attempt 2 Backlog Count: "+stu.Sem6Attempt2BacklogCount);
         $('#Sem6Attempt3BacklogCount').text("Sem 6 Attempt 3 Backlog Count: "+stu.Sem6Attempt3BacklogCount);
         $('#Sem6Attempt4BacklogCount').text("Sem 6 Attempt 4 Backlog Count: "+stu.Sem6Attempt4BacklogCount);
+        $('#Sem6CurrentBacklogCount').text("Sem 6 Current Backlog Count: "+stu.Sem6CurrentBacklogCount);
         $('#Sem7PassYear').text("Sem 7 Pass Year: "+stu.Sem7PassYear);
         $('#Sem7SGPA').text("Sem 7 SGPA: "+stu.Sem7SGPA);
         $('#Sem7Attempt1BacklogCount').text("Sem 7 Attempt 1 Backlog Count: "+stu.Sem7Attempt1BacklogCount);
         $('#Sem7Attempt2BacklogCount').text("Sem 7 Attempt 2 Backlog Count: "+stu.Sem7Attempt2BacklogCount);
         $('#Sem7Attempt3BacklogCount').text("Sem 7 Attempt 3 Backlog Count: "+stu.Sem7Attempt3BacklogCount);
         $('#Sem7Attempt4BacklogCount').text("Sem 7 Attempt 4 Backlog Count: "+stu.Sem7Attempt4BacklogCount);
+        $('#Sem7CurrentBacklogCount').text("Sem 7 Current Backlog Count: "+stu.Sem7CurrentBacklogCount);
         $('#Sem8PassYear').text("Sem 8 Pass Year: "+stu.Sem8PassYear);
         $('#Sem8SGPA').text("Sem 8 SGPA: "+stu.Sem8SGPA);
         $('#Sem8Attempt1BacklogCount').text("Sem 8 Attempt 1 Backlog Count: "+stu.Sem8Attempt1BacklogCount);
         $('#Sem8Attempt2BacklogCount').text("Sem 8 Attempt 2 Backlog Count: "+stu.Sem8Attempt2BacklogCount);
         $('#Sem8Attempt3BacklogCount').text("Sem 8 Attempt 3 Backlog Count: "+stu.Sem8Attempt3BacklogCount);
         $('#Sem8Attempt4BacklogCount').text("Sem 8 Attempt 4 Backlog Count: "+stu.Sem8Attempt4BacklogCount);
-        $('#Gap_in_Engg').text("Gap in Engg: "+stu.Gap_in_Engg);        
+        $('#Gap_in_EnggPL').text("Gap in Engg: "+stu.Gap_in_Engg);        
     }
 
 })
