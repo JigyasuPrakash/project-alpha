@@ -19,7 +19,11 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     user.getIdTokenResult().then(idTokenResult => {
       user.admin = idTokenResult.claims.admin;
-      adminUI(user.admin);
+      localStorage.setItem('isAdmin', false);
+      if (user.admin) {
+        localStorage.setItem('isAdmin', user.admin);
+      }
+      loadUI(user.admin);
       console.log("Admin Property: " + user.admin);
     })
     console.log("Congratulations you are logged in");
@@ -57,8 +61,6 @@ function getStudent() {
         console.log('no match' + student.doc());
         return;
       }
-
-
       snapshot.forEach(stu => {
         console.log(stu.id, stu.data());
         found = true;
@@ -68,7 +70,6 @@ function getStudent() {
     .catch(err => {
       console.log('error getting');
     })
-
 }
 
 

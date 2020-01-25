@@ -15,6 +15,7 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
@@ -115,8 +116,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -339,6 +338,15 @@
                                     </i>ChartJS
                                 </a>
                             </li>
+                            <li class="app-sidebar__heading">PRO Version</li>
+                            <li>
+                                <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/"
+                                    target="_blank">
+                                    <i class="metismenu-icon pe-7s-graph2">
+                                    </i>
+                                    Upgrade to PRO
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -346,17 +354,96 @@
             <!--Main Content Heading-->
             <div class="app-main__outer">
                 <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="page-title-wrapper">
-                            <div class="page-title-actions">
-                                <button class="mb-2 mr-2 btn btn-primary" onclick="addNewStudent()">Add new Student
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                     <!--Main Content Header Ends-->
                     <!--Main Content Area Starts Here-->
+                    <div class="mb-2 mr-2 btn-group">
+                        <button class="btn btn-primary">Branch</button>
+                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Computer Science</button>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Information Technology</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Industrial</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Electrical</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">EDT</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">EN</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Mechanical</input>
+                        </div>
+                    </div>
 
+
+                    <div class="mb-2 mr-2 btn-group">
+                        <button class="btn btn-primary">Gender</button>
+                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Male</button>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">Female</input>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="mb-2 mr-2 btn-group">
+                        <button class="btn btn-primary">CGPA</button>
+                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                            <input type="text" placeholder="Minimum">
+                        </div>
+                    </div>
+                    
+
+
+
+                    <div class="mb-2 mr-2 btn-group">
+                        <button class="btn btn-primary">Higher Studies</button>
+                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                            <form>
+                                <div>
+                                  <input type="radio" id="Choice1" name="higherStudies">
+                                  <label for="Choice1">YES</label>
+                                  <br>
+                                  <input type="radio" id="Choice2" name="higherStudies" >
+                                  <label for="Choice2">NO</label>
+                                  <br>
+                                  <input type="radio" id="Choice3" name="higherStudies">
+                                  <label for="Choice3">MAYBE</label>
+                                  <br>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="mb-2 mr-2 btn-group">
+                        <button class="btn btn-primary">Category</button>
+                        <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle-split dropdown-toggle btn btn-primary"><span class="sr-only">Toggle Dropdown</span></button>
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                            <!-- <input type="checkbox" tabindex="0" class="dropdown-item">General</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">OBS</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">SC</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">ST</input>
+                            <input type="checkbox" tabindex="0" class="dropdown-item">OTHER</input> -->
+                            <form>
+                                <div>
+                                  <input type="radio" id="Choice1" name="category">
+                                  <label for="Choice1">GENERAL</label>
+                                  <br>
+                                  <input type="radio" id="Choice2" name="category" >
+                                  <label for="Choice2">SC/ST</label>
+                                  <br>
+                                  <input type="radio" id="Choice3" name="category">
+                                  <label for="Choice3">OBC</label>
+                                  <br>
+                                  <input type="radio" id="Choice4" name="category">
+                                  <label for="Choice4">OTHER</label>
+                                  <br>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
                     <!--Paste Your Code Here-->
 
 
@@ -368,12 +455,12 @@
                             <div class="app-footer-right">
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="javascript:void(0);" class="nav-link">
                                             Footer Link 3
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="javascript:void(0);" class="nav-link">
                                             Footer Link 4
                                         </a>
                                     </li>
@@ -389,6 +476,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../assets/scripts/main.js"></script>
-<script src="../assets/scripts/studentSection.js"></script>
 
 </html>
