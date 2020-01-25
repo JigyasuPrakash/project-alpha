@@ -365,19 +365,33 @@
                                 <div class="mb-2 mr-2 btn-group">
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">BRANCH</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                                        <input type="checkbox" id="searchStudentCS" tabindex="0" class="dropdown-item">Computer Science</input>
-                                        <hr>
-                                        <input type="checkbox" id="searchStudentIT" tabindex="0" class="dropdown-item">Information Technology</input>
-                                        <hr>
-                                        <input type="checkbox" id="searchStudentIndus" tabindex="0" class="dropdown-item">Industrial</input>
-                                        <hr>
-                                        <input type="checkbox" id="searchStudentElec" tabindex="0" class="dropdown-item">Electrical</input>
-                                        <hr>
-                                        <input type="checkbox" id="searchStudentEDT" tabindex="0" class="dropdown-item">EDT</input>
-                                        <hr>
-                                        <input type="checkbox" id="searchStudentEN" tabindex="0" class="dropdown-item">EN</input>
-                                        <hr>
-                                        <input type="checkbox" id="searchStudentMech" tabindex="0" class="dropdown-item">Mechanical</input>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentCS" value = "checkeed" tabindex="0" class="form-check-input">Computer Science</input>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentIT" tabindex="0" value="checked" class="form-check-input">Information Technology</input>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentIndus" tabindex="0" value="checked" class="form-check-input">Industrial</input>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentElec" tabindex="0" value="checked" class="form-check-input">Electrical</input>   
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentEDT" tabindex="0" value="checked" class="form-check-input">EDT</input>
+                                        </div>
+                                        
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentEN" tabindex="0" value="checked" class="form-check-input">EN</input>
+                                        </div>
+                                        
+                                        <div class="form-check">
+                                            <input type="checkbox" id="searchStudentMech" tabindex="0" value="checked" class="form-check-input">Mechanical</input>    
+                                        </div>   
                                     </div>
                                 </div>
 
@@ -385,32 +399,18 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">CATEGORY</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                             <div>
-                                                <div>
-                                                    <input type="checkbox" id="searchStudentCategoryGen" name="category">
-                                                    <label for="searchStudentCategoryGen">GENERAL</label>
-                                                    <!-- <br> -->
-                                                    <hr>
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="searchStudentCategoryGen" name="category" tabindex="0" value="checked" class="form-check-input">GENERAL</input>    
                                                 </div>
-
-                                                <div>
-                                                    <input type="checkbox" id="searchStudentCategorySCST" name="category" >
-                                                    <label for="searchStudentCategorySCST">SC/ST</label>
-                                                    <!-- <br> -->
-                                                    <hr>
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="searchStudentCategorySCST" name="category" tabindex="0" value="checked" class="form-check-input">SC/ST</input>    
                                                 </div>
-                                                
-                                                <div>
-                                                    <input type="checkbox" id="searchStudentCategoryOBC" name="category">
-                                                    <label for="searchStudentCategoryOBC">OBC</label>
-                                                    <!-- <br> -->
-                                                    <hr>
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="searchStudentCategoryOBC" name="category" tabindex="0" value="checked" class="form-check-input">OBC</input>    
                                                 </div>
-
-                                                <div>
-                                                    <input type="checkbox" id="searchStudentCategoryOther" name="category">
-                                                    <label for="searchStudentCategoryOther">OTHER</label>
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="searchStudentMech" tabindex="0" value="checked" class="form-check-input">OTHER</input>    
                                                 </div>
-                                              
                                             </div>
                                     </div>
                                 </div>
@@ -418,14 +418,18 @@
                                 <div class="mb-2 mr-2 btn-group">
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">HIGHER STUDIES</button><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
                                         <div>
-                                            <input type="radio" id="searchStudentHsYES" name="higherStudies">
-                                            <label for="searchStudentHsYES">YES</label>
-                                            <hr>
-                                            <input type="radio" id="searchStudentHsNO" name="higherStudies" >
-                                            <label for="searchStudentHsNO">NO</label>
-                                            <hr>
-                                            <input type="radio" id="searchStudentHsMAYBE" name="higherStudies">
-                                            <label for="searchStudentHsMAYBE">MAYBE</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="searchStudentHsYES" name="higherStudies" class="form-check-input" value="info" checked="">YES</input>
+                                            </div>
+                                            
+                                            <div class="form-check">
+                                                <input type="radio" id="searchStudentHsNO" name="higherStudies" class="form-check-input" value="info" checked="">NO</input>
+                                            </div>
+                                            
+                                            <div class="form-check">
+                                                <input type="radio" id="searchStudentHsMAYBE" name="higherStudies" class="form-check-input" value="info" checked="">MAYBE</input>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -433,9 +437,15 @@
                                 <div class="mb-2 mr-2 btn-group">
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">GENDER</button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-                                        <input type="checkbox" id = "searchStudentMale" tabindex="0" class="dropdown-item">Male</button>
-                                        <hr>
-                                        <input type="checkbox" id = "searchStudentFemale" tabindex="0" class="dropdown-item">Female</input>
+                                        
+                                        <div class="form-check">
+                                            <input type="checkbox" id = "searchStudentMale" tabindex="0" value="checked" class="form-check-input">MALE</input>    
+                                        </div>
+                                        
+                                        <div class="form-check">
+                                            <input type="checkbox" id = "searchStudentFemale" tabindex="0" value="checked" class="form-check-input">FEMALE</input>
+                                        </div>
+
                                     </div>
                                 </div>
 
