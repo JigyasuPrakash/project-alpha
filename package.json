@@ -1,27 +1,16 @@
 {
-  "name": "tnp-app",
-  "version": "1.0.0",
-  "description": "- Use VS Code as editor. - Do not publicly fork this repo. - A template.html page is present in html folder, use that page as template for any page designing. - template folder consists of all component simply use copy paste from there.",
-  "main": "index.js",
+  "name": "tnp-frontend",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JigyasuPrakash/TNP-App.git"
-  },
-  "author": "JigyasuPrakash",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JigyasuPrakash/TNP-App/issues"
-  },
-  "homepage": "https://github.com/JigyasuPrakash/TNP-App#readme",
   "dependencies": {
-    "firebase-admin": "^8.9.0",
-    "firebase-functions": "^3.3.0",
-    "jquery": "^3.4.1"
-  },
-  "devDependencies": {
-    "eslint-plugin-promise": "^4.2.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }

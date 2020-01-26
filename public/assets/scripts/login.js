@@ -1,10 +1,16 @@
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Signed in");
-  } else {
-    console.log("Not Signed in");
-  }
-})
+var firebaseConfig = {
+  apiKey: "AIzaSyCx3lQ3Oe4oKrJCdTcp4CKlDeKiRRxbdWc",
+  authDomain: "project-tnp-be0af.firebaseapp.com",
+  databaseURL: "https://project-tnp-be0af.firebaseio.com",
+  projectId: "project-tnp-be0af",
+  storageBucket: "project-tnp-be0af.appspot.com",
+  messagingSenderId: "518046381835",
+  appId: "1:518046381835:web:f87059d9fdfc1fe0f4140e",
+  measurementId: "G-R71GXZPYXL"
+};
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+const auth = firebase.auth();
 
 function signUp() {
   window.location.href = "./signup.html";
@@ -19,16 +25,10 @@ form.addEventListener('submit', (e) => {
 
   auth.signInWithEmailAndPassword(email, pass)
     .then((cred) => {
+      console.log(cred.user)
       console.log("Logged in Successfully");
-      console.log("Admin Details are: " + cred.admin);
-      return db.collection('user-accounts').doc(cred.user.uid).get().then((snapshot) => {
-        const userName = snapshot.data().firstName + " " + snapshot.data().lastName;
-        const userMail = cred.user.email
-        localStorage.setItem('userNameRecieved', userName);
-        localStorage.setItem('userMailRecieved', userMail);
-      })
-    }).then(() => {
-      window.location.href = "./dashboard.html";
+      const getReq = '?accessId=' + cred.user.uid;
+      window.location.href = '../dashboard' + getReq;
     }).catch(err => {
       alert("Incorrect Email or Password..!")
     })
