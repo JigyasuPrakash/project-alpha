@@ -23,3 +23,14 @@ form.addEventListener('submit', (e) => {
     //Add a method to clear all the previous content
     alert('STUDENT FORM SUBMITTED');
 });
+
+function loadUI(isAdmin){
+    const normalUI = document.getElementById('normalUI');
+    const adminUI = document.getElementById('adminUI');
+    if(!isAdmin){
+        console.log("AdminUI is loaded");
+        adminUI.style.display = 'block';
+    }else{
+        normalUI.style.display = 'block';
+    }
+}
