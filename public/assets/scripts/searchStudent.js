@@ -9,11 +9,11 @@ function loadUI(isAdmin) {
 }
 
 function getStudent() {
-    const search = document.getElementById("textToSearch").value;    
+    const search = document.getElementById("textToSearch").value;
     console.log(search);
-    if(search!="" && search!=null) {
-        localStorage.setItem("toSearch",search+"@rknec.edu");
-        window.location.href="./searchResult.html";
+    if (search != "" && search != null) {
+        localStorage.setItem("toSearch", search + "@rknec.edu");
+        window.location.href = "./searchResult.html";
     }
 }
 
@@ -24,60 +24,118 @@ function searchStudent() {
 function createObject() {
     $('#filterResults').empty();
 
-    var branch=[];
-    var cat=[];
+    var branch = [], gen = [], cat = [];
+    var isBranch = false, isCat = false, isGen = false, isCG = false;
 
-    if($('#searchStudentCS').is(':checked')) {
-        branch[0]="Computer Science and  Engineering";
+    if ($('#searchStudentCS').is(':checked')) {
+        isBranch = true;
+        branch[0] = "Computer Science and  Engineering";
     } else {
-        branch[0]="";
+        branch[0] = "";
     }
-    if($('#searchStudentIT').is(':checked')) {
-        branch[1]="Information Technology";
+    if ($('#searchStudentIT').is(':checked')) {
+        isBranch = true;
+        branch[1] = "Information Technology";
     } else {
-        branch[1]="";
+        branch[1] = "";
     }
-    if($('#searchStudentIND').is(':checked')) {
-        branch[2]="Industrial Engineering";
+    if ($('#searchStudentIND').is(':checked')) {
+        isBranch = true;
+        branch[2] = "Industrial Engineering";
     } else {
-        branch[2]="";
+        branch[2] = "";
     }
-    if($('#searchStudentELEC').is(':checked')) {
-    branch[3]="Electrical Engineering";
+    if ($('#searchStudentELEC').is(':checked')) {
+        isBranch = true;
+        branch[3] = "Electrical Engineering";
     } else {
-        branch[3]="";
+        branch[3] = "";
     }
-    if($('#searchStudentEDT').is(':checked')) {
-        branch[4]="Electronics Design Technology";
+    if ($('#searchStudentEDT').is(':checked')) {
+        isBranch = true;
+        branch[4] = "Electronics Design Technology";
     } else {
-        branch[4]="";
+        branch[4] = "";
     }
-    if($('#searchStudentEN').is(':checked')) {
-        branch[5]="Electronics Engineering";
+    if ($('#searchStudentEN').is(':checked')) {
+        isBranch = true;
+        branch[5] = "Electronics Engineering";
     } else {
-        branch[5]="";
+        branch[5] = "";
     }
-    if($('#searchStudentENT').is(':checked')) {
-        branch[6]="Electronics and Communication Engineering";
+    if ($('#searchStudentENT').is(':checked')) {
+        isBranch = true;
+        branch[6] = "Electronics and Communication Engineering";
     } else {
-        branch[6]="";
+        branch[6] = "";
     }
-    if($('#searchStudentCIV').is(':checked')) {
-        branch[7]="Civil Engineering";
+    if ($('#searchStudentCIV').is(':checked')) {
+        isBranch = true;
+        branch[7] = "Civil Engineering";
     } else {
-        branch[7]="";
+        branch[7] = "";
     }
 
-    var filterObject={
+    if ($('#CatGEN').is(':checked')) {
+        isCat = true;
+        cat[0] = "General";
+    } else {
+        cat[0] = "";
+    }
+    if ($('#CatSC').is(':checked')) {
+        isCat = true;
+        cat[1] = "SC";
+    } else {
+        cat[1] = "";
+    }
+    if ($('#CatST').is(':checked')) {
+        isCat = true;
+        cat[2] = "ST";
+    } else {
+        cat[2] = "";
+    }
+    if ($('#CatOBC').is(':checked')) {
+        isCat = true;
+        cat[3] = "OBC";
+    } else {
+        cat[3] = "";
+    }
+    if ($('#CatOTHER').is(':checked')) {
+        isCat = true;
+        cat[4] = "Others";
+    } else {
+        cat[4] = "";
+    }
+
+    if ($('#isMale').is(':checked')) {
+        isGen = true;
+        gen[0] = "Male";
+    } else {
+        gen[0] = "";
+    }
+    if ($('#isFemale').is(':checked')) {
+        isGen = true;
+        gen[1] = "Female";
+    } else {
+        gen[1] = "";
+    }
+
+
+    //NEED TO MAKE THIS VAR CORRECT
+
+    if($('#searchCGPA')!=null || $('#searchCGPA')!="") {
+        isCG=true;
+    }
+
+    var filterObject = {
         Branch: branch,
+        Category: cat,
+        Gender: gen,
         GEN: $('#CatGEN').is(':checked'),
         SC: $('#CatSC').is(':checked'),
         ST: $('#CatST').is(':checked'),
         OBC: $('#CatOBC').is(':checked'),
         OTHER: $('#CatOTHER').is(':checked'),
-        HsYES: $('#HsYES').is(':checked'),
-        HsNO: $('#HsNO').is(':checked'),
-        HsMAYBE: $('#HsMAYBE').is(':checked'),
         Male: $('#isMale').is(':checked'),
         Female: $('#isFemale').is(':checked'),
         CGPA: $('#searchCGPA').val()
@@ -89,170 +147,525 @@ function createObject() {
     let studentCurrentAcademic = db.collection('student_current_academic_details');
     let studentPreviousAcedemic = db.collection('student_previous_academic_details');
 
-    let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
-    .then(snapshot => {
-        if (snapshot.empty) {
-        //console.log('No matching documents.');
-        return;
-        }
+    console.log("Branch"+isBranch);
+    console.log("CGPA"+isCG);
+    console.log("CATEGORY"+isCat);
+    console.log("GENDER"+isGen);
 
-        $('#filterResults').empty();
+    if (!isBranch && !isCat && !isGen && !isCG) {
 
-        snapshot.forEach(doc => {
-            let s=doc.data();
-            
-
-            if(filterObject['GEN']) {
-                if(s.Category=="General") {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
+        let query = studentPersonal.get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    console.log('No matching documents.');
+                    return;
                 }
-            }
 
-            if(filterObject['SC']) {
-                if(s.Category=="SC") {
+                $('#filterResults').empty();
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
                     $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            if(filterObject['ST']) {
-                if(s.Category=="ST") {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            if(filterObject['OBC']) {
-                if(s.Category=="OBC") {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            
-
-            if(filterObject['OTHER']) {
-                if(s.Category=="Others") {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            if(filterObject['Male']) {
-                if(s.Gender=="Male") {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            if(filterObject['Female']) {
-                if(s.Gender=="Female") {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            if(filterObject['CGPA']!=null) {
-                if(s.CGPA>=filterObject['CGPA']) {
-                    $('#filterResults').append(`
-                        <tr>
-                            <td>${s.Fullname}</td>
-                            <td>${s.Branch}</td>
-                            <td>${s.Shift}</td>
-                            <td>${s.CGPA}</td>
-                            <td>${s.Gender}</td>
-                            <td>${s.EmailId}</td>
-                            <td>${s.Category}</td>
-                        </tr>
-                    `)
-                }
-            }
-
-            if(filterObject['CGPA']==null && !filterObject['GEN'] && !filterObject['SC'] && !filterObject['ST'] && !filterObject['OBC'] && !filterObject['OTHER'] && !filterObject['Male'] && !filterObject['Female'] ){
-                console.log(doc.id, '=>', doc.data());
-                $('#filterResults').append(`
-                <tr>
-                    <td>${s.Fullname}</td>
-                    <td>${s.Branch}</td>
-                    <td>${s.Shift}</td>
-                    <td>${s.CGPA}</td>
-                    <td>${s.Gender}</td>
-                    <td>${s.EmailId}</td>
-                    <td>${s.Category}</td>
-                </tr>
+                    <tr>
+                        <td>${s.Fullname}</td>
+                        <td>${s.Branch}</td>
+                        <td>${s.Shift}</td>
+                        <td>${s.CGPA}</td>
+                        <td>${s.Gender}</td>
+                        <td>${s.EmailId}</td>
+                        <td>${s.Category}</td>
+                    </tr>
                 `)
-            }
-        });
-    })
-    .catch(err => {
-        console.log('Error getting documents', err);
-    });
-    
-    
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+
+
+    if (isBranch && !isCat && !isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    console.log(doc.id, '=>', doc.data());
+                    $('#filterResults').append(`
+                    <tr>
+                        <td>${s.Fullname}</td>
+                        <td>${s.Branch}</td>
+                        <td>${s.Shift}</td>
+                        <td>${s.CGPA}</td>
+                        <td>${s.Gender}</td>
+                        <td>${s.EmailId}</td>
+                        <td>${s.Category}</td>
+                    </tr>
+                `)
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && !isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    console.log(doc.id, '=>', doc.data());
+                    $('#filterResults').append(`
+                    <tr>
+                        <td>${s.Fullname}</td>
+                        <td>${s.Branch}</td>
+                        <td>${s.Shift}</td>
+                        <td>${s.CGPA}</td>
+                        <td>${s.Gender}</td>
+                        <td>${s.EmailId}</td>
+                        <td>${s.Category}</td>
+                    </tr>
+                `)
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && isCat && !isGen && !isCG) {
+        let query = studentPersonal.where('Category', 'in', filterObject['Category']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    console.log(doc.id, '=>', doc.data());
+                    $('#filterResults').append(`
+                    <tr>
+                        <td>${s.Fullname}</td>
+                        <td>${s.Branch}</td>
+                        <td>${s.Shift}</td>
+                        <td>${s.CGPA}</td>
+                        <td>${s.Gender}</td>
+                        <td>${s.EmailId}</td>
+                        <td>${s.Category}</td>
+                    </tr>
+                `)
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && !isCat && !isGen && isCG) {
+        let query = studentPersonal.where('CGPA', '>=', parseInt(filterObject['CGPA'])).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    console.log(doc.id, '=>', doc.data());
+                    $('#filterResults').append(`
+                    <tr>
+                        <td>${s.Fullname}</td>
+                        <td>${s.Branch}</td>
+                        <td>${s.Shift}</td>
+                        <td>${s.CGPA}</td>
+                        <td>${s.Gender}</td>
+                        <td>${s.EmailId}</td>
+                        <td>${s.Category}</td>
+                    </tr>
+                    `)
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && !isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    if(filterObject['Category'].includes(s.Category)) {
+
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && !isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    if(filterObject['CGPA']<=s.CGPA) {
+
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['Category'].includes(s.Category)){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && !isCat && isGen && isCG) {
+        let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['CGPA']<=s.CGPA){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Category', 'in', filterObject['Category']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['CGPA']<=s.CGPA){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['Gender'].includes(s.Gender)){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+
+    if (!isBranch && isCat && isGen && isCG) {
+        let query = studentPersonal.where('Category', 'in', filterObject['Category']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['CGPA']<=s.CGPA && filterObject['Gender'].includes(s.Gender)){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category)){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['Gender'].includes(s.Gender) && filterObject['CGPA']<=s.CGPA){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && !isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['Category'].includes(s.Category) && filterObject['CGPA']<=s.CGPA){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if(filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category) && filterObject['CGPA']<=s.CGPA){
+ 
+                        console.log(doc.id, '=>', doc.data());
+                        $('#filterResults').append(`
+                        <tr>
+                            <td>${s.Fullname}</td>
+                            <td>${s.Branch}</td>
+                            <td>${s.Shift}</td>
+                            <td>${s.CGPA}</td>
+                            <td>${s.Gender}</td>
+                            <td>${s.EmailId}</td>
+                            <td>${s.Category}</td>
+                        </tr>
+                    `)
+                    }
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
 
 }
 
