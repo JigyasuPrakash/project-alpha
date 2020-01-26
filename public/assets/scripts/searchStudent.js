@@ -23,54 +23,66 @@ function searchStudent() {
 
 function createObject() {
     $('#filterResults').empty();
+    $('#BranchFilter').empty();
+    $('#CategoryFilter').empty();
+    $('#GenderFilter').empty();
+    $('#CGPAFilter').empty();
 
     var branch = [], gen = [], cat = [];
     var isBranch = false, isCat = false, isGen = false, isCG = false;
 
     if ($('#searchStudentCS').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Computer Science Engineering`);
         branch[0] = "Computer Science and  Engineering";
     } else {
         branch[0] = "";
     }
     if ($('#searchStudentIT').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Information Technology`);
         branch[1] = "Information Technology";
     } else {
         branch[1] = "";
     }
     if ($('#searchStudentIND').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Industrial Engineering`);
         branch[2] = "Industrial Engineering";
     } else {
         branch[2] = "";
     }
     if ($('#searchStudentELEC').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Electrical Engineering`);
         branch[3] = "Electrical Engineering";
     } else {
         branch[3] = "";
     }
     if ($('#searchStudentEDT').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Electronics and Design Technology`);
         branch[4] = "Electronics Design Technology";
     } else {
         branch[4] = "";
     }
     if ($('#searchStudentEN').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Electronics Engineering`);
         branch[5] = "Electronics Engineering";
     } else {
         branch[5] = "";
     }
     if ($('#searchStudentENT').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Electronics and Communication Engineering`);
         branch[6] = "Electronics and Communication Engineering";
     } else {
         branch[6] = "";
     }
     if ($('#searchStudentCIV').is(':checked')) {
         isBranch = true;
+        $('#BranchFilter').append(` Civil Engineering`);
         branch[7] = "Civil Engineering";
     } else {
         branch[7] = "";
@@ -78,30 +90,35 @@ function createObject() {
 
     if ($('#CatGEN').is(':checked')) {
         isCat = true;
+        $('#CategoryFilter').append(` General`);
         cat[0] = "General";
     } else {
         cat[0] = "";
     }
     if ($('#CatSC').is(':checked')) {
         isCat = true;
+        $('#CategoryFilter').append(` SC`);
         cat[1] = "SC";
     } else {
         cat[1] = "";
     }
     if ($('#CatST').is(':checked')) {
         isCat = true;
+        $('#CategoryFilter').append(` ST`);
         cat[2] = "ST";
     } else {
         cat[2] = "";
     }
     if ($('#CatOBC').is(':checked')) {
         isCat = true;
+        $('#CategoryFilter').append(` OBC`);
         cat[3] = "OBC";
     } else {
         cat[3] = "";
     }
     if ($('#CatOTHER').is(':checked')) {
         isCat = true;
+        $('#CategoryFilter').append(` Others`);
         cat[4] = "Others";
     } else {
         cat[4] = "";
@@ -109,12 +126,14 @@ function createObject() {
 
     if ($('#isMale').is(':checked')) {
         isGen = true;
+        $('#GenderFilter').append(` Male`);
         gen[0] = "Male";
     } else {
         gen[0] = "";
     }
     if ($('#isFemale').is(':checked')) {
         isGen = true;
+        $('#GenderFilter').append(` Female`);
         gen[1] = "Female";
     } else {
         gen[1] = "";
@@ -125,6 +144,7 @@ function createObject() {
 
     if($('#searchCGPA')!=null || $('#searchCGPA')!="") {
         isCG=true;
+        $('#CGPAFilter').append(` `+$('#searchCGPA').val());
     }
 
     var filterObject = {
