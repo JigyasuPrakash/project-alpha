@@ -1,24 +1,27 @@
-function loadUI(isAdmin) {
-    const normalUI = document.getElementById('normalUI');
-    const adminUI = document.getElementById('adminUI');
-    if (isAdmin) {
-        adminUI.style.display = 'block';
+$(document).ready(function () {
+    console.log("Document is ready")
+    $('#userName').text(localStorage.getItem('name'));
+    $('#userEmail').text(localStorage.getItem('email'));
+});
+
+// function getStudent() {
+//     const search = document.getElementById("textToSearch").value;
+//     console.log(search);
+//     if (search != "" && search != null) {
+//         localStorage.setItem("toSearch", search + "@rknec.edu");
+//         window.location.href = "./searchResult.html";
+//     }
+// }
+
+function goTo(path) {
+    var getReq = localStorage.getItem('accessId');
+    var actualPath = '';
+    if (path == '#') {
+        actualPath = path;
     } else {
-        normalUI.style.display = 'block';
+        actualPath = path + '?accessId=' + getReq;
     }
-}
-
-function getStudent() {
-    const search = document.getElementById("textToSearch").value;
-    console.log(search);
-    if (search != "" && search != null) {
-        localStorage.setItem("toSearch", search + "@rknec.edu");
-        window.location.href = "./searchResult.html";
-    }
-}
-
-function searchStudent() {
-
+    window.location.href = actualPath;
 }
 
 function createObject() {
@@ -142,9 +145,9 @@ function createObject() {
 
     //NEED TO MAKE THIS VAR CORRECT
 
-    if($('#searchCGPA')!=null || $('#searchCGPA')!="") {
-        isCG=true;
-        $('#CGPAFilter').append(` `+$('#searchCGPA').val());
+    if ($('#searchCGPA') != null || $('#searchCGPA') != "") {
+        isCG = true;
+        $('#CGPAFilter').append(` ` + $('#searchCGPA').val());
     }
 
     var filterObject = {
@@ -167,10 +170,10 @@ function createObject() {
     let studentCurrentAcademic = db.collection('student_current_academic_details');
     let studentPreviousAcedemic = db.collection('student_previous_academic_details');
 
-    console.log("Branch"+isBranch);
-    console.log("CGPA"+isCG);
-    console.log("CATEGORY"+isCat);
-    console.log("GENDER"+isGen);
+    console.log("Branch" + isBranch);
+    console.log("CGPA" + isCG);
+    console.log("CATEGORY" + isCat);
+    console.log("GENDER" + isGen);
 
     if (!isBranch && !isCat && !isGen && !isCG) {
 
@@ -335,7 +338,7 @@ function createObject() {
 
                 snapshot.forEach(doc => {
                     let s = doc.data();
-                    if(filterObject['Category'].includes(s.Category)) {
+                    if (filterObject['Category'].includes(s.Category)) {
 
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
@@ -367,7 +370,7 @@ function createObject() {
 
                 snapshot.forEach(doc => {
                     let s = doc.data();
-                    if(filterObject['CGPA']<=s.CGPA) {
+                    if (filterObject['CGPA'] <= s.CGPA) {
 
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
@@ -400,8 +403,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['Category'].includes(s.Category)){
- 
+                    if (filterObject['Category'].includes(s.Category)) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -433,8 +436,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['CGPA']<=s.CGPA){
- 
+                    if (filterObject['CGPA'] <= s.CGPA) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -466,8 +469,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['CGPA']<=s.CGPA){
- 
+                    if (filterObject['CGPA'] <= s.CGPA) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -499,8 +502,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['Gender'].includes(s.Gender)){
- 
+                    if (filterObject['Gender'].includes(s.Gender)) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -533,8 +536,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['CGPA']<=s.CGPA && filterObject['Gender'].includes(s.Gender)){
- 
+                    if (filterObject['CGPA'] <= s.CGPA && filterObject['Gender'].includes(s.Gender)) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -566,8 +569,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category)){
- 
+                    if (filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category)) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -599,8 +602,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['Gender'].includes(s.Gender) && filterObject['CGPA']<=s.CGPA){
- 
+                    if (filterObject['Gender'].includes(s.Gender) && filterObject['CGPA'] <= s.CGPA) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -632,8 +635,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['Category'].includes(s.Category) && filterObject['CGPA']<=s.CGPA){
- 
+                    if (filterObject['Category'].includes(s.Category) && filterObject['CGPA'] <= s.CGPA) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>
@@ -665,8 +668,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
 
-                    if(filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category) && filterObject['CGPA']<=s.CGPA){
- 
+                    if (filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category) && filterObject['CGPA'] <= s.CGPA) {
+
                         console.log(doc.id, '=>', doc.data());
                         $('#filterResults').append(`
                         <tr>

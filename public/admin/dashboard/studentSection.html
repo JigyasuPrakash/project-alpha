@@ -40,7 +40,7 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <a onclick="goTo('dashboard')">
+                <a onclick="goTo('/dashboard')">
                     <div class="logo-src"></div>
                 </a>
                 <div class="header__pane ml-auto">
@@ -97,8 +97,7 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="40" class="rounded-circle" src="../images/avatar.png"
-                                                alt="">
+                                            <img width="40" class="rounded-circle" src="../images/avatar.png" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
@@ -162,30 +161,35 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('dashboard')">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                    onclick="goTo('/dashboard')">
                                     Dashboard
-                                </a>
+                                    </a>
                             </li>
                             <li class="app-sidebar__heading">Student's Corner</li>
                             <li>
-                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('studentSection')">
+                                <button class="mb-2 mr-2 btn border-0 btn-primary btn-lg btn-block"
+                                    onclick="goTo('#')">
                                     Home
                                 </button>
                             </li>
                             <li>
-                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('searchStudent')">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                    onclick="goTo('/dashboard/student/search')">
                                     Search Students
                                 </button>
                             </li>
                             <li class="app-sidebar__heading">Alumni's Corner</li>
                             <li>
-                                <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" onclick="goTo('alumniSection')">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                    onclick="goTo('/dashboard/alumni')">
                                     Home
                                 </button>
                             </li>
                             <li class="app-sidebar__heading">Company's Corner</li>
                             <li>
-                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('companySection')">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                    onclick="goTo('/dashboard/company')">
                                     Home
                                 </button>
                             </li>
@@ -198,9 +202,9 @@
                 <div class="app-main__inner">
                     <div class="app-page-title">
                         <div class="page-title-wrapper">
-                            <h1>Welcome to Alumni Section</h1>
+                            <h1>Wecome to Student Section</h1>
                             <div class="page-title-actions">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -236,9 +240,10 @@
         </div>
     </div>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../scripts/main.js"></script>
-<script src="../scripts/section.js"></script>
+<script src="../scripts/dashboard.js"></script>
 
 </html>
