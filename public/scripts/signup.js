@@ -23,7 +23,7 @@ form.addEventListener('submit', (e) => {
             alert('Signup completed!! Go to Login Page to continue..');
             auth.signOut()
                 .then(() => {
-                    window.location.href = "./login.html";
+                    window.location.href = "../login";
                 });
         })
         .catch((e) => {

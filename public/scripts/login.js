@@ -27,8 +27,13 @@ form.addEventListener('submit', (e) => {
     .then((cred) => {
       console.log(cred.user)
       console.log("Logged in Successfully");
-      const getReq = '?accessId=' + cred.user.uid;
-      window.location.href = '../dashboard' + getReq;
+      //A Hash Function is required here....
+      localStorage.setItem('accessId', cred.user.uid);
+      localStorage.setItem('name', 'Static Name');
+      localStorage.setItem('email', cred.user.email);
+      var accessId = localStorage.getItem('accessId');
+
+      window.location.href = '/dashboard' + '?accessId=' + accessId;
     }).catch(err => {
       alert("Incorrect Email or Password..!")
     })

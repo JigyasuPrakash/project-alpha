@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var dashboardRouter = require('./routes/dashboard');
+var studentRouter = require('./routes/student');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/css', express.static(path.join(__dirname, 'public/css')));
 //Dynamic Routing
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/dashboard/student', studentRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

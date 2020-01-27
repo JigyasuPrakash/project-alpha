@@ -19,7 +19,6 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
 
     <!--
@@ -32,15 +31,16 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <script src="../assets/scripts/auth.js"></script>
+    <script src="../scripts/auth.js"></script>
     <link href="../css/main.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="loadUI()">
+    <div id="content" style="display: none;"></div>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <a href="./dashboard.html">
+                <a onclick="goTo('dashboard')">
                     <div class="logo-src"></div>
                 </a>
                 <div class="header__pane ml-auto">
@@ -90,14 +90,14 @@
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading" id="userName">
                                     </div>
-                                    <div class="widget-subheading" id="userMail">
+                                    <div class="widget-subheading" id="userEmail">
                                     </div>
                                 </div>
                                 <div class="widget-content-left" style="margin-left: 10px;">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="40" class="rounded-circle" src="../assets/images/avatar.png"
+                                            <img width="40" class="rounded-circle" src="../images/avatar.png"
                                                 alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -162,32 +162,32 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <a href="#" class="mm-active">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('dashboard')">
                                     Dashboard
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Student's Corner</li>
                             <li>
-                                <a href="./studentSection.html">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('studentSection')">
                                     Home
-                                </a>
+                                </button>
                             </li>
                             <li>
-                                <a href="./searchStudent.html">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('searchStudent')">
                                     Search Students
-                                </a>
+                                </button>
                             </li>
                             <li class="app-sidebar__heading">Alumni's Corner</li>
                             <li>
-                                <a href="dashboard-boxes.html">
+                                <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" onclick="goTo('alumniSection')">
                                     Home
-                                </a>
+                                </button>
                             </li>
                             <li class="app-sidebar__heading">Company's Corner</li>
                             <li>
-                                <a href="forms-controls.html">
-                                    </i>Home
-                                </a>
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('companySection')">
+                                    Home
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -198,9 +198,9 @@
                 <div class="app-main__inner">
                     <div class="app-page-title">
                         <div class="page-title-wrapper">
+                            <h1>Welcome to Alumni Section</h1>
                             <div class="page-title-actions">
-                                <button class="mb-2 mr-2 btn btn-primary" onclick="addNewStudent()">Add new Student
-                                </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../assets/scripts/main.js"></script>
-<script src="../assets/scripts/studentSection.js"></script>
+<script type="text/javascript" src="../scripts/main.js"></script>
+<script src="../scripts/section.js"></script>
 
 </html>

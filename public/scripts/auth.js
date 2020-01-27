@@ -16,13 +16,19 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Congratulations you are logged in");
-  } else {
-    window.location.href = "../login";
+  loadUI();
+  function loadUI() {
+    if (user) {
+      var content = document.getElementById('content');
+      content.style.display = 'block';
+      console.log(user);
+    } else {
+      var content = document.getElementById('content');
+      content.style.display = 'none';
+      window.location.href = "../login";
+    }
   }
 });
-
 
 function logOut() {
   console.log("Signout process started")

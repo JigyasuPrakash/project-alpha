@@ -13,20 +13,27 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
 
-    <script src="scripts/auth.js"></script>
-
-    <script src="scripts/dashboard.js"></script>
-    <link href="css/main.css" rel="stylesheet">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <script src="../scripts/auth.js"></script>
+    <link href="../css/main.css" rel="stylesheet">
 </head>
 
 <body onload="loadUI()">
@@ -34,7 +41,7 @@
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <a onclick="goTo('dashboard')">
+                    <a onclick="goToDashboard()">
                         <div class="logo-src"></div>
                     </a>
                     <div class="header__pane ml-auto">
@@ -71,8 +78,8 @@
                     <div class="app-header-left">
                         <div class="search-wrapper">
                             <div class="input-holder">
-                                <input type="text" class="search-input" id="textToSearch" placeholder="Type to search">
-                                <button class="search-icon" id="search" onclick="getStudent()"><span></span></button>
+                                <input type="text" class="search-input" placeholder="Type to search">
+                                <button class="search-icon"><span></span></button>
                             </div>
                             <button class="close"></button>
                         </div>
@@ -91,7 +98,8 @@
                                         <div class="btn-group">
                                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                                 class="p-0 btn">
-                                                <img width="40" class="rounded-circle" src="images/avatar.png" alt="">
+                                                <img width="40" class="rounded-circle" src="../images/avatar.png"
+                                                    alt="">
                                                 <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                             </a>
                                             <div tabindex="-1" role="menu" aria-hidden="true"
@@ -100,12 +108,19 @@
                                                     Account</button>
                                                 <button type="button" tabindex="0"
                                                     class="dropdown-item">Settings</button>
+                                                <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                                <button type="button" tabindex="0"
+                                                    class="dropdown-item">Actions</button>
                                                 <div tabindex="-1" class="dropdown-divider"></div>
+                                                <button type="button" tabindex="0"
+                                                    class="dropdown-item">Dividers</button>
                                                 <button type="button" tabindex="0" class="dropdown-item"
                                                     onclick="logOut()">Log Out</button>
                                             </div>
                                         </div>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -151,7 +166,7 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" onclick="goTo('dashboard')">
+                                    <button class="mb-2 mr-2 btn btn-outline-primary btn-lg btn-block" onclick="goTo('dashboard')">
                                         Dashboard
                                     </a>
                                 </li>
@@ -174,7 +189,7 @@
                                 </li>
                                 <li class="app-sidebar__heading">Company's Corner</li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-outline-primary btn-lg btn-block" onclick="goTo('companySection')">
+                                    <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" onclick="goTo('companySection')">
                                         Home
                                     </button>
                                 </li>
@@ -185,40 +200,20 @@
                 <!--Main Content Heading-->
                 <div class="app-main__outer">
                     <div class="app-main__inner">
-
-                        <!--Cards here-->
-                        <div class="row">
-                            <div class="col-md-4">
-                                <button class="btn" onclick="studentSection()">
-                                    <div class="mb-3 card card-body">
-                                        <h2 class="card-title">Student Section</h2> this is some kind of sample text.
-                                        With
-                                        supporting text below as a natural lead-in to additional content.
-                                    </div>
-                                </button>
-                            </div>
-
-                            <div class="col-md-4">
-                                <button class="btn" onclick="alumniSection()">
-                                    <div class="mb-3 card card-body">
-                                        <h2 class="card-title">Alumni Section</h2> this is some kind of sample text.
-                                        With
-                                        supporting text below as a natural lead-in to additional content.
-                                    </div>
-                                </button>
-                            </div>
-
-                            <div class="col-md-4">
-                                <button class="btn" onclick="companySection()">
-                                    <div class="mb-3 card card-body">
-                                        <h2 class="card-title">Company Section</h2> this is some kind of sample text.
-                                        With
-                                        supporting text below as a natural lead-in to additional content.
-                                    </div>
-                                </button>
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <h1>Welcome to Company Section</h1>
+                                <div class="page-title-actions">
+                                    
+                                </div>
                             </div>
                         </div>
+                        <!--Main Content Header Ends-->
+                        <!--Main Content Area Starts Here-->
+
                         <!--Paste Your Code Here-->
+
+
                         <!--Main Content Area Ends Here-->
                     </div>
                     <div class="app-wrapper-footer">
@@ -247,7 +242,9 @@
     </div>
 </body>
 
-
-<script src="scripts/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../scripts/main.js"></script>
+<script src="../scripts/section.js"></script>
 
 </html>
