@@ -34,7 +34,7 @@
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <a onclick="goTo('dashboard')">
+                    <a onclick="goTo('#')">
                         <div class="logo-src"></div>
                     </a>
                     <div class="header__pane ml-auto">
@@ -151,30 +151,30 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" onclick="goTo('dashboard')">
+                                    <button class="mb-2 mr-2 btn border-0 btn-primary btn-lg btn-block" onclick="goTo('#')">
                                         Dashboard
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Student's Corner</li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-outline-primary btn-lg btn-block" onclick="goTo('studentSection')">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('/dashboard/student')">
                                         Home
                                     </button>
                                 </li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-outline-primary btn-lg btn-block" onclick="goTo('searchStudent')">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('/dashboard/student/search')">
                                         Search Students
                                     </button>
                                 </li>
                                 <li class="app-sidebar__heading">Alumni's Corner</li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-outline-primary btn-lg btn-block" onclick="goTo('alumniSection')">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('/dashboard/alumni')">
                                         Home
                                     </button>
                                 </li>
                                 <li class="app-sidebar__heading">Company's Corner</li>
                                 <li>
-                                    <button class="mb-2 mr-2 btn btn-outline-primary btn-lg btn-block" onclick="goTo('companySection')">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('/dashboard/company')">
                                         Home
                                     </button>
                                 </li>
@@ -189,7 +189,7 @@
                         <!--Cards here-->
                         <div class="row">
                             <div class="col-md-4">
-                                <button class="btn" onclick="studentSection()">
+                                <button class="btn" onclick="goTo('/dashboard/student')">
                                     <div class="mb-3 card card-body">
                                         <h2 class="card-title">Student Section</h2> this is some kind of sample text.
                                         With
@@ -199,7 +199,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <button class="btn" onclick="alumniSection()">
+                                <button class="btn" onclick="goTo('/dashboard/alumni')">
                                     <div class="mb-3 card card-body">
                                         <h2 class="card-title">Alumni Section</h2> this is some kind of sample text.
                                         With
@@ -209,7 +209,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <button class="btn" onclick="companySection()">
+                                <button class="btn" onclick="goTo('/dashboard/company')">
                                     <div class="mb-3 card card-body">
                                         <h2 class="card-title">Company Section</h2> this is some kind of sample text.
                                         With

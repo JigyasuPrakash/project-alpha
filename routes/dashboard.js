@@ -37,28 +37,28 @@ router.get('/', function (req, res, next) {
   }
 });
 
-router.get('/studentSection', function (req, res, next) {
+router.get('/student', function (req, res, next) {
   const uid = req.query.accessId;
   if (uid == '3btcfJeRxsa1HlFrpIXACWAJYrD2') {
-    renderAdminHTML('./public/admin/section/studentSection.html', res);
+    renderAdminHTML('./public/admin/dashboard/studentSection.html', res);
   } else {
     renderUnauthorizedAccess('./public/unauthorizedAccess.html', res);
   }
 });
 
-router.get('/alumniSection', function (req, res, next) {
+router.get('/alumni', function (req, res, next) {
   const uid = req.query.accessId;
   if (uid == '3btcfJeRxsa1HlFrpIXACWAJYrD2') {
-    renderAdminHTML('./public/admin/section/alumniSection.html', res);
+    renderAdminHTML('./public/admin/dashboard/alumniSection.html', res);
   } else {
     renderUnauthorizedAccess('./public/unauthorizedAccess.html', res);
   }
 });
 
-router.get('/companySection', function (req, res, next) {
+router.get('/company', function (req, res, next) {
   const uid = req.query.accessId;
   if (uid == '3btcfJeRxsa1HlFrpIXACWAJYrD2') {
-    renderAdminHTML('./public/admin/section/companySection.html', res);
+    renderAdminHTML('./public/admin/dashboard/companySection.html', res);
   } else {
     renderUnauthorizedAccess('./public/unauthorizedAccess.html', res);
   }

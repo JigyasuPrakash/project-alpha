@@ -11,6 +11,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
+const db = firebase.firestore();
 
 function signUp() {
   window.location.href = "./signup.html";
@@ -27,13 +28,16 @@ form.addEventListener('submit', (e) => {
     .then((cred) => {
       console.log(cred.user)
       console.log("Logged in Successfully");
-      //A Hash Function is required here....
-      localStorage.setItem('accessId', cred.user.uid);
-      localStorage.setItem('name', 'Static Name');
-      localStorage.setItem('email', cred.user.email);
-      var accessId = localStorage.getItem('accessId');
+      return db.collection('user-accounts').doc(cred.user.uid).get().then(function (doc) {
+        const name = doc.data().firstName +' '+ doc.data().lastName;
+        //A Hash Function is required here....
+        localStorage.setItem('accessId', cred.user.uid);
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', cred.user.email);
+        var accessId = localStorage.getItem('accessId');
 
-      window.location.href = '/dashboard' + '?accessId=' + accessId;
+        window.location.href = '/dashboard' + '?accessId=' + accessId;
+      })
     }).catch(err => {
       alert("Incorrect Email or Password..!")
     })

@@ -33,20 +33,16 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <script src="../assets/scripts/auth.js"></script>
-    <link href="../css/main.css" rel="stylesheet">
+    <script src="../../scripts/auth.js"></script>
+    <link href="../../css/main.css" rel="stylesheet">
 </head>
 
-<body>
-    <div id="normalUI">
-        <h3>Unautorised Access</h3>
-    </div>
-
-    <div id="adminUI">
+<body onload="loadUI()">
+    <div id="content" style="display: none;">
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <a href="./dashboard.html">
+                <a onclick="goTo('../../dashboard')">
                     <div class="logo-src"></div>
                 </a>
                 <div class="header__pane ml-auto">
@@ -96,14 +92,14 @@
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading" id="userName">
                                     </div>
-                                    <div class="widget-subheading" id="userMail">
+                                    <div class="widget-subheading" id="userEmail">
                                     </div>
                                 </div>
                                 <div class="widget-content-left" style="margin-left: 10px;">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="40" class="rounded-circle" src="../assets/images/avatar.png"
+                                            <img width="40" class="rounded-circle" src="../../images/avatar.png"
                                                 alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -166,32 +162,32 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <a href="./dashboard.html" class="mm-active">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('../../dashboard')">
                                     Dashboard
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Student's Corner</li>
                             <li>
-                                <a href="./studentSection.html">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('../student')">
                                     Home
-                                </a>
+                                </button>
                             </li>
                             <li>
-                                <a href="./searchStudent.html">
+                                <button class="mb-2 mr-2 btn border-0 btn-primary btn-lg btn-block" onclick="goTo('#')">
                                     Search Students
-                                </a>
+                                </button>
                             </li>
                             <li class="app-sidebar__heading">Alumni's Corner</li>
                             <li>
-                                <a href="dashboard-boxes.html">
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('../alumni')">
                                     Home
-                                </a>
+                                </button>
                             </li>
                             <li class="app-sidebar__heading">Company's Corner</li>
                             <li>
-                                <a href="forms-controls.html">
-                                    </i>Home
-                                </a>
+                                <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block" onclick="goTo('../company')">
+                                    Home
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -218,7 +214,7 @@
                         </div>
                         <div class="page-title-wrapper">
                             <div class="page-title-actions">
-                                <button class="mb-2 mr-2 btn btn-primary">EXPORT</button>
+                                <button class="mb-2 mr-2 btn btn-primary">Export</button>
                             </div>
                         </div>
                     </div>
@@ -364,7 +360,7 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../assets/scripts/main.js"></script>
-<script type="text/javascript" src="../assets/scripts/searchStudent.js"></script>
+<script type="text/javascript" src="../../scripts/main.js"></script>
+<script type="text/javascript" src="../../scripts/searchStudent.js"></script>
 
 </html>
