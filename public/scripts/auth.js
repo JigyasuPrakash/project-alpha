@@ -18,6 +18,7 @@ const db = firebase.firestore();
 auth.onAuthStateChanged((user) => {
   loadUI();
   function loadUI() {
+    console.log("Loading Your UI")
     var content = document.getElementById('content');
     if (user) {
       content.style.display = 'block';

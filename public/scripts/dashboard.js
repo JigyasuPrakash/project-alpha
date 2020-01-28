@@ -4,15 +4,6 @@ $(document).ready(function () {
     $('#userEmail').text(localStorage.getItem('email'));
 });
 
-// function getStudent() {
-//     const search = document.getElementById("textToSearch").value;
-//     console.log(search);
-//     if (search != "" && search != null) {
-//         localStorage.setItem("toSearch", search + "@rknec.edu");
-//         window.location.href = "./searchResult.html";
-//     }
-// }
-
 function goTo(path) {
     var getReq = localStorage.getItem('accessId');
     var actualPath = '';
@@ -22,4 +13,13 @@ function goTo(path) {
         actualPath = path + '?accessId=' + getReq;
     }
     window.location.href = actualPath;
+}
+
+function getStudent() {
+    const search = document.getElementById("textToSearch").value;
+    console.log(search);
+    if (search != "" && search != null) {
+        localStorage.setItem("toSearch", search + "@rknec.edu");
+        goTo('/dashboard/student/result');
+    }
 }

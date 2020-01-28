@@ -29,4 +29,14 @@ router.get('/search', function (req, res, next) {
   }
 });
 
+router.get('/result', function (req, res, next) {
+  const uid = req.query.accessId;
+  //only admin@tnp.com has access to Admin Dashboard!!
+  if (uid == '3btcfJeRxsa1HlFrpIXACWAJYrD2') {
+    renderAdminHTML('./public/admin/student/searchResult.html', res);
+  } else {
+    renderUnauthorizedAccess('./public/unauthorizedAccess.html', res);
+  }
+});
+
 module.exports = router;

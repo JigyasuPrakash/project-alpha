@@ -33,23 +33,16 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <script src="../assets/scripts/auth.js"></script>
-    <script src="../assets/scripts/searchResult.js"></script>
-    <link href="../css/main.css" rel="stylesheet">
+    <script src="../../scripts/auth.js"></script>
+    <link href="../../css/main.css" rel="stylesheet">
 </head>
 
-<body>
-
-
-    <div id="normalUI">
-        <h2>Unauthorised access</h2>
-    </div>
-
-    <div id="adminUI">
+<body onload="loadUI()">
+    <div id="content" style="display: none;">
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <a href="./dashboard.html">
+                    <a onclick="goTo('../../dashboard')">
                         <div class="logo-src"></div>
                     </a>
                     <div class="header__pane ml-auto">
@@ -99,14 +92,14 @@
                                     <div class="widget-content-left  ml-3 header-user-info">
                                         <div class="widget-heading" id="userName">
                                         </div>
-                                        <div class="widget-subheading" id="userMail">
+                                        <div class="widget-subheading" id="userEmail">
                                         </div>
                                     </div>
                                     <div class="widget-content-left" style="margin-left: 10px;">
                                         <div class="btn-group">
                                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                                 class="p-0 btn">
-                                                <img width="40" class="rounded-circle" src="../assets/images/avatar.png"
+                                                <img width="40" class="rounded-circle" src="../../images/avatar.png"
                                                     alt="">
                                                 <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                             </a>
@@ -114,11 +107,14 @@
                                                 class="dropdown-menu dropdown-menu-right">
                                                 <button type="button" tabindex="0" class="dropdown-item">User
                                                     Account</button>
-                                                <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                                <button type="button" tabindex="0"
+                                                    class="dropdown-item">Settings</button>
                                                 <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                                                <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                                <button type="button" tabindex="0"
+                                                    class="dropdown-item">Actions</button>
                                                 <div tabindex="-1" class="dropdown-divider"></div>
-                                                <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                                <button type="button" tabindex="0"
+                                                    class="dropdown-item">Dividers</button>
                                                 <button type="button" tabindex="0" class="dropdown-item"
                                                     onclick="logOut()">Log Out</button>
                                             </div>
@@ -169,32 +165,37 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="#" class="mm-active">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                        onclick="goTo('../../dashboard')">
                                         Dashboard
-                                    </a>
+                                        </a>
                                 </li>
                                 <li class="app-sidebar__heading">Student's Corner</li>
                                 <li>
-                                    <a href="./studentSection.html">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                        onclick="goTo('../student')">
                                         Home
-                                    </a>
+                                    </button>
                                 </li>
                                 <li>
-                                    <a href="./searchStudent.html">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                        onclick="goTo('./search')">
                                         Search Students
-                                    </a>
+                                    </button>
                                 </li>
                                 <li class="app-sidebar__heading">Alumni's Corner</li>
                                 <li>
-                                    <a href="dashboard-boxes.html">
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                        onclick="goTo('../alumni')">
                                         Home
-                                    </a>
+                                    </button>
                                 </li>
                                 <li class="app-sidebar__heading">Company's Corner</li>
                                 <li>
-                                    <a href="forms-controls.html">
-                                        </i>Home
-                                    </a>
+                                    <button class="mb-2 mr-2 btn border-0 btn-outline-primary btn-lg btn-block"
+                                        onclick="goTo('../company')">
+                                        Home
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -210,21 +211,25 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                     <div class="page-title-icon">
-                                        <img class="pe-7s-photo-gallery icon-gradient bg-mean-fruit" id="avatar">
+                                        <!--id="avatar" is to be added for dynamic image loading-->
+                                        <img class="pe-7s-photo-gallery icon-gradient bg-mean-fruit rounded-circle"
+                                            width="40" src="../../images/some.jpeg" alt="">
                                         </img>
                                     </div>
-                                    <div><p id="studentName"></p>
+                                    <div>
+                                        <p id="studentName"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <h3 ></h3>
+                        <h3></h3>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Student Personal Details</h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Student Personal Details</h5>
                                         <ul class="list-group">
                                             <li class="list-group-item" id="firstName"></li>
                                             <li class="list-group-item" id="middleName"></li>
@@ -252,7 +257,8 @@
                                 </div>
 
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Student Previous Academic Details</h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Student Previous Academic Details</h5>
                                         <ul class="list-group">
                                             <li class="list-group-item" id="MHCETscore"></li>
                                             <li class="list-group-item" id="JEEscore"></li>
@@ -280,7 +286,8 @@
                                 </div>
 
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Student Placement Details</h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Student Placement Details</h5>
                                         <ul class="list-group">
                                             <li class="list-group-item" id="enrollmentno"></li>
                                             <li class="list-group-item" id="enrollment_no"></li>
@@ -308,11 +315,12 @@
 
                             <div class="col-md-6">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Student Current Academic Details</h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Student Current Academic Details</h5>
                                         <ul class="list-group">
                                             <li class="list-group-item" id="enrollment_No"></li>
                                             <li class="list-group-item" id="emailIDCA"></li>
-                                            <li class="list-group-item" id="CGPACA"></li>                                                                                
+                                            <li class="list-group-item" id="CGPACA"></li>
                                             <li class="list-group-item" id="degree_Board"></li>
                                             <li class="list-group-item" id="Sem1PassYear"></li>
                                             <li class="list-group-item" id="Sem1SGPA"></li>
@@ -374,10 +382,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        
-
-                    </div>    
+                    </div>
 
 
 
@@ -404,12 +409,19 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </body>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../assets/scripts/main.js"></script>
+<script type="text/javascript" src="../../scripts/main.js"></script>
+<script src="../../scripts/student.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("Individual Search Initiated")
+        searchIndividual();
+    })
+</script>
 
 </html>
