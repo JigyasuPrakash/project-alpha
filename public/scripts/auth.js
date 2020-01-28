@@ -18,12 +18,10 @@ const db = firebase.firestore();
 auth.onAuthStateChanged((user) => {
   loadUI();
   function loadUI() {
+    var content = document.getElementById('content');
     if (user) {
-      var content = document.getElementById('content');
       content.style.display = 'block';
-      console.log(user);
     } else {
-      var content = document.getElementById('content');
       content.style.display = 'none';
       window.location.href = "../login";
     }
@@ -31,7 +29,6 @@ auth.onAuthStateChanged((user) => {
 });
 
 function logOut() {
-  console.log("Signout process started")
   auth.signOut();
   localStorage.clear();
 }
