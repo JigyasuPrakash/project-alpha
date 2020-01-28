@@ -173,7 +173,7 @@ function createObject() {
     console.log("GENDER"+isGen);
 
     if (!isBranch && !isCat && !isGen && !isCG) {
-
+        var objToSend={};
         let query = studentPersonal.get()
             .then(snapshot => {
                 if (snapshot.empty) {
