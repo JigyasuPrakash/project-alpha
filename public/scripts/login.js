@@ -20,6 +20,7 @@ function signUp() {
 const form = document.querySelector('#login-form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  $("#display_loading").css('visibility', 'visible');
   const email = form.email.value;
   const pass = form.password.value;
   form.reset();
@@ -39,6 +40,7 @@ form.addEventListener('submit', (e) => {
         window.location.href = '/dashboard' + '?accessId=' + accessId;
       })
     }).catch(err => {
+      $("#display_loading").css('visibility', 'hidden');
       alert("Incorrect Email or Password..!")
     })
 });

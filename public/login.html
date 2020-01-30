@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
-
+	<style>
+		#display_loading{
+				  position: absolute;
+				  top: 50%;
+				  left: 50%;
+			  visibility: hidden;
+			  }
+	  </style>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +20,7 @@
 	<meta name="msapplication-tap-highlight" content="no">
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 	<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 	<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
@@ -95,6 +102,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="display_loading"><img src="images\load.gif" id="img" alt="Loading.." > </div>
 		<div class="app-wrapper-footer">
 			<div class="app-footer">
 				<div class="app-footer__inner">
