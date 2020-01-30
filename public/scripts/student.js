@@ -23,16 +23,15 @@ function goTo(path) {
     }
     window.location.href = actualPath;
 }
-
+var branch = [], gen = [], cat = [];
+var isBranch, isCat, isGen, isCG;
 function createObject() {
     $('#filterResults').empty();
     $('#BranchFilter').empty();
     $('#CategoryFilter').empty();
     $('#GenderFilter').empty();
     $('#CGPAFilter').empty();
-
-    var branch = [], gen = [], cat = [];
-    var isBranch = false, isCat = false, isGen = false, isCG = false;
+    isBranch = false; isCat = false; isGen = false; isCG = false;
 
     if ($('#searchStudentCS').is(':checked')) {
         isBranch = true;
@@ -692,6 +691,497 @@ function createObject() {
 
 }
 
+function exportToCSV(){
+    var filterObject = {
+        Branch: branch,
+        Category: cat,
+        Gender: gen,
+        GEN: $('#CatGEN').is(':checked'),
+        SC: $('#CatSC').is(':checked'),
+        ST: $('#CatST').is(':checked'),
+        OBC: $('#CatOBC').is(':checked'),
+        OTHER: $('#CatOTHER').is(':checked'),
+        Male: $('#isMale').is(':checked'),
+        Female: $('#isFemale').is(':checked'),
+        CGPA: $('#searchCGPA').val()
+    };
+    let studentPersonal = db.collection('student_personal_details');
+    console.log("Branch" + isBranch);
+    console.log("CGPA" + isCG);
+    console.log("CATEGORY" + isCat);
+    console.log("GENDER" + isGen);
+    var csvFile="Name,Branch Name,Shift,CGPA,Gender,Email-Id,Category\r\n";
+    if (!isBranch && !isCat && !isGen && !isCG) {
+        var objToSend={};
+        let query = studentPersonal.get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    console.log('No matching documents.');
+                    return;
+                }
+
+                $('#filterResults').empty();
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");
+                   
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); 
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && !isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    
+                    csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && !isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    console.log('765');
+                    console.log(doc.id, '=>', doc.data());
+                    csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && isCat && !isGen && !isCG) {
+        let query = studentPersonal.where('Category', 'in', filterObject['Category']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    console.log('785');
+                    csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && !isCat && !isGen && isCG) {
+        let query = studentPersonal.where('CGPA', '>=', parseInt(filterObject['CGPA'])).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                let s = doc.data();
+                console.log('804');
+                csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && !isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    if (filterObject['Category'].includes(s.Category)) {
+                        console.log('824');
+                        console.log(doc.id, '=>', doc.data());
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && !isGen && isCG) {
+        
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    if (filterObject['CGPA'] <= s.CGPA) {
+                        console.log('846');
+                        console.log(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\n");   
+                        console.log("csvFile"+csvFile);
+                        
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+                console.log("csvFile"+csvFile);
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+            
+            console.log('hi');
+    }
+
+    if (!isBranch && isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['Category'].includes(s.Category)) {
+                        console.log('868');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && !isCat && isGen && isCG) {
+        let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['CGPA'] <= s.CGPA) {
+                        console.log('890');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                    
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (!isBranch && isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Category', 'in', filterObject['Category']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+                    if (filterObject['CGPA'] <= s.CGPA) {
+                        console.log('911');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['Gender'].includes(s.Gender)) {
+                        console.log('933');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+
+    if (!isBranch && isCat && isGen && isCG) {
+        let query = studentPersonal.where('Category', 'in', filterObject['Category']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['CGPA'] <= s.CGPA && filterObject['Gender'].includes(s.Gender)) {
+                        console.log('956');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && isGen && !isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category)) {
+                        console.log('978');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && !isCat && isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['Gender'].includes(s.Gender) && filterObject['CGPA'] <= s.CGPA) {
+                        console.log('1000');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && !isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['Category'].includes(s.Category) && filterObject['CGPA'] <= s.CGPA) {
+                        console.log('1022');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    if (isBranch && isCat && isGen && isCG) {
+        let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    //console.log('No matching documents.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    let s = doc.data();
+
+                    if (filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category) && filterObject['CGPA'] <= s.CGPA) {
+                        console.log('1044');
+                        csvFile=csvFile.concat(s.Fullname+","+s.Branch+","+s.Shift+","+s.CGPA+","+s.Gender+","+s.EmailId+","+s.Category+"\r\n");   
+                    }
+                });
+                let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "my_data.csv");
+                document.body.appendChild(link); // Required for FF
+                link.click();
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+    // console.log("csvFile"+csvFile);
+    // console.log("branch"+filterObject['Branch']);
+    // let csvContent = "data:text/csv;charset=utf-8,"+csvFile;
+    // var encodedUri = encodeURI(csvContent);
+    // //window.open(encodedUri);
+    // //var encodedUri = encodeURI(csvContent);
+    // var link = document.createElement("a");
+    // link.setAttribute("href", encodedUri);
+    // link.setAttribute("download", "my_data.csv");
+    // document.body.appendChild(link); // Required for FF
+    // link.click();
+}
 
 function searchIndividual() {
     const search = localStorage.getItem('toSearch')
