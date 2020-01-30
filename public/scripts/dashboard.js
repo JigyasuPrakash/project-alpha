@@ -9,6 +9,8 @@ function goTo(path) {
     var actualPath = '';
     if (path == '#') {
         actualPath = path;
+    }else if(path == 'login'){
+        actualPath = '/login';
     } else {
         actualPath = path + '?accessId=' + getReq;
     }
