@@ -1,20 +1,22 @@
 $(document).ready(function () {
     console.log("Document is ready")
-    $('#userName').text(localStorage.getItem('name'));
-    $('#userEmail').text(localStorage.getItem('email'));
+    $('#userName').text(sessionStorage.getItem('name'));
+    $('#userEmail').text(sessionStorage.getItem('email'));
 });
 
 function getStudent() {
     const search = document.getElementById("textToSearch").value;
     console.log(search);
     if (search != "" && search != null) {
-        localStorage.setItem("toSearch", search + "@rknec.edu");
+        sessionStorage.setItem("toSearch", search + "@rknec.edu");
         goTo('/dashboard/student/result');
     }
 }
 
+//clear search result:error once you go back it's value remains same
 function goTo(path) {
-    var getReq = localStorage.getItem('accessId');
+    $("#display_loading").css('visibility', 'visible');
+    var getReq = sessionStorage.getItem('accessId');
     var actualPath = '';
     if (path == '#') {
         actualPath = path;
@@ -34,7 +36,7 @@ function createObject() {
     $('#GenderFilter').empty();
     $('#CGPAFilter').empty();
     isBranch = false; isCat = false; isGen = false; isCG = false;
-
+    $("#display_loading").css('visibility', 'visible');
     if ($('#searchStudentCS').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Computer Science Engineering`);
@@ -186,9 +188,10 @@ function createObject() {
                 }
 
                 $('#filterResults').empty();
-
+                
                 snapshot.forEach(doc => {
                     let s = doc.data();
+                    $("#display_loading").css('visibility', 'hidden');
                     $('#filterResults').append(`
                     <tr>
                         <td>${s.Fullname}</td>
@@ -216,11 +219,11 @@ function createObject() {
                     //console.log('No matching documents.');
                     return;
                 }
-
+                $("#display_loading").css('visibility', 'hidden');
                 snapshot.forEach(doc => {
                     let s = doc.data();
-
                     console.log(doc.id, '=>', doc.data());
+                    $("#display_loading").css('visibility', 'hidden');
                     $('#filterResults').append(`
                     <tr>
                         <td>${s.Fullname}</td>
@@ -251,6 +254,7 @@ function createObject() {
                     let s = doc.data();
 
                     console.log(doc.id, '=>', doc.data());
+                    $("#display_loading").css('visibility', 'hidden');
                     $('#filterResults').append(`
                     <tr>
                         <td>${s.Fullname}</td>
@@ -281,6 +285,7 @@ function createObject() {
                     let s = doc.data();
 
                     console.log(doc.id, '=>', doc.data());
+                    $("#display_loading").css('visibility', 'hidden');
                     $('#filterResults').append(`
                     <tr>
                         <td>${s.Fullname}</td>
@@ -311,6 +316,7 @@ function createObject() {
                     let s = doc.data();
 
                     console.log(doc.id, '=>', doc.data());
+                    $("#display_loading").css('visibility', 'hidden');
                     $('#filterResults').append(`
                     <tr>
                         <td>${s.Fullname}</td>
@@ -342,6 +348,7 @@ function createObject() {
                     if (filterObject['Category'].includes(s.Category)) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -372,8 +379,8 @@ function createObject() {
                 snapshot.forEach(doc => {
                     let s = doc.data();
                     if (filterObject['CGPA'] <= s.CGPA) {
-
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -407,6 +414,7 @@ function createObject() {
                     if (filterObject['Category'].includes(s.Category)) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -440,6 +448,7 @@ function createObject() {
                     if (filterObject['CGPA'] <= s.CGPA) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -473,6 +482,7 @@ function createObject() {
                     if (filterObject['CGPA'] <= s.CGPA) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -506,6 +516,7 @@ function createObject() {
                     if (filterObject['Gender'].includes(s.Gender)) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -540,6 +551,7 @@ function createObject() {
                     if (filterObject['CGPA'] <= s.CGPA && filterObject['Gender'].includes(s.Gender)) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -573,6 +585,7 @@ function createObject() {
                     if (filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category)) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -606,6 +619,7 @@ function createObject() {
                     if (filterObject['Gender'].includes(s.Gender) && filterObject['CGPA'] <= s.CGPA) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -639,6 +653,7 @@ function createObject() {
                     if (filterObject['Category'].includes(s.Category) && filterObject['CGPA'] <= s.CGPA) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -672,6 +687,7 @@ function createObject() {
                     if (filterObject['Gender'].includes(s.Gender) && filterObject['Category'].includes(s.Category) && filterObject['CGPA'] <= s.CGPA) {
 
                         console.log(doc.id, '=>', doc.data());
+                        $("#display_loading").css('visibility', 'hidden');
                         $('#filterResults').append(`
                         <tr>
                             <td>${s.Fullname}</td>
@@ -1186,7 +1202,7 @@ function exportToCSV(){
 }
 
 function searchIndividual() {
-    const search = localStorage.getItem('toSearch')
+    const search = sessionStorage.getItem('toSearch')
     let student = db.collection('student_personal_details').doc(search);
 
     var found;

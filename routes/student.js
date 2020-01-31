@@ -1,8 +1,9 @@
 var express = require('express');
 var fs = require('fs');
 var router = express.Router();
+const adminUID = ["3btcfJeRxsa1HlFrpIXACWAJYrD2", "MYacLsqfhHa8wE8FWf5WhrUFajB2"];
 
-function renderAdminHTML(path, res) {
+function renderHTML(path, res) {
   fs.readFile(path, null, function (error, data) {
     res.writeHeader(200, { 'Content-Type': 'text/html' });
     res.write(data);
@@ -22,8 +23,8 @@ function renderUnauthorizedAccess(path, res) {
 router.get('/search', function (req, res, next) {
   const uid = req.query.accessId;
   //only admin@tnp.com has access to Admin Dashboard!!
-  if (uid == '3btcfJeRxsa1HlFrpIXACWAJYrD2') {
-    renderAdminHTML('./public/admin/student/searchStudent.html', res);
+  if (adminUID.includes(uid)) {
+    renderHTML('./public/admin/student/searchStudent.html', res);
   } else {
     renderUnauthorizedAccess('./public/unauthorizedAccess.html', res);
   }
@@ -32,8 +33,8 @@ router.get('/search', function (req, res, next) {
 router.get('/result', function (req, res, next) {
   const uid = req.query.accessId;
   //only admin@tnp.com has access to Admin Dashboard!!
-  if (uid == '3btcfJeRxsa1HlFrpIXACWAJYrD2') {
-    renderAdminHTML('./public/admin/student/searchResult.html', res);
+  if (adminUID.includes(uid)) {
+    renderHTML('./public/admin/student/searchResult.html', res);
   } else {
     renderUnauthorizedAccess('./public/unauthorizedAccess.html', res);
   }

@@ -31,5 +31,5 @@ auth.onAuthStateChanged((user) => {
 
 function logOut() {
   auth.signOut();
-  localStorage.clear();
+  sessionStorage.clear();
 }

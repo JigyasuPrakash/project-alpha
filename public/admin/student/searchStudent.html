@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="en">
+<style>
+    #display_loading {
+        position: relative;
+        bottom: 5%;
+        left: 40%;
+        visibility: hidden;
+    }
+</style>
 
 <head>
     <meta charset="utf-8">
@@ -13,6 +21,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
 
@@ -165,15 +174,13 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Dashboards</li>
                                 <li>
-                                    <a href="#"
-                                        onclick="goTo('../../dashboard')">
+                                    <a href="#" onclick="goTo('../../dashboard')">
                                         Dashboard
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Student's Corner</li>
                                 <li>
-                                    <a href="#"
-                                        onclick="goTo('../student')">
+                                    <a href="#" onclick="goTo('../student')">
                                         Home
                                     </a>
                                 </li>
@@ -184,15 +191,13 @@
                                 </li>
                                 <li class="app-sidebar__heading">Alumni's Corner</li>
                                 <li>
-                                    <a href="#"
-                                        onclick="goTo('../alumni')">
+                                    <a href="#" onclick="goTo('../alumni')">
                                         Home
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Company's Corner</li>
                                 <li>
-                                    <a href="#"
-                                        onclick="goTo('../company')">
+                                    <a href="#" onclick="goTo('../company')">
                                         Home
                                     </a>
                                 </li>
@@ -209,8 +214,9 @@
                         <!--Main Content Area Starts Here-->
                         <div class="app-page-title">
                             <div class="tab-content">
-                                <div class="tab-pane tabs-animation fade active show" id="tab-content-2" role="tabpanel">
-    
+                                <div class="tab-pane tabs-animation fade active show" id="tab-content-2"
+                                    role="tabpanel">
+
                                     <div class="mb-2 mr-2 btn-group">
                                         <button type="button" aria-haspopup="true" aria-expanded="false"
                                             data-toggle="dropdown"
@@ -220,37 +226,37 @@
                                                 <input type="checkbox" id="searchStudentCS" onclick="createObject()"
                                                     class="form-check-input">Computer Science</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentIT" onclick="createObject()"
                                                     class="form-check-input">Information Technology</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentIND" onclick=" createObject()"
                                                     class="form-check-input">Industrial</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentELEC" onclick=" createObject()"
                                                     class="form-check-input">Electrical</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentEDT" onclick=" createObject()"
                                                     class="form-check-input">EDT</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentEN" onclick=" createObject()"
                                                     class="form-check-input">EN</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentENT" onclick=" createObject()"
                                                     tabindex="0" class="form-check-input">ENT</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="searchStudentME" onclick=" createObject()"
                                                     class="form-check-input">Mechanical</input>
@@ -261,7 +267,7 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                     <div class="mb-2 mr-2 btn-group">
                                         <button type="button" aria-haspopup="true" aria-expanded="false"
                                             data-toggle="dropdown"
@@ -291,26 +297,26 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                     <div class="mb-2 mr-2 btn-group">
                                         <button type="button" aria-haspopup="true" aria-expanded="false"
                                             data-toggle="dropdown"
                                             class="mb-2 mr-2 dropdown-toggle btn btn-outline-primary">GENDER</button>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="isMale" onclick=" createObject()"
                                                     class="form-check-input">MALE</input>
                                             </div>
-    
+
                                             <div class="form-check" style="margin: 8px;">
                                                 <input type="checkbox" id="isFemale" onclick="createObject()"
                                                     class="form-check-input">FEMALE</input>
                                             </div>
-    
+
                                         </div>
                                     </div>
-    
+
                                     <div class="mb-2 mr-2 btn-group">
                                         <button type="button" aria-haspopup="true" aria-expanded="false"
                                             data-toggle="dropdown"
@@ -342,7 +348,7 @@
                             </div>
                         </div>
 
-                        
+
                         <hr>
                         <!--Paste Your Code Here-->
 
@@ -367,6 +373,8 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div id="display_loading"><img src="../../images/load.gif" id="img" alt="Loading.."> </div>
 
                         <!--Main Content Area Ends Here-->
                     </div>
@@ -395,8 +403,7 @@
         </div>
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
 <script type="text/javascript" src="../../scripts/main.js"></script>
 <script type="text/javascript" src="../../scripts/student.js"></script>
 
