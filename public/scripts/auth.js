@@ -24,7 +24,7 @@ auth.onAuthStateChanged((user) => {
       content.style.display = 'block';
     } else {
       content.style.display = 'none';
-      window.location.href = "../login";
+      goTo('login');
     }
   }
 });

@@ -30,7 +30,7 @@ form.addEventListener('submit', (e) => {
       console.log(cred.user)
       console.log("Logged in Successfully");
       return db.collection('user-accounts').doc(cred.user.uid).get().then(function (doc) {
-        const name = doc.data().firstName +' '+ doc.data().lastName;
+        const name = doc.data().firstName + ' ' + doc.data().lastName;
         //A Hash Function is required here....
         localStorage.setItem('accessId', cred.user.uid);
         localStorage.setItem('name', name);
@@ -44,3 +44,14 @@ form.addEventListener('submit', (e) => {
       alert("Incorrect Email or Password..!")
     })
 });
+
+
+// $.ajax({
+//   method: 'POST',
+//   data: {
+//     uid: cred.user.uid
+//   },
+//   url: "/dashboard", success: function (result) {
+//     window.location.href = '/dashboard';
+//   }
+// });
