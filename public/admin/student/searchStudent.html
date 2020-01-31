@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
-
+    <style>
+		#display_loading{
+				  position: relative;
+				  bottom: 5%;
+				  left: 40%;
+			  visibility: hidden;
+			  }
+	  </style>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +43,6 @@
     <script src="../../scripts/auth.js"></script>
     <link href="../../css/main.css" rel="stylesheet">
 </head>
-
 <body onload="loadUI()">
     <div id="content" style="display: none;">
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -367,6 +373,8 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div id="display_loading"><img src="../../images/load.gif" id="img" alt="Loading.." > </div>
 
                         <!--Main Content Area Ends Here-->
                     </div>
