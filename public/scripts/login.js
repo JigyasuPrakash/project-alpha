@@ -32,10 +32,10 @@ form.addEventListener('submit', (e) => {
       return db.collection('user-accounts').doc(cred.user.uid).get().then(function (doc) {
         const name = doc.data().firstName + ' ' + doc.data().lastName;
         //A Hash Function is required here....
-        localStorage.setItem('accessId', cred.user.uid);
-        localStorage.setItem('name', name);
-        localStorage.setItem('email', cred.user.email);
-        var accessId = localStorage.getItem('accessId');
+        sessionStorage.setItem('accessId', cred.user.uid);
+        sessionStorage.setItem('name', name);
+        sessionStorage.setItem('email', cred.user.email);
+        var accessId = sessionStorage.getItem('accessId');
 
         window.location.href = '/dashboard' + '?accessId=' + accessId;
       })

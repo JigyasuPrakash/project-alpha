@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log("Document is ready")
-    $('#userName').text(localStorage.getItem('name'));
-    $('#userEmail').text(localStorage.getItem('email'));
+    $('#userName').text(sessionStorage.getItem('name'));
+    $('#userEmail').text(sessionStorage.getItem('email'));
 });
 
 function addNewStudent() {
@@ -10,7 +10,7 @@ function addNewStudent() {
 }
 
 function goTo(path) {
-    var getReq = localStorage.getItem('accessId');
+    var getReq = sessionStorage.getItem('accessId');
     switch (path) {
         case 'dashboard':
             window.location.href = '/dashboard' + '?accessId=' + getReq;
