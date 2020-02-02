@@ -25,16 +25,13 @@ router.get('/dashboard', passport.authenticate('jwt', {
 router.post('/register', (req, res) => {
     let newUser = new User({
         name: req.body.name,
-        Email: req.body.Email,
         email: req.body.email,
-        contact: req.body.contact,
         password: req.body.password
     });
     User.addUser(newUser, (err, user) => {
         if (err) {
             let message = "";
-            if (err.errors.Email) message = "Email is already taken. ";
-            if (err.errors.email) message += "Email already exists.";
+            if (err.errors.email) message = "Email already exists.";
             return res.json({
                 success: false,
                 message
