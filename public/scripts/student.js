@@ -1,14 +1,14 @@
 $(document).ready(function () {
     console.log("Document is ready")
-    $('#userName').text(sessionStorage.getItem('name'));
-    $('#userEmail').text(sessionStorage.getItem('email'));
+    $('#userName').text(localStorage.getItem('name'));
+    $('#userEmail').text(localStorage.getItem('email'));
 });
 
 function getStudent() {
     const search = document.getElementById("textToSearch").value;
     console.log(search);
     if (search != "" && search != null) {
-        sessionStorage.setItem("toSearch", search + "@rknec.edu");
+        localStorage.setItem("toSearch", search + "@rknec.edu");
         goTo('/dashboard/student/result');
     }
 }
@@ -16,7 +16,7 @@ function getStudent() {
 //clear search result:error once you go back it's value remains same
 function goTo(path) {
     $("#display_loading").css('visibility', 'visible');
-    var getReq = sessionStorage.getItem('accessId');
+    var getReq = localStorage.getItem('accessId');
     var actualPath = '';
     if (path == '#') {
         actualPath = path;
@@ -1202,7 +1202,7 @@ function exportToCSV(){
 }
 
 function searchIndividual() {
-    const search = sessionStorage.getItem('toSearch')
+    const search = localStorage.getItem('toSearch')
     let student = db.collection('student_personal_details').doc(search);
 
     var found;

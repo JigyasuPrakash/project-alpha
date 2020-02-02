@@ -1,7 +1,7 @@
 /*************************************** Common functions are here ***************************************/
 function goTo(goToPath) {
-    var path = '/api/' + sessionStorage.getItem('userType') + '/' + goToPath;
-    var token = sessionStorage.getItem('SessionID');
+    var path = '/api/' + localStorage.getItem('userType') + '/' + goToPath;
+    var token = localStorage.getItem('SessionID');
     if (path === null || token === null) {
         alert("Please login first!!");
         window.location.href = './login';
@@ -13,13 +13,13 @@ function goTo(goToPath) {
         success: function (result) {
             document.getElementById('content').innerHTML = result;
             /** URL Updating mechanism is here.. needs to be updated */
-            //window.history.pushState({ "html": response.html, "pageTitle": response.pageTitle }, "", urlPath);
+            //window.history.pushState(result, '', goToPath);
         }
     });
 }
 
 function logOut() {
-    sessionStorage.clear();
+    localStorage.clear();
     window.location.href = './';
 }
 
@@ -27,7 +27,7 @@ function getStudent() {
     const search = document.getElementById("textToSearch").value;
     console.log(search);
     if (search != "" && search != null) {
-        sessionStorage.setItem("toSearch", search + "@rknec.edu");
+        localStorage.setItem("toSearch", search + "@rknec.edu");
         goTo('/dashboard/student/result');
     }
 }
@@ -50,8 +50,8 @@ function getStudent() {
 /*************************************** Stundent Section specific functions are here ***************************************/
 $(document).ready(function () {
     console.log("Document is ready")
-    $('#userName').text(sessionStorage.getItem('name'));
-    $('#userEmail').text(sessionStorage.getItem('email'));
+    $('#userName').text(localStorage.getItem('name'));
+    $('#userEmail').text(localStorage.getItem('email'));
 });
 
 function addNewStudent() {

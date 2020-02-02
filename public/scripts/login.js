@@ -24,8 +24,8 @@ form.addEventListener('submit', (e) => {
 		url: path,
 		success: function (result) {
 			console.log(result.token)
-			sessionStorage.setItem('userType', userType);
-			sessionStorage.setItem('SessionID', result.token);
+			localStorage.setItem('userType', userType);
+			localStorage.setItem('SessionID', result.token);
 			window.location.href = '/dashboard';
 		}
 	});

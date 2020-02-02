@@ -64,6 +64,10 @@ app.use('/api/users', usersApi);
 const adminApi = require('./routes/adminAuth');
 app.use('/api/admin', adminApi);
 
+//Database access endpoints
+const dataFetch = require('./routes/dataFetch.js');
+app.use('/api/fetch/data', dataFetch);
+
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
