@@ -1,57 +1,36 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyCx3lQ3Oe4oKrJCdTcp4CKlDeKiRRxbdWc",
-  authDomain: "project-tnp-be0af.firebaseapp.com",
-  databaseURL: "https://project-tnp-be0af.firebaseio.com",
-  projectId: "project-tnp-be0af",
-  storageBucket: "project-tnp-be0af.appspot.com",
-  messagingSenderId: "518046381835",
-  appId: "1:518046381835:web:f87059d9fdfc1fe0f4140e",
-  measurementId: "G-R71GXZPYXL"
-};
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-function signUp() {
-  window.location.href = "./signup.html";
-}
+var CID = '';
 
 const form = document.querySelector('#login-form');
+var userType = 'users';
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  $("#display_loading").css('visibility', 'visible');
-  const email = form.email.value;
-  const pass = form.password.value;
-  form.reset();
 
-  auth.signInWithEmailAndPassword(email, pass)
-    .then((cred) => {
-      console.log(cred.user)
-      console.log("Logged in Successfully");
-      return db.collection('user-accounts').doc(cred.user.uid).get().then(function (doc) {
-        const name = doc.data().firstName + ' ' + doc.data().lastName;
-        //A Hash Function is required here....
-        sessionStorage.setItem('accessId', cred.user.uid);
-        sessionStorage.setItem('name', name);
-        sessionStorage.setItem('email', cred.user.email);
-        var accessId = sessionStorage.getItem('accessId');
-
-        window.location.href = '/dashboard' + '?accessId=' + accessId;
-      })
-    }).catch(err => {
-      $("#display_loading").css('visibility', 'hidden');
-      alert("Incorrect Email or Password..!")
-    })
+	e.preventDefault();
+	$("#display_loading").css('visibility', 'visible');
+	const email = form.email.value;
+	const password = form.password.value;
+	form.reset();
+	var path = '/api/users/login';
+	if (email.split('@')[1] === 'tnp.com') {
+		path = '/api/admin/login';
+		userType = 'admin';
+	}
+	$.ajax({
+		method: 'POST',
+		dataType: "json",
+		data: {
+			"email": email,
+			"password": password
+		},
+		url: path,
+		success: function (result) {
+			console.log(result.token)
+			sessionStorage.setItem('userType', userType);
+			sessionStorage.setItem('SessionID', result.token);
+			window.location.href = '/dashboard';
+		}
+	});
 });
 
-
-// $.ajax({
-//   method: 'POST',
-//   data: {
-//     uid: cred.user.uid
-//   },
-//   url: "/dashboard", success: function (result) {
-//     window.location.href = '/dashboard';
-//   }
-// });
+function signUp() {
+	window.location.href = "./signup";
+}

@@ -13,7 +13,7 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 function Login() {
-    window.location.href = "./login.html"
+    window.location.href = "./login"
 }
 
 const form = document.querySelector('#signup-form');

@@ -1,8 +1,0 @@
-Admin Accounts:
-    1.
-        User Name: admin@tnp.com
-        Password: adminlog
-
-    2.
-        User Name: anotheradmin@tnp.com
-        Password: imadmin

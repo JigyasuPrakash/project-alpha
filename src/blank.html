@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            var path = '/api/' + sessionStorage.getItem('userType') + '/dashboard';
+            var token = sessionStorage.getItem('SessionID');
+            if (path === null || token === null) {
+                alert("Please login first!!");
+                window.location.href = './';
+            }
+            $.ajax({
+                type: "GET",
+                url: path,
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', token); },
+                success: function (result) {
+                    document.getElementById('content').innerHTML = result;
+                },
+            });
+        })
+    </script>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="content"></div>
+</body>
+<script src="./scripts/functions.js"></script>
+
+</html>
