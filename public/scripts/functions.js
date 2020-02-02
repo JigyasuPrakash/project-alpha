@@ -1,5 +1,8 @@
 /*************************************** Common functions are here ***************************************/
 function goTo(goToPath) {
+    if (goToPath === '#') {
+        return
+    }
     var path = '/api/' + localStorage.getItem('userType') + '/' + goToPath;
     var token = localStorage.getItem('SessionID');
     if (path === null || token === null) {
@@ -16,11 +19,12 @@ function goTo(goToPath) {
             //window.history.pushState(result, '', goToPath);
         }
     });
+
 }
 
 function logOut() {
     localStorage.clear();
-    window.location.href = './';
+    window.location.href = './login';
 }
 
 function getStudent() {
@@ -31,7 +35,6 @@ function getStudent() {
         goTo('/dashboard/student/result');
     }
 }
-
 
 
 
@@ -48,13 +51,3 @@ function getStudent() {
 
 
 /*************************************** Stundent Section specific functions are here ***************************************/
-$(document).ready(function () {
-    console.log("Document is ready")
-    $('#userName').text(localStorage.getItem('name'));
-    $('#userEmail').text(localStorage.getItem('email'));
-});
-
-function addNewStudent() {
-    console.log('AddStudent.html is called')
-    //window.location.href = "./addStudent.html";
-}

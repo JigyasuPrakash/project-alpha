@@ -113,6 +113,8 @@ router.post('/login', (req, res) => {
                 });
                 res.status(200);
                 return res.json({
+                    name: admin.name,
+                    email: admin.email,
                     success: true,
                     token: "JWT " + token
                 });

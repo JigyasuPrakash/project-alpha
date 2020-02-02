@@ -68,6 +68,12 @@ app.use('/api/admin', adminApi);
 const dataFetch = require('./routes/dataFetch.js');
 app.use('/api/fetch/data', dataFetch);
 
+//404 page redirection
+app.use(function (req, res) {
+    res.status(404);
+    res.sendFile(path.join(__dirname, '/src/404.html'))
+})
+
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

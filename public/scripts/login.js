@@ -1,5 +1,3 @@
-var CID = '';
-
 const form = document.querySelector('#login-form');
 var userType = 'users';
 form.addEventListener('submit', (e) => {
@@ -25,6 +23,8 @@ form.addEventListener('submit', (e) => {
 		success: function (result) {
 			console.log(result.token)
 			localStorage.setItem('userType', userType);
+			localStorage.setItem('name', result.name);
+			localStorage.setItem('email', result.email);
 			localStorage.setItem('SessionID', result.token);
 			window.location.href = '/dashboard';
 		}
