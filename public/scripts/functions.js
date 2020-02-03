@@ -14,10 +14,11 @@ function goTo(goToPath) {
         url: path,
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', token); },
         success: function (result) {
+            $('#content').empty();
             document.getElementById('content').insertAdjacentHTML('afterbegin', result);
             /** URL Updating mechanism is here.. needs to be updated */
             //window.history.pushState(result, '', goToPath);
-        }
+        },
     });
 
 }
