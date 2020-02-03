@@ -10,7 +10,7 @@ module.exports = (userType, passport) => {
     opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
     opts.secretOrKey = config.secret;
     passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-        if (userType == 'admin') {
+        if (userType == 'admin' || userType == 'fetch') {
             Admin.getAdminById(jwt_payload.data._id, (err, user) => {
                 if (err) return done(err, false);
                 if (user) return done(null, user);

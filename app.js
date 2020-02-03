@@ -18,7 +18,7 @@ mongoose.connect(config.database, {
     useNewUrlParser: true
 })
     .then(() => {
-        console.log('Mongoose connected successfully');
+        console.log('Mongoose connected to User Accounts');
     }).catch(err => {
         console.log(err);
     });
@@ -65,7 +65,7 @@ const adminApi = require('./routes/adminAuth');
 app.use('/api/admin', adminApi);
 
 //Database access endpoints
-const dataFetch = require('./routes/dataFetch.js');
+const dataFetch = require('./routes/dataFetch');
 app.use('/api/fetch/data', dataFetch);
 
 //404 page redirection
