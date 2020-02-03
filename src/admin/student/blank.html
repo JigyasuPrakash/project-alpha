@@ -5,29 +5,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../../scripts/main.js"></script>
     <script src="../../scripts/functions.js"></script>
-    <script>
-        $(document).ready(function () {
-            var path = '/api/' + localStorage.getItem('userType') + window.location.pathname;
-            var token = localStorage.getItem('SessionID');
-            if (path === null || token === null) {
-                alert("Please login first!!");
-                window.location.href = './login';
-            }
-            $.ajax({
-                type: "GET",
-                url: path,
-                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', token); },
-                success: function (result) {
-                    $('#content').empty();
-                    document.getElementById('content').insertAdjacentHTML('afterbegin', result);
-                    /** URL Updating mechanism is here.. needs to be updated */
-                    //window.history.pushState(, '', goToPath);
-                },
-            });
-            $('#userName').text(localStorage.getItem('name'));
-            $('#userEmail').text(localStorage.getItem('email'));
-        })
-    </script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="../../css/main.css" rel="stylesheet">
@@ -106,7 +83,7 @@
                                             <button type="button" tabindex="0" class="dropdown-item">Settings</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item"
-                                                onclick="logOut()">Log Out</button>
+                                                onclick="logOut('../../login')">Log Out</button>
                                         </div>
                                     </div>
                                 </div>
