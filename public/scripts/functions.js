@@ -3,23 +3,7 @@ function goTo(goToPath) {
     if (goToPath === '#') {
         return
     }
-    var path = '/api/' + localStorage.getItem('userType') + '/' + goToPath;
-    var token = localStorage.getItem('SessionID');
-    if (path === null || token === null) {
-        alert("Please login first!!");
-        window.location.href = './login';
-    }
-    $.ajax({
-        type: "GET",
-        url: path,
-        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', token); },
-        success: function (result) {
-            $('#content').empty();
-            document.getElementById('content').insertAdjacentHTML('afterbegin', result);
-            /** URL Updating mechanism is here.. needs to be updated */
-            //window.history.pushState(result, '', goToPath);
-        },
-    });
+    window.location.href=goToPath;
 
 }
 
