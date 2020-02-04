@@ -5,7 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UNAUTHORIZED ACCESS!!</title>
-    <link href="css/main.css" rel="stylesheet"></head>
+    <link href="../css/main.css" rel="stylesheet"></head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+         }
+        body{
+        background: url("../images/p404.png") , #151729;
+        }
+        #container{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        #container .content{
+        max-width: 600px;
+        text-align: center;
+        }
+        #container .content h2{
+        font-size: 18vw;
+        color: #fff;
+        line-height: 1em;
+    }
+    
+    #container .content h4{
+        position: relative;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        color: #111;
+        background: #fff;
+        font-weight: 300;
+        padding: 10px 20px;
+        display: inline-block;
+    }
+        </style>
 </head>
 <body>
     <div class="app-main__outer">
@@ -15,19 +54,12 @@
             </div>
             <div class="tab-content">
                 <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
-                    <div class="main-card mb-3 card">
-                        <div class="card-body">
-                            <div class="card-title"></div>
-                                
-                                <div class="mb-3 card text-white card-body bg-danger">
-                                    <h5 class="text-white card-title">
-                                        UNAUTHORIZED ACCESS
-                                    </h5>
-                                    You are not an authorized user, check the credentials.
-                                </div>
-                            
+                    <div id="container">
+                        <div class="content">
+                            <h2>401</h2>
+                            <h4>UNAUTHORIZED ACCESS</h4>
+                            <p style="color: #fff;">You are not an authorized user. Check credentials!!</p>
                         </div>
-                        
                     </div>
                 </div>
                 
