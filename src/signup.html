@@ -35,7 +35,7 @@
 						<div class="widget-content p-0">
 							<div class="widget-content-wrapper">
 								<!--TOP RIGHT BUTTONS HERE-->
-								<button class="mb-2 mr-2 btn btn-info" onclick="Login()">Login
+								<button class="mb-2 mr-2 btn btn-primary active" onclick="Login()">Login
 								</button>
 							</div>
 						</div>
@@ -50,9 +50,9 @@
 				<div class="row" style="margin: 70px;">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
-						<div class="main-card mb-3 card">
+						<div class="card-shadow-primary border mb-3 card card-body border-primary">
 							<div class="card-body">
-								<h5 class="card-title">Sign Up</h5>
+								<h5 class="card-title text-primary">SIGN UP</h5>
 								<form id="signup-form">
 									<div class="position-relative form-group">
 										<input name="firstName" id="firstName" placeholder="First Name" type="text"
@@ -67,7 +67,11 @@
 											class="form-control" required>
 									</div>
 									<div class="position-relative form-group">
-										<input name="password" id="password" placeholder="Password" type="password"
+										<input name="password" id="password" placeholder="Set Password" type="password"
+											class="form-control" required>
+									</div>
+									<div class="position-relative form-group">
+										<input name="ConfirmPassword" id="ConfirmPassword" placeholder="Re-enter password" type="password"
 											class="form-control" required>
 									</div>
 									<button class="mt-2 btn btn-primary" type="submit">Sign Up</button>
