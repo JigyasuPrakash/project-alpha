@@ -41,13 +41,13 @@ function getStudent() {
         localStorage.setItem("toSearch", search + "@rknec.edu");
         goTo('/dashboard/student/result');
     }
+
 }
 
 
 /******************************Search Student Function***********************************/
 
-var branch = [], gen = [], cat = [];
-var isBranch, isCat, isGen, isCG;
+
 var filterObject = {
     Branch: null,
     Category: null,
@@ -62,6 +62,9 @@ var filterObject = {
 };
 
 function createObject() {
+    var branch = [], gen = [], cat = [];
+    var isBranch, isCat, isGen, isCG;
+    
     $('#filterResults').empty();
     $('#BranchFilter').empty();
     $('#CategoryFilter').empty();
@@ -184,19 +187,20 @@ function search() {
             console.log('error occured');
         },
         success: function(data) {
-            // data.forEach(element => {
-            //     $('#filterResults').append(`
-            //     <tr>
-            //         <td>${element.Fullname}</td>
-            //         <td>${element.Branch}</td>
-            //         <td>${element.Shift}</td>
-            //         <td>${element.CGPA}</td>
-            //         <td>${element.Gender}</td>
-            //         <td>${element.EmailId}</td>
-            //         <td>${element.Category}</td>
-            //     </tr>
-            //     `);
-            // });
+            data=JSON.parse(data);
+            data.forEach(element => {
+                $('#filterResults').append(`
+                <tr>
+                    <td>${element.Fullname}</td>
+                    <td>${element.Branch}</td>
+                    <td>${element.Shift}</td>
+                    <td>${element.CGPA}</td>
+                    <td>${element.Gender}</td>
+                    <td>${element.EmailId}</td>
+                    <td>${element.Category}</td>
+                </tr>
+                `);
+            });
             console.log(data);
         }
     });

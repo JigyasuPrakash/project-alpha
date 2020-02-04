@@ -78,4 +78,9 @@ router.get('/searchStudent', (req, res) => {
 
 });
 
+router.get('/getStudentByEmail', (req, res) => {
+    var toSearch=req.query;
+    console.log(toSearch);
+});
+
 module.exports = router;
