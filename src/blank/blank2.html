@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/functions.js"></script>
+    <script>
+        $(document).ready(function () {
+            var path = '/api/' + localStorage.getItem('userType') + window.location.pathname;
+            var token = localStorage.getItem('SessionID');
+            if (path === null || token === null) {
+                alert("Please login first!!");
+                window.location.href = './login';
+            }
+            $.ajax({
+                type: "GET",
+                url: path,
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', token); },
+                success: function (result) {
+                    $('#content').empty();
+                    document.getElementById('content').insertAdjacentHTML('afterbegin', result);
+                    /** URL Updating mechanism is here.. needs to be updated */
+                    //window.history.pushState(, '', goToPath);
+                },
+            });
+            $('#userName').text(localStorage.getItem('name'));
+            $('#userEmail').text(localStorage.getItem('email'));
+        })
+    </script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+    <title>My TNP App</title>
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <div class="app-header header-shadow">
+            <div class="app-header__logo">
+                <a href="javascript:goTo('/dashboard')">
+                    <div class="logo-src"></div>
+                </a>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                            data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header__menu">
+                <span>
+                    <button type="button"
+                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" id="textToSearch"
+                                placeholder="Search Student by Email">
+                            <button class="search-icon" id="search" onclick="getStudent()"><span></span></button>
+                        </div>
+                        <button class="close"></button>
+                    </div>
+                </div>
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading" id="userName">
+                                    </div>
+                                    <div class="widget-subheading" id="userEmail">
+                                    </div>
+                                </div>
+                                <div class="widget-content-left" style="margin-left: 10px;">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            class="p-0 btn">
+                                            <img width="40" class="rounded-circle" src="../images/avatar.png" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true"
+                                            class="dropdown-menu dropdown-menu-right">
+                                            <button type="button" tabindex="0" class="dropdown-item">User
+                                                Account</button>
+                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                            <button type="button" tabindex="0" class="dropdown-item"
+                                                onclick="logOut('../../login')">Log Out</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+        </div>
+    </div>
+</body>
+
+
+</html>

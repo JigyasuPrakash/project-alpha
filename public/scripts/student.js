@@ -183,6 +183,7 @@ function createObject() {
         let query = studentPersonal.get()
             .then(snapshot => {
                 if (snapshot.empty) {
+                    $("#display_loading").css('visibility', 'hidden');
                     console.log('No matching documents.');
                     return;
                 }
@@ -207,6 +208,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -216,6 +218,7 @@ function createObject() {
         let query = studentPersonal.where('Branch', 'in', filterObject['Branch']).get()
             .then(snapshot => {
                 if (snapshot.empty) {
+                    $("#display_loading").css('visibility', 'hidden');
                     //console.log('No matching documents.');
                     return;
                 }
@@ -239,6 +242,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -246,6 +250,7 @@ function createObject() {
         let query = studentPersonal.where('Gender', 'in', filterObject['Gender']).get()
             .then(snapshot => {
                 if (snapshot.empty) {
+                    $("#display_loading").css('visibility', 'hidden');
                     //console.log('No matching documents.');
                     return;
                 }
@@ -270,6 +275,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -278,6 +284,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -301,6 +308,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -308,6 +316,7 @@ function createObject() {
         let query = studentPersonal.where('CGPA', '>=', parseInt(filterObject['CGPA'])).get()
             .then(snapshot => {
                 if (snapshot.empty) {
+                    $("#display_loading").css('visibility', 'hidden');
                     console.log('No matching documents.');
                     return;
                 }
@@ -332,6 +341,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -340,6 +350,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -365,6 +376,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -373,6 +385,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -397,6 +410,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -405,6 +419,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -431,6 +446,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -439,6 +455,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -465,6 +482,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -473,6 +491,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -499,6 +518,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -507,6 +527,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -533,6 +554,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -542,6 +564,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -568,6 +591,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -576,6 +600,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -602,6 +627,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -610,6 +636,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -636,6 +663,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -644,6 +672,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -670,6 +699,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 
@@ -678,6 +708,7 @@ function createObject() {
             .then(snapshot => {
                 if (snapshot.empty) {
                     //console.log('No matching documents.');
+                    $("#display_loading").css('visibility', 'hidden');
                     return;
                 }
 
@@ -704,6 +735,7 @@ function createObject() {
             })
             .catch(err => {
                 console.log('Error getting documents', err);
+                $("#display_loading").css('visibility', 'hidden');
             });
     }
 

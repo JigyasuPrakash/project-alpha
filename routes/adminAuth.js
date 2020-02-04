@@ -31,6 +31,14 @@ router.get('/dashboard/student/search', passport.authenticate('jwt', {
     res.sendFile(filePath);
 });
 
+router.get('/dashboard/student/result', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+    var filePath = (path.join(__dirname, '../src/admin/student/searchResult.html'));
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(filePath);
+});
+
 router.get('/dashboard/alumni', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {

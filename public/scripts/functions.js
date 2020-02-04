@@ -1,15 +1,37 @@
 /*************************************** Common functions are here ***************************************/
+$(document).ready(function () {
+    var path = '/api/' + localStorage.getItem('userType') + window.location.pathname;
+    var token = localStorage.getItem('SessionID');
+    if (path === null || token === null) {
+        alert("Please login first!!");
+        window.location.href = './login';
+    }
+    $.ajax({
+        type: "GET",
+        url: path,
+        body: {
+            email: localStorage.getItem('toSearch')
+        },
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', token); },
+        success: function (result) {
+            $('#content').empty();
+            document.getElementById('content').insertAdjacentHTML('afterbegin', result);
+        },
+    });
+    $('#userName').text(localStorage.getItem('name'));
+    $('#userEmail').text(localStorage.getItem('email'));
+})
+
 function goTo(goToPath) {
     if (goToPath === '#') {
         return
     }
-    window.location.href=goToPath;
-
+    window.location.href = goToPath;
 }
 
-function logOut() {
+function logOut(loginPath) {
     localStorage.clear();
-    window.location.href = './login';
+    window.location.href = loginPath;
 }
 
 function getStudent() {
