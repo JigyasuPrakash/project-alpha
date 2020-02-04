@@ -48,6 +48,18 @@ function getStudent() {
 
 var branch = [], gen = [], cat = [];
 var isBranch, isCat, isGen, isCG;
+var filterObject = {
+    Branch: null,
+    Category: null,
+    Gender: null,
+    isGender: null,
+    GEN: null,
+    SC: null,
+    ST: null,
+    OBC: null,
+    OTHER: null,
+    CGPA: null
+};
 
 function createObject() {
     $('#filterResults').empty();
@@ -60,109 +72,79 @@ function createObject() {
     if ($('#searchStudentCS').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Computer Science Engineering`);
-        branch[0] = "Computer Science and  Engineering";
-    } else {
-        branch[0] = null;
+        branch.push("Computer Science and  Engineering");
     }
     if ($('#searchStudentIT').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Information Technology`);
-        branch[1] = "Information Technology";
-    } else {
-        branch[1] = null;
+        branch.push("Information Technology");
     }
     if ($('#searchStudentIND').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Industrial Engineering`);
-        branch[2] = "Industrial Engineering";
-    } else {
-        branch[2] = null;
+        branch.push("Industrial Engineering");
     }
     if ($('#searchStudentELEC').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Electrical Engineering`);
-        branch[3] = "Electrical Engineering";
-    } else {
-        branch[3] = null;
+        branch.push("Electrical Engineering");
     }
     if ($('#searchStudentEDT').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Electronics and Design Technology`);
-        branch[4] = "Electronics Design Technology";
-    } else {
-        branch[4] = null;
+        branch.push("Electronics Design Technology");
     }
     if ($('#searchStudentEN').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Electronics Engineering`);
-        branch[5] = "Electronics Engineering";
-    } else {
-        branch[5] = null;
+        branch.push("Electronics Engineering");
     }
     if ($('#searchStudentENT').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Electronics and Communication Engineering`);
-        branch[6] = "Electronics and Communication Engineering";
-    } else {
-        branch[6] = null;
+        branch.push("Electronics and Communication Engineering");
     }
     if ($('#searchStudentCIV').is(':checked')) {
         isBranch = true;
         $('#BranchFilter').append(` Civil Engineering`);
-        branch[7] = "Civil Engineering";
-    } else {
-        branch[7] = null;
+        branch.push("Civil Engineering");
     }
 
     if ($('#CatGEN').is(':checked')) {
         isCat = true;
         $('#CategoryFilter').append(` General`);
-        cat[0] = "General";
-    } else {
-        cat[0] = "";
+        cat.push("General");
     }
     if ($('#CatSC').is(':checked')) {
         isCat = true;
         $('#CategoryFilter').append(` SC`);
-        cat[1] = "SC";
-    } else {
-        cat[1] = "";
+        cat.push("SC");
     }
     if ($('#CatST').is(':checked')) {
         isCat = true;
         $('#CategoryFilter').append(` ST`);
-        cat[2] = "ST";
-    } else {
-        cat[2] = "";
+        cat.push("ST");
     }
     if ($('#CatOBC').is(':checked')) {
         isCat = true;
         $('#CategoryFilter').append(` OBC`);
-        cat[3] = "OBC";
-    } else {
-        cat[3] = "";
+        cat.push("OBC");
     }
     if ($('#CatOTHER').is(':checked')) {
         isCat = true;
         $('#CategoryFilter').append(` Others`);
-        cat[4] = "Others";
-    } else {
-        cat[4] = "";
+        cat.push("Others");
     }
 
     if ($('#isMale').is(':checked')) {
         isGen = true;
         $('#GenderFilter').append(` Male`);
-        gen[0] = "Male";
-    } else {
-        gen[0] = "";
+        gen.push("Male");
     }
     if ($('#isFemale').is(':checked')) {
         isGen = true;
         $('#GenderFilter').append(` Female`);
-        gen[1] = "Female";
-    } else {
-        gen[1] = "";
+        gen.push("Female");
     }
 
 
@@ -173,29 +155,54 @@ function createObject() {
         $('#CGPAFilter').append(` ` + $('#searchCGPA').val());
     }
 
-    var filterObject = {
-        Branch: branch,
-        Category: cat,
-        Gender: gen,
-        GEN: $('#CatGEN').is(':checked'),
-        SC: $('#CatSC').is(':checked'),
-        ST: $('#CatST').is(':checked'),
-        OBC: $('#CatOBC').is(':checked'),
-        OTHER: $('#CatOTHER').is(':checked'),
-        Male: $('#isMale').is(':checked'),
-        Female: $('#isFemale').is(':checked'),
-        CGPA: $('#searchCGPA').val()
-    };
-    console.log(filterObject);
+    filterObject['Branch']= branch;
+    filterObject['Category']= cat;
+    filterObject['Gender']= gen;
+    filterObject['GEN']= $('#CatGEN').is(':checked');
+    filterObject['SC']=$('#CatSC').is(':checked');
+    filterObject['ST']= $('#CatST').is(':checked');
+    filterObject['OBC']= $('#CatOBC').is(':checked');
+    filterObject['OTHER']= $('#CatOTHER').is(':checked');
+    var isGender=false;
+    if($('#isMale').is(':checked') || $('#isFemale').is(':checked')) {
+        isGender=true;
+    }
+    filterObject['isGender']= isGender;
+    filterObject['CGPA']=$('#searchCGPA').val();
+    console.log($('#searchCGPA').val());
 
+}
+
+function search() {
+    console.log(filterObject);
     $.ajax({
         method: "GET",
         datatype: "json",
         data: filterObject,
-        url: "http://localhost:3000/api/fetch/data/searchStudent"
+        url: "http://localhost:3000/api/fetch/data/searchStudent" ,
+        error: function() {
+            console.log('error occured');
+        },
+        success: function(data) {
+            // data.forEach(element => {
+            //     $('#filterResults').append(`
+            //     <tr>
+            //         <td>${element.Fullname}</td>
+            //         <td>${element.Branch}</td>
+            //         <td>${element.Shift}</td>
+            //         <td>${element.CGPA}</td>
+            //         <td>${element.Gender}</td>
+            //         <td>${element.EmailId}</td>
+            //         <td>${element.Category}</td>
+            //     </tr>
+            //     `);
+            // });
+            console.log(data);
+        }
+    });
 
-    })
 }
+
 
 
 /*************************************** Dashboard specific functions are here ***************************************/
