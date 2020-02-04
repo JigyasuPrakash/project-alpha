@@ -12,23 +12,23 @@ function renderHTML(path, res) {
 }
 
 router.get('/', (req, res) => {
-    renderHTML('./src/admin/blank.html', res);
+    renderHTML('./src/blank/blank1.html', res);
 });
 
 router.get('/student', (req, res) => {
-    renderHTML('./src/admin/dashboard/blank.html', res);
+    renderHTML('./src/blank/blank2.html', res);
 });
 router.get('/student/search', (req, res) => {
-    renderHTML('./src/admin/student/blank.html', res);
+    renderHTML('./src/blank/blank3.html', res);
 });
 router.get('/student/result', (req, res) => {
-    renderHTML('./src/admin/student/blank.html', res);
+    renderHTML('./src/blank/blank3.html', res);
 });
 router.get('/alumni', (req, res) => {
-    renderHTML('./src/admin/dashboard/blank.html', res);
+    renderHTML('./src/blank/blank2.html', res);
 });
 router.get('/company', (req, res) => {
-    renderHTML('./src/admin/dashboard/blank.html', res);
+    renderHTML('./src/blank/blank2.html', res);
 });
 
 module.exports = router;

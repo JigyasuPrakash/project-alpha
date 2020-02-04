@@ -1,24 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const path = require('path');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const config = require('../config/database');
 
-function renderHTML(path, res) {
-    fs.readFile(path, null, (err, data) => {
-        if (err) throw err;
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(data);
-        res.end();
-    })
-}
-
 router.get('/dashboard', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
-    // console.log(req.user);
-    renderHTML('./src/user/dashboard');
+    var filePath = (path.join(__dirname, '../src/user/dashboard.html'))
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(filePath);
 });
 
 
@@ -72,6 +65,8 @@ router.post('/login', (req, res) => {
                     expiresIn: 604800 // for 1 week time in milliseconds
                 });
                 return res.json({
+                    name: user.name,
+                    email: user.email,
                     success: true,
                     token: "JWT " + token
                 });
