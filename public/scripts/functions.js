@@ -60,7 +60,7 @@ function getData() {
         success: function (data) {
             
             student = JSON.parse(data);
-            
+
             if(data!=null && student[0].length!=0) {
 
                 $('#findResult').attr('style', 'visibility: visible')
@@ -89,7 +89,6 @@ function getData() {
                 $('#gender').text("Gender: " + stu.Gender);
                 $('#category').text("Category: " + stu.Category);
                 $('#yearOfAdmission').text("Year of Admission: " + stu.YearOfAdmission);
-
                 $('#permanentCity').text("Permanent City: " + stu.PermanentCity);
                 $('#CGPA').text("CGPA: " + stu.CGPA);
                 $('#avatar').attr('src', stu.Avatar);
@@ -395,3 +394,65 @@ function search() {
 
 
 /*************************************** Stundent Section specific functions are here ***************************************/
+
+function getStudentAnalytics() {
+    $.ajax({
+        method: "GET",
+        datatype: "json",
+        data: {Emailid:"amburemm@rknec.edu"},
+        url: "http://localhost:3000/api/fetch/data/searchStudent",
+        error: function () {
+            console.log('error occured');
+        },
+        success: function (data) {
+            data = JSON.parse(data);
+            console.log(data);
+
+            var ctx = document.getElementById('sgpaAnalytics').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['SEM 1 SGPA', 'SEM 2 SGPA', 'SEM 3 SGPA', 'SEM 4 SGPA', 'SEM 5 SGPA', 'SEM 6 SGPA', 'SEM 7 SGPA', 'SEM 8 SGPA'],
+                    datasets: [{
+                        barPercentage: 0.1,
+                        barThickness: 2,
+                        maxBarThickness: 2,
+                        label: 'Sem-wise SGPA',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                        
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    });
+}

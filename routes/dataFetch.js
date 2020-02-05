@@ -146,4 +146,41 @@ router.get('/getStudentByEmail', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 });
 
+
+router.get('/getStudentAnalytics', (req,res) => {
+    var student=req.body.EmailId;
+    var toSend=[];
+    
+
+    mongoClient.connect(config.cluster, function (error, database) {
+        if (error) {
+            console.log('error');
+            throw error;
+        }
+
+        var dbObject_personal = database.db('student_details');
+        dbObject_personal.collection('student_current_academic_details').find({
+            _id: student
+        }).toArray(function(error, result) {
+            if (error) {
+                console.log('error');
+                throw error;
+            }
+            result.forEach(element => {
+                toSend.push(element.Sem1SGPA);
+                toSend.push(element.Sem2SGPA);
+                toSend.push(element.Sem3SGPA);
+                toSend.push(element.Sem4SGPA);
+                toSend.push(element.Sem5SGPA);
+                toSend.push(element.Sem6SGPA);
+                toSend.push(element.Sem7SGPA);
+                toSend.push(element.Sem8SGPA);
+            });
+            console.log(toSend);
+            res.json(JSON.stringify(toSend));
+        });
+    });
+
+});
+
 module.exports = router;
