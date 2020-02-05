@@ -40,37 +40,38 @@ router.get('/searchStudent', (req, res) => {
         }
 
         var dbObject_personal = database.db('student_details');
-
-        dbObject_personal.collection('student_personal_details').find({
-            Branch: { $in: branch }
-        }).toArray(function (error, result) {
-            if (error) {
-                console.log('error');
-                throw error;
-            }
-            //console.log(result);
-
-
-            result.forEach(element => {
-                if (element.CGPA >= cgpa) {
-                    tosend.push(element);
+        if(branch!=null && branch.length!=0) {
+            dbObject_personal.collection('student_personal_details').find({
+                Branch: { $in: branch }
+            }).toArray(function (error, result) {
+                if (error) {
+                    console.log('error');
+                    throw error;
                 }
-            });
-            if (gender != null) {
-                tosend = []
+                //console.log(result);
+
+
                 result.forEach(element => {
-                    if (gender.includes(element.Gender) && element.CGPA >= cgpa) {
+                    if (element.CGPA >= cgpa) {
                         tosend.push(element);
                     }
                 });
-            }
-            console.log(tosend);
-            console.log(tosend.length)
-            if (tosend.size != 0) {
-                res.json(JSON.stringify(tosend));
-            }
-            tosend = [];
-        });
+                if (gender != null) {
+                    tosend = []
+                    result.forEach(element => {
+                        if (gender.includes(element.Gender) && element.CGPA >= cgpa) {
+                            tosend.push(element);
+                        }
+                    });
+                }
+                // console.log(tosend);
+                // console.log(tosend.length)
+                if (tosend.size != 0) {
+                    res.json(JSON.stringify(tosend));
+                }
+                tosend = [];
+            });
+        }
     });
 
     //send response
@@ -81,6 +82,30 @@ router.get('/searchStudent', (req, res) => {
 router.get('/getStudentByEmail', (req, res) => {
     var toSearch=req.query;
     console.log(toSearch);
+
+    mongoClient.connect(config.cluster, function (error, database) {
+        if (error) {
+            console.log('error');
+            throw error;
+        }
+
+        var dbObject_personal=database.db('student_details');
+        var found=false;
+
+        dbObject_personal.collection('student_personal_details').find({
+            _id: toSearch
+        }).toArray(function(error, result) {
+            if (error) {
+                console.log('error occured');
+                throw error;
+            }
+            res.json(JSON.stringify(result));
+        });
+
+    });
+
+    //res.json(JSON.stringify(toSearch));
+    res.setHeader('Content-Type', 'application/json');
 });
 
 module.exports = router;

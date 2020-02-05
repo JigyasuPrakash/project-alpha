@@ -172,7 +172,7 @@ function createObject() {
     }
     filterObject['isGender']= isGender;
     filterObject['CGPA']=$('#searchCGPA').val();
-    console.log($('#searchCGPA').val());
+    //console.log($('#searchCGPA').val());
 
 }
 
@@ -201,7 +201,7 @@ function search() {
                 </tr>
                 `);
             });
-            console.log(data);
+            //console.log(data);
         }
     });
 
