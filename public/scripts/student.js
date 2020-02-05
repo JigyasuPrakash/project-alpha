@@ -1246,7 +1246,7 @@ function searchIndividual() {
                 $('#findResult').attr('style', 'visibility: visible')
                 $('#findResult').append(`
                 <div class="alert alert-danger fade show" role="alert">No student found with email ID ${search}</div>
-            `);
+                `);
                 console.log('no doc');
             }
             else {

@@ -82,6 +82,7 @@ router.get('/searchStudent', (req, res) => {
 router.get('/getStudentByEmail', (req, res) => {
     var toSearch=req.query.email;
     console.log(toSearch);
+    var toSend=[];
 
     mongoClient.connect(config.cluster, function (error, database) {
         if (error) {
@@ -91,6 +92,7 @@ router.get('/getStudentByEmail', (req, res) => {
 
         var dbObject_personal=database.db('student_details');
         var found=false;
+        
 
         dbObject_personal.collection('student_personal_details').find({
             _id: toSearch
@@ -99,8 +101,44 @@ router.get('/getStudentByEmail', (req, res) => {
                 console.log('error occured');
                 throw error;
             }
-            res.json(JSON.stringify(result));
+            toSend.push(result);
         });
+
+        dbObject_personal.collection('student_current_academic_details').find({
+            _id: toSearch
+        }).toArray(function(error, result) {
+            if(error) {
+                console.log('error occured');
+                throw error;
+            }
+            toSend.push(result);
+        });
+
+        dbObject_personal.collection('student_previous_academic_details').find({
+            _id: toSearch
+        }).toArray(function(error, result) {
+            if(error) {
+                console.log('error occured');
+                throw error;
+            }
+            toSend.push(result);
+        });
+
+        dbObject_personal.collection('student_placement_details').find({
+            _id: toSearch
+        }).toArray(function(error, result) {
+            if(error) {
+                console.log('error occured');
+                throw error;
+            }
+            toSend.push(result);
+            console.log(toSend);
+            res.json(JSON.stringify(toSend));
+        });
+
+        console.log(toSend);
+
+        
 
     });
 
