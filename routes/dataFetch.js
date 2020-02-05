@@ -80,7 +80,7 @@ router.get('/searchStudent', (req, res) => {
 });
 
 router.get('/getStudentByEmail', (req, res) => {
-    var toSearch=req.query;
+    var toSearch=req.query.email;
     console.log(toSearch);
 
     mongoClient.connect(config.cluster, function (error, database) {

@@ -1,21 +1,6 @@
 <html lang="en">
 
 <head>
-    <script>
-        $.ajax({
-            method: "GET",
-            dataType: "json",
-            data: {toSearch: localStorage.getItem("toSearch")},
-            url: "http://localhost:3000/api/fetch/data/getStudentByEmail",
-            error: function() {
-            console.log('error occured');
-            },
-            success: function(data) {
-                console.log(data);
-            }
-        });
-    </script>
-
 </head>
 
 <body>

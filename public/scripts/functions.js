@@ -16,6 +16,9 @@ $(document).ready(function () {
         success: function (result) {
             $('#content').empty();
             document.getElementById('content').insertAdjacentHTML('afterbegin', result);
+            if(window.location.pathname === "/dashboard/student/result"){
+                getData();
+            }
         },
     });
     $('#userName').text(localStorage.getItem('name'));
@@ -44,6 +47,20 @@ function getStudent() {
 
 }
 
+function getData() {
+    $.ajax({
+        method: "GET",
+        dataType: "json",
+        data: { email: localStorage.getItem("toSearch") },
+        url: "/api/fetch/data/getStudentByEmail",
+        error: function () {
+            console.log('error occured');
+        },
+        success: function (data) {
+            console.log(data);
+        }
+    })
+}
 
 /******************************Search Student Function***********************************/
 
@@ -64,7 +81,7 @@ var filterObject = {
 function createObject() {
     var branch = [], gen = [], cat = [];
     var isBranch, isCat, isGen, isCG;
-    
+
     $('#filterResults').empty();
     $('#BranchFilter').empty();
     $('#CategoryFilter').empty();
@@ -158,20 +175,20 @@ function createObject() {
         $('#CGPAFilter').append(` ` + $('#searchCGPA').val());
     }
 
-    filterObject['Branch']= branch;
-    filterObject['Category']= cat;
-    filterObject['Gender']= gen;
-    filterObject['GEN']= $('#CatGEN').is(':checked');
-    filterObject['SC']=$('#CatSC').is(':checked');
-    filterObject['ST']= $('#CatST').is(':checked');
-    filterObject['OBC']= $('#CatOBC').is(':checked');
-    filterObject['OTHER']= $('#CatOTHER').is(':checked');
-    var isGender=false;
-    if($('#isMale').is(':checked') || $('#isFemale').is(':checked')) {
-        isGender=true;
+    filterObject['Branch'] = branch;
+    filterObject['Category'] = cat;
+    filterObject['Gender'] = gen;
+    filterObject['GEN'] = $('#CatGEN').is(':checked');
+    filterObject['SC'] = $('#CatSC').is(':checked');
+    filterObject['ST'] = $('#CatST').is(':checked');
+    filterObject['OBC'] = $('#CatOBC').is(':checked');
+    filterObject['OTHER'] = $('#CatOTHER').is(':checked');
+    var isGender = false;
+    if ($('#isMale').is(':checked') || $('#isFemale').is(':checked')) {
+        isGender = true;
     }
-    filterObject['isGender']= isGender;
-    filterObject['CGPA']=$('#searchCGPA').val();
+    filterObject['isGender'] = isGender;
+    filterObject['CGPA'] = $('#searchCGPA').val();
     //console.log($('#searchCGPA').val());
 
 }
@@ -182,12 +199,12 @@ function search() {
         method: "GET",
         datatype: "json",
         data: filterObject,
-        url: "http://localhost:3000/api/fetch/data/searchStudent" ,
-        error: function() {
+        url: "http://localhost:3000/api/fetch/data/searchStudent",
+        error: function () {
             console.log('error occured');
         },
-        success: function(data) {
-            data=JSON.parse(data);
+        success: function (data) {
+            data = JSON.parse(data);
             data.forEach(element => {
                 $('#filterResults').append(`
                 <tr>
