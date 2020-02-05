@@ -16,8 +16,10 @@ $(document).ready(function () {
         success: function (result) {
             $('#content').empty();
             document.getElementById('content').insertAdjacentHTML('afterbegin', result);
-            if(window.location.pathname === "/dashboard/student/result"){
+            if (window.location.pathname === "/dashboard/student/result") {
                 getData();
+            } else if (window.location.pathname === "/dashboard/student") {
+                getStudentAnalytics()
             }
         },
     });
@@ -58,16 +60,16 @@ function getData() {
         },
 
         success: function (data) {
-            
+
             student = JSON.parse(data);
 
-            if(data!=null && student[0].length!=0) {
+            if (data != null && student[0].length != 0) {
 
                 $('#findResult').attr('style', 'visibility: visible')
 
                 console.log(student);
 
-                var stu=student[0][0]; 
+                var stu = student[0][0];
 
                 $('#studentName').text(stu.Fullname);
                 $('#firstName').text("First Name: " + stu.FirstName);
@@ -93,7 +95,7 @@ function getData() {
                 $('#CGPA').text("CGPA: " + stu.CGPA);
                 $('#avatar').attr('src', stu.Avatar);
 
-                stu=student[1][0];
+                stu = student[1][0];
 
                 $('#enrollment_No').text("Enrollment No: " + stu.Enrollment_No);
                 $('#emailIDCA').text("Email ID: " + stu.EmailId);
@@ -156,7 +158,7 @@ function getData() {
                 $('#Gap_in_EnggPL').text("Gap in Engg: " + stu.Gap_in_Engg);
 
 
-                stu=student[2][0];
+                stu = student[2][0];
 
                 $('#MHCETscore').text("MHCET Score: " + stu.MHCETscore);
                 $('#JEEscore').text("JEE Score: " + stu.JEEscore);
@@ -180,7 +182,7 @@ function getData() {
                 $('#Gap_10_12DipPrv').text("Gap between 10th and 12th/Diploma: " + stu.Gap_10_12Dip);
                 $('#Gap_12Dip_EnggPrv').text("Gap betweem 12th/Diploma and Engg: " + stu.Gap_12Dip_Engg);
 
-                stu=student[3][0];
+                stu = student[3][0];
 
                 $('#enrollmentno').text("Enrollment No: " + stu.EnrollmentNo);
                 $('#enrollment_no').text("Full Enrollment No: " + stu.Enrollment_No);
@@ -399,8 +401,8 @@ function getStudentAnalytics() {
     $.ajax({
         method: "GET",
         datatype: "json",
-        data: {Emailid:"amburemm@rknec.edu"},
-        url: "http://localhost:3000/api/fetch/data/searchStudent",
+        data: { EmailId: "amburemm@rknec.edu" },
+        url: "/api/fetch/data/getStudentAnalytics",
         error: function () {
             console.log('error occured');
         },
@@ -440,7 +442,7 @@ function getStudentAnalytics() {
                             'rgba(54, 162, 235, 1)'
                         ],
                         borderWidth: 1
-                        
+
                     }]
                 },
                 options: {

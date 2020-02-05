@@ -148,7 +148,8 @@ router.get('/getStudentByEmail', (req, res) => {
 
 
 router.get('/getStudentAnalytics', (req,res) => {
-    var student=req.body.EmailId;
+    var student=req.query.EmailId;
+    console.log(student)
     var toSend=[];
     
 
