@@ -1,0 +1,26 @@
+{
+  "name": "project-alpha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JigyasuPrakash/project-alpha.git"
+  },
+  "author": "Jigyasu Prakash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JigyasuPrakash/project-alpha/issues"
+  },
+  "homepage": "https://github.com/JigyasuPrakash/project-alpha#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "nunjucks": "^3.2.1"
+  }
+}
