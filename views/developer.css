@@ -1,0 +1,22 @@
+.card{
+    width: 180px;
+    height: 400px;
+    top: 40px;
+    border: none;
+    background-color:  #b3ffff;
+    
+   
+}
+
+.card-img-top{
+    width:150px;
+    height: 200px;
+}
+
+.jumbotron{
+    background-color:#66ffc2;
+}
+.container{
+    background-color:  #b3ffff;
+}
+
