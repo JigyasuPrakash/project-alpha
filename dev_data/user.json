@@ -1,0 +1,85 @@
+{
+  "totalUser": "7",
+  "user": [
+    {
+      "id": "dsfgcnvascs414161assddsv",
+      "email": "test0@gmail.co",
+      "firstname": "test0firstname",
+      "lastname": "test0lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "ascs414161assddsv",
+      "email": "test1@gmail.co",
+      "firstname": "test1firstname",
+      "lastname": "test1lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "dsfgcnvascs414161assddsv",
+      "email": "test2@gmail.co",
+      "firstname": "test2firstname",
+      "lastname": "test2lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "ascs414161assddsv",
+      "email": "test3@gmail.co",
+      "firstname": "test3firstname",
+      "lastname": "test3lastname",
+      "mobile": "9776864710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "ascs414161assddsv",
+      "email": "test14@gmail.co",
+      "firstname": "test4firstname",
+      "lastname": "test4lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "ascs414161assddsv",
+      "email": "test5@gmail.co",
+      "firstname": "test5firstname",
+      "lastname": "test5lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "ascs414161assddsv",
+      "email": "test5@gmail.co",
+      "firstname": "test5firstname",
+      "lastname": "test5lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    },
+    {
+      "id": "ascs414161assddsv",
+      "email": "test6@gmail.co",
+      "firstname": "test6firstname",
+      "lastname": "test6lastname",
+      "mobile": "9776863710",
+      "registrationType": "self",
+      "password": "$2a$13$8uNzvPDr2Y9mrLlDU21yy.qGE/AKNzklOaZTe1QnJwhHYRWz0OrTC",
+      "__v": 0
+    }
+  ]
+}

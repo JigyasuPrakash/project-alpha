@@ -1,0 +1,322 @@
+{
+  "totalEvents": "11",
+  "events": [
+    {
+      "name": "standUp Comedy",
+      "createdBy": "Biswa kalyan",
+      "createdByID": "B2.sdvuhheoupsd34uis38ye9qdwvencapc",
+      "city": "Nagpur",
+      "state": "Maharashtra",
+      "createdOn": "2020-05-05T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["Biswa kalyan", "Anubhav Bassi"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "100",
+      "ticketsSold": "43",
+      "slots": [
+        "2020-05-20T16:00:47Z",
+        "2020-05-20T20:00:47Z",
+        "2020-05-20T12:00:47Z",
+        "2020-05-22T20:00:47Z",
+        "2020-05-23T20:00:47Z"
+      ],
+      "reviews": [
+        {
+          "username": "user1",
+          "comment": "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Purus in massa tempor nec feugiat nisl pretium fusce."
+        },
+        {
+          "username": "test2",
+          "comment": " Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar."
+        }
+      ],
+      "averageRating": "4.5",
+
+      "eventImages": [
+        "standUpComedy_img1.jpg",
+        "standUpComedy_img2.jpg",
+        "standUpComedy_img3.jpg"
+      ],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Music Concert",
+      "createdBy": "Coldplay",
+      "createdByID": "B2.s23534uadsd65523upsd34uis38ye9qdwvencapc",
+      "city": "Nagpur",
+      "state": "Maharashtra",
+      "createdOn": "2020-05-09T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": [
+        "Chris Martin",
+        "Guy Berryman",
+        "Will Champion",
+        "Phil Harvey",
+        "Jonny Buckland"
+      ],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "500",
+      "ticketsSold": "359",
+      "slots": [
+        "2020-05-20T16:00:47Z",
+        "2020-05-20T20:00:47Z",
+        "2020-05-20T12:00:47Z",
+        "2020-05-22T20:00:47Z"
+      ],
+      "reviews": [
+        {
+          "username": "user1",
+          "comment": "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Purus in massa tempor nec feugiat nisl pretium fusce."
+        },
+        {
+          "username": "user2",
+          "comment": " Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar."
+        }
+      ],
+      "averageRating": "4.7",
+
+      "eventImages": [
+        "musicConcert_img1.jpg",
+        "musicConcert_img2.jpg",
+        "musicConcert_img3.jpg"
+      ],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Dance Performance by MJ",
+      "createdBy": "MJ Club",
+      "createdByID": "B2.s23534uadsd65523upsd34uis38ye9qdwvencapc",
+      "city": "Nagpur",
+      "state": "Maharashtra",
+      "createdOn": "2020-05-09T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["Micheal Jackson team"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "600",
+      "ticketsSold": "462",
+      "slots": [
+        "2020-05-20T16:00:47Z",
+        "2020-05-20T20:00:47Z",
+        "2020-05-20T12:00:47Z",
+        "2020-05-22T20:00:47Z",
+        "2020-05-22T16:00:47Z",
+        "2020-05-23T20:00:47Z"
+      ],
+      "reviews": [
+        {
+          "username": "user1",
+          "comment": "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Purus in massa tempor nec feugiat nisl pretium fusce."
+        },
+        {
+          "username": "user2",
+          "comment": " Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar."
+        },
+        {
+          "username": "user3",
+          "comment": " Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar."
+        }
+      ],
+      "averageRating": "4.6",
+
+      "eventImages": [
+        "DanceperformancebyMJ_img1.jpg",
+        "DanceperformancebyMJ_img2.jpg",
+        "DanceperformancebyMJ_img3.jpg"
+      ],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Satyajit Ray's Drama",
+      "createdBy": "Drama Association of India",
+      "createdByID": "B2.s23534uads666556afdbgnsdzszye9qdwvencapc",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "createdOn": "2020-05-12T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": [
+        "Sachin Pilgaonkar",
+        "Shankar Mahadevan",
+        "Subodh Bhave",
+        "Amruta Khanvilkar",
+        "Mrinmayee Deshpande"
+      ],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "450",
+      "ticketsSold": "411",
+      "slots": [
+        "2020-05-20T16:00:47Z",
+        "2020-05-20T12:00:47Z",
+        "2020-05-22T20:00:47Z",
+        "2020-05-22T16:00:47Z",
+        "2020-05-23T20:00:47Z"
+      ],
+      "reviews": [
+        {
+          "username": "user1",
+          "comment": "Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Purus in massa tempor nec feugiat nisl pretium fusce."
+        },
+        {
+          "username": "user2",
+          "comment": " Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar."
+        },
+        {
+          "username": "user3",
+          "comment": " Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar."
+        }
+      ],
+      "averageRating": "4.6",
+
+      "eventImages": [
+        "SatyajitRay'sDrama_img1.jpg",
+        "SatyajitRay'sDrama_img2.jpg",
+        "SatyajitRay'sDrama_img3.jpg"
+      ],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "World Economic forum",
+      "createdBy": "Drama Association of India",
+      "createdByID": "B2.s23534uadsdbgnsdzszye9qdwvencapc",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "createdOn": "2020-05-14T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["Warren Buffet", "Raghuram rajan"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "300",
+      "ticketsSold": "156",
+      "slots": ["2020-05-20T16:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["wef_img1.jpg", "wef_img2.jpg", "wef_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Event0",
+      "createdBy": "Creater0",
+      "createdByID": "B2.s23534uadsdbgnsdzszye9qdwvencapc",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "createdOn": "2020-05-11T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["artist0", "artist1"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "300",
+      "ticketsSold": "156",
+      "slots": ["2020-05-26T11:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["event0_img1.jpg", "event0_img2.jpg", "event0_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Event1",
+      "createdBy": "Creater1",
+      "createdByID": "B2.s23534uadsdbgnsdzszye9qdwvencapc",
+      "city": "Banglore",
+      "state": "Karnataka",
+      "createdOn": "2020-05-12T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["artist0", "artist1", "artist2"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "223",
+      "ticketsSold": "154",
+      "slots": ["2020-05-26T11:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["event1_img1.jpg", "event1_img2.jpg", "event1_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Event2",
+      "createdBy": "Creater2",
+      "createdByID": "B2.s23534uadsdbgnsdzszye9qdwvencapc",
+      "city": "Delhi",
+      "state": "Delhi",
+      "createdOn": "2020-05-04T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["artist0", "artist1", "artist2"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "75",
+      "ticketsSold": "53",
+      "slots": ["2020-05-26T11:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["event2_img1.jpg", "event2_img2.jpg", "event2_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Event3",
+      "createdBy": "Creater3",
+      "createdByID": "B2.s2csus346851",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "createdOn": "2020-05-06T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["artist0", "artist1", "artist2"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "654",
+      "ticketsSold": "544",
+      "slots": ["2020-05-26T11:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["event3_img1.jpg", "event3_img2.jpg", "event3_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+
+    {
+      "name": "Event4",
+      "createdBy": "Creater4",
+      "createdByID": "B2.s2csgrewsf45634us346851",
+      "city": "Delhi",
+      "state": "Delhi",
+      "createdOn": "2020-05-04T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["artist0", "artist1", "artist2"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "150",
+      "ticketsSold": "54",
+      "slots": ["2020-05-24T11:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["event4_img1.jpg", "event4_img2.jpg", "event4_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    },
+    {
+      "name": "Event5",
+      "createdBy": "Creater5",
+      "createdByID": "B2.s2c3245y56sgrewsf45634us346851",
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "createdOn": "2020-05-09T16:14:47Z",
+
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Potenti nullam ac tortor vitae purus faucibus. Non consectetur a erat nam.",
+      "artistPerformer": ["artist0", "artist1", "artist2"],
+      "summary": "Proin fermentum leo vel orci porta non pulvinar neque laoreet.",
+      "totalCapacity": "225",
+      "ticketsSold": "201",
+      "slots": ["2020-05-29T11:00:47Z"],
+      "reviews": [],
+      "averageRating": "undefined",
+
+      "eventImages": ["event5_img1.jpg", "event5_img2.jpg", "event5_img3.jpg"],
+      "performerLink": ["http://sodhcsdc.com", "https://uqcccasa.edu"]
+    }
+  ]
+}
