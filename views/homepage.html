@@ -9,25 +9,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>      
-        <link rel="icon" type="image/png" href="/img/alpha.png">    
+        <link rel="icon" type="image/png" href="/img/alpha.png">
+        <link rel="stylesheet" href="/css/homepage.css">    
         <title>Project Alpha</title>
     </head>
-    <style>
-      footer a{color:#fff}
-      footer a:hover{color:grey}
-      
-
-    </style>
     <body>
-        <nav class ="navbar " style="background-color: #2874f0;">
+        <nav class ="navbar sticky-top" style="background-color: #2874f0;">
             <a href="#" class="navbar-brand ml-auto" >
               <img src="/img/logo.png" alt="projectalpha.com" style="width: 100px; height: 40px;">
             </a>
             <div class="input-group mb-3 mr-auto" style="width: 500px;padding-top: 10px;">
               <div class="input-group-prepend">
-                <span class="input-group-text">
+                <div class="input-group-text"  >
                   <img src="/img/search.png" alt="google.com" height="23px";>
-                </span>
+                </div>
               </div>
               <input type="text" class="form-control" placeholder="Search for Movies,Events,Plays,Sports and Activities">
             </div>
@@ -35,14 +30,19 @@
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: #2874f0;border: 0px;">
                 City
              </button>
-             <div class="dropdown-menu">
+             <div class="dropdown-menu" >
                <a class="dropdown-item" href="#">Nagpur</a>
                <a class="dropdown-item" href="#">Mumbai</a>
                <a class="dropdown-item" href="#">Pune</a>
               </div>
-              <button type="button" class="btn btn-primary" style="background-color: #2874f0;border: 0px;" onclick="location.href='login'">
-                Login/Sign Up
-             </button>
+              <div class="btn-group mr-auto"  style="padding-left: 30px;">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: #2874f0;border: 0px;">
+                  Login/SignUp
+               </button>
+               <div class="dropdown-menu" >
+                 <a class="dropdown-item" href="login">Login</a>
+                 <a class="dropdown-item" href="signup">SignUp</a>
+                </div>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
@@ -190,7 +190,7 @@
               <div class="container py-3 ">
                 <div class="row">
                   <div class="col-lg-3 col-sm-6 pb-2">
-                    <h4>About us</h4>
+                    <h4>About Us</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus repudiandae perspiciatis facere labore iusto? Magni ad ducimus facere deleniti voluptate commodi reiciendis magnam, natus sequi, nam eum nostrum, repudiandae tenetur?
 
                     </p>
@@ -205,22 +205,22 @@
                     </ul>
                   </div>
                   <div class="col-lg-3 col-sm-6 pb-2">
-                    <h4>contact Us</h4>
+                    <h4>Contact Us</h4>
                     <p>
                       <address>mukutban,maharashtra,india</address>
-                      <strong>phone:</strong>8888291978<br>
+                      <strong>Phone:</strong>8888291978<br>
                       <strong>Email:</strong><a href="">alpha@gmail.com</a>
 
                     </p>
                   </div>
                   <div class="col-lg-3 col-sm-6 pb-2">
                     <h4>Newsletter</h4>
-                    <p>enter email below:</p>
+                    <p>Enter Email below:</p>
                     <form action="">
                       <div class="input-group">
                         <input type="email" name="" id="" class="form-control">
                         <div class="input-group-append">
-                          <button class="btn btn-secondary">Subscribe</button>
+                          <button class="btn btn-secondary" style="background-color: white;color: black;">Subscribe</button>
                         </div>
                       </div>
                     </form>
@@ -243,21 +243,12 @@
                     <i class="fab fa-google-plus-g"> </i>
                   </a>
                 </li>
-                <li class="list-inline-item">
-                  <a class="button">
-                    <i class="fab fa-linkedin-in"> </i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a class="button">
-                    <i class="fab fa-dribbble"> </i>
-                  </a>
-                </li>
               </ul>
               <div class="container-fluid text-center bg-secondary py-2">
-                &copy;2020.All rights are reserved.
+                &copy;2020.All Rights reserved.
               </div>
             </footer>
-            
+            <script>
+            </script>
     </body>
 </html>
